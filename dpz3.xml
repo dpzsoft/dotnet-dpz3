@@ -1064,165 +1064,41 @@
             <param name="host"></param>
             <returns></returns>
         </member>
-        <member name="T:dpz3.Net.Http">
+        <member name="T:dpz3.Net.HttpClient">
             <summary>
-            超文本传输协议处理类
+            网络客户端
             </summary>
         </member>
-        <member name="M:dpz3.Net.Http.PostFile(System.String,System.String)">
+        <member name="T:dpz3.Net.HttpClient.DownloadingDelegate">
             <summary>
-            提交文件并获取返回内容
+            下载进度函数
             </summary>
-            <param name="Url"></param>
-            <param name="Path"></param>
-            <returns></returns>
+            <param name="size"></param>
+            <param name="loaded"></param>
         </member>
-        <member name="M:dpz3.Net.Http.DownFile(System.String,System.String)">
+        <member name="M:dpz3.Net.HttpClient.Get(System.String)">
             <summary>
-            下载文件
-            </summary>
-            <param name="Url"></param>
-            <param name="Path"></param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.Http.DownFile(System.String,System.String,System.String)">
-            <summary>
-            下载文件
-            </summary>
-            <param name="Url"></param>
-            <param name="Args"></param>
-            <param name="Path"></param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.Http.GetUTF8(System.String)">
-            <summary>
-            获取UTF8网页HTML内容
-            </summary>
-            <param name="Url">URL地址</param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.Http.PostUTF8(System.String,System.String)">
-            <summary>
-            获取UTF8网页HTML内容
-            </summary>
-            <param name="Url">URL地址</param>
-            <param name="Args">提交参数</param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.Http.PostWithCert(System.String,System.String,System.Text.Encoding,System.String,System.String)">
-            <summary>
-            带证书提交数据并获取返回内容
-            </summary>
-            <param name="Url">访问地址</param>
-            <param name="Args">提交参数</param>
-            <param name="enc">编码格式</param>
-            <param name="CertPath">证书存储路径</param>
-            <param name="CertPwd">证书密码</param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.Http.PostWithCert(System.String,System.String,System.Text.Encoding,System.Security.Cryptography.X509Certificates.StoreName,System.String)">
-            <summary>
-            带证书提交数据并获取返回内容
-            </summary>
-            <param name="Url">访问地址</param>
-            <param name="Args">提交参数</param>
-            <param name="enc">编码格式</param>
-            <param name="StoreName">证书存储位置</param>
-            <param name="CertName">证书名称</param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.Http.Post(System.String,System.String,System.Text.Encoding)">
-            <summary>
-            提交数据并获取返回内容
-            </summary>
-            <param name="Url"></param>
-            <param name="Args"></param>
-            <param name="enc"></param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.Http.Get(System.String,System.Text.Encoding)">
-            <summary>
-            获取网页HTML内容
-            </summary>
-            <param name="Url">URL地址</param>
-            <param name="Enc">字符编码</param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.Http.GetUtf8BySocket(System.String)">
-            <summary>
-            使用原生Socket组件以GET方式获取HTTPS内容并以Utf8编码组织内容
+            以Get方式获取数据
             </summary>
             <param name="url"></param>
             <returns></returns>
         </member>
-        <member name="T:dpz3.Net.HttpClient">
+        <member name="M:dpz3.Net.HttpClient.Post(System.String,System.String,System.String)">
             <summary>
-            超文本协议持续传输器
+            以Get方式获取数据
             </summary>
-        </member>
-        <member name="M:dpz3.Net.HttpClient.#ctor">
-            <summary>
-            对象实例化
-            </summary>
-        </member>
-        <member name="M:dpz3.Net.HttpClient.Post(System.String,System.String,System.Text.Encoding)">
-            <summary>
-            提交数据并获取返回内容
-            </summary>
-            <param name="Url"></param>
-            <param name="Args"></param>
-            <param name="enc"></param>
+            <param name="url"></param>
+            <param name="args"></param>
+            <param name="contentType"></param>
             <returns></returns>
         </member>
-        <member name="M:dpz3.Net.HttpClient.Get(System.String,System.Text.Encoding)">
+        <member name="M:dpz3.Net.HttpClient.Download(System.String,System.String,dpz3.Net.HttpClient.DownloadingDelegate)">
             <summary>
-            获取网页HTML内容
+            下载文件
             </summary>
-            <param name="Url">URL地址</param>
-            <param name="Enc">字符编码</param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.HttpClient.GetUTF8(System.String)">
-            <summary>
-            获取UTF8网页HTML内容
-            </summary>
-            <param name="Url">URL地址</param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.HttpClient.PostUTF8(System.String,System.String)">
-            <summary>
-            获取UTF8网页HTML内容
-            </summary>
-            <param name="Url">URL地址</param>
-            <param name="Args">提交参数</param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.HttpClient.PostFile(System.String,System.String)">
-            <summary>
-            提交数据并获取返回内容
-            </summary>
-            <param name="Url"></param>
-            <param name="Args"></param>
-            <param name="enc"></param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.HttpClient.DownFile(System.String,System.String)">
-            <summary>
-            提交数据并获取返回内容
-            </summary>
-            <param name="Url"></param>
-            <param name="Args"></param>
-            <param name="enc"></param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.HttpClient.DownFile(System.String,System.String,System.String)">
-            <summary>
-            提交数据并获取返回内容
-            </summary>
-            <param name="Url"></param>
-            <param name="Args"></param>
-            <param name="enc"></param>
-            <returns></returns>
+            <param name="url"></param>
+            <param name="path"></param>
+            <param name="downloading"></param>
         </member>
         <member name="T:dpz3.Net.HttpModules.HttpCookies">
             <summary>
@@ -1384,25 +1260,6 @@
             <summary>
             以Get方式获取数据
             </summary>
-            <returns></returns>
-        </member>
-        <member name="T:dpz3.Net.Https">
-            <summary>
-            超文本传输协议处理类
-            </summary>
-        </member>
-        <member name="M:dpz3.Net.Https.Get(System.String)">
-            <summary>
-            获取网页HTML内容
-            </summary>
-            <param name="url">URL地址</param>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Net.Https.GetUtf8BySocket(System.String)">
-            <summary>
-            使用原生Socket组件以GET方式获取HTTPS内容并以Utf8编码组织内容
-            </summary>
-            <param name="url"></param>
             <returns></returns>
         </member>
         <member name="T:dpz3.Net.Uri">

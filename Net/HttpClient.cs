@@ -2,499 +2,124 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace dpz3.Net {
 
     /// <summary>
-    /// 超文本协议持续传输器
+    /// 网络客户端
     /// </summary>
-    public class HttpClient : dpz3.Object {
-
-        dpz3.Net.HttpModules.HttpCookies _cookies;
+    public class HttpClient {
 
         /// <summary>
-        /// 对象实例化
+        /// 下载进度函数
         /// </summary>
-        public HttpClient() {
-            _cookies = new dpz3.Net.HttpModules.HttpCookies();
-        }
-
-        //设置Cookie
-        private void SetCookies(string str) {
-            using (dpz3.Net.HttpModules.HttpCookies cookies = new dpz3.Net.HttpModules.HttpCookies(str)) {
-                foreach (var cookie in cookies) {
-                    if (cookie.Key != "expires" && cookie.Key != "path") {
-                        _cookies[cookie.Key] = cookie.Value;
-                    }
-                }
-            }
-        }
+        /// <param name="size"></param>
+        /// <param name="loaded"></param>
+        public delegate void DownloadingDelegate(long size, long loaded);
 
         /// <summary>
-        /// 提交数据并获取返回内容
+        /// 以Get方式获取数据
         /// </summary>
-        /// <param name="Url"></param>
-        /// <param name="Args"></param>
-        /// <param name="enc"></param>
+        /// <param name="url"></param>
         /// <returns></returns>
-        public string Post(string Url, string Args, Encoding enc) {
-            string respHTML = "";
+        public static string Get(string url) {
 
-            //try {
-            System.Net.HttpWebRequest httpReq;
-            System.Net.HttpWebResponse httpResp;
-            System.Uri httpURL = new System.Uri(Url);
+            // 新建一个Handler
+            var handler = new HttpClientHandler {
+                AutomaticDecompression = DecompressionMethods.None,
+                AllowAutoRedirect = true,
+                UseProxy = false,
+                Proxy = null,
+                ClientCertificateOptions = ClientCertificateOption.Automatic
+            };
 
-            httpReq = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(httpURL);
-            httpReq.Method = "POST";
+            // 新建一个HttpClient
+            var webRequest = new System.Net.Http.HttpClient(handler);
+            return webRequest.GetStringAsync(url).GetAwaiter().GetResult();
 
-            httpReq.Headers.Add("Cookie", _cookies.ToString());
-
-            byte[] bs = enc.GetBytes(Args);
-
-            httpReq.KeepAlive = false;
-            httpReq.ContentType = "application/x-www-form-urlencoded";
-            httpReq.ContentLength = bs.Length;
-            httpReq.Timeout = 30000;
-            //httpReq.
-
-            //post数据
-            using (System.IO.Stream reqStream = httpReq.GetRequestStream()) {
-                reqStream.Write(bs, 0, bs.Length);
-                reqStream.Close();
-            }
-
-            httpResp = (System.Net.HttpWebResponse)httpReq.GetResponse();
-            SetCookies("" + httpResp.Headers["Set-Cookie"]);
-
-            using (System.IO.Stream MyStream = httpResp.GetResponseStream()) {
-                System.IO.StreamReader reader = new System.IO.StreamReader(MyStream, Encoding.UTF8);
-
-                respHTML = reader.ReadToEnd();
-
-                reader.Dispose();
-                MyStream.Dispose();
-            }
-
-            httpResp.Close();
-            httpReq = null;
-
-            return respHTML;
         }
 
         /// <summary>
-        /// 获取网页HTML内容
+        /// 以Get方式获取数据
         /// </summary>
-        /// <param name="Url">URL地址</param>
-        /// <param name="Enc">字符编码</param>
+        /// <param name="url"></param>
+        /// <param name="args"></param>
+        /// <param name="contentType"></param>
         /// <returns></returns>
-        public string Get(string Url, Encoding Enc) {
-            string respHTML = "";
+        public static string Post(string url, string args, string contentType = "application/x-www-form-urlencoded") {
 
-            System.Net.HttpWebRequest httpReq;
-            System.Net.HttpWebResponse httpResp;
-            System.Uri httpURL = new System.Uri(Url);
+            // 新建一个Handler
+            var handler = new HttpClientHandler {
+                AutomaticDecompression = DecompressionMethods.None,
+                AllowAutoRedirect = true,
+                UseProxy = false,
+                Proxy = null,
+                ClientCertificateOptions = ClientCertificateOption.Automatic
+            };
 
-            httpReq = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(httpURL);
-            httpReq.Method = "GET";
-            httpReq.KeepAlive = false;
-            httpReq.ContentType = "text/html";
-            httpReq.Timeout = 30000;
-            httpReq.Headers.Add("Cookie", _cookies.ToString());
+            // 新建一个HttpClient
+            var webRequest = new System.Net.Http.HttpClient(handler);
 
-            httpResp = (System.Net.HttpWebResponse)httpReq.GetResponse();
-            SetCookies("" + httpResp.Headers["Set-Cookie"]);
+            // 建立传输内容
+            HttpContent content = new StringContent(args);
+            content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(contentType);
+            HttpResponseMessage response = webRequest.PostAsync(url, content).Result;
 
-            using (System.IO.Stream MyStream = httpResp.GetResponseStream()) {
-                System.IO.StreamReader reader = new System.IO.StreamReader(MyStream, Encoding.UTF8);
-                respHTML = reader.ReadToEnd();
+            // 判断状态并抛出异常
+            response.EnsureSuccessStatusCode();
+            return response.Content.ReadAsStringAsync().Result;
 
-                reader.Dispose();
-                MyStream.Dispose();
-            }
-
-            httpResp.Close();
-            httpReq = null;
-
-            return respHTML;
         }
 
         /// <summary>
-        /// 获取UTF8网页HTML内容
+        /// 下载文件
         /// </summary>
-        /// <param name="Url">URL地址</param>
-        /// <returns></returns>
-        public string GetUTF8(string Url) {
-            return Get(Url, Encoding.UTF8);
-        }
+        /// <param name="url"></param>
+        /// <param name="path"></param>
+        /// <param name="downloading"></param>
+        public static void Download(string url, string path, DownloadingDelegate downloading = null) {
 
-        /// <summary>
-        /// 获取UTF8网页HTML内容
-        /// </summary>
-        /// <param name="Url">URL地址</param>
-        /// <param name="Args">提交参数</param>
-        /// <returns></returns>
-        public string PostUTF8(string Url, string Args) {
-            return Post(Url, Args, Encoding.UTF8);
-        }
+            // 新建一个Handler
+            var handler = new HttpClientHandler {
+                AutomaticDecompression = DecompressionMethods.None,
+                AllowAutoRedirect = true,
+                UseProxy = false,
+                Proxy = null,
+                ClientCertificateOptions = ClientCertificateOption.Automatic
+            };
 
-        /// <summary>
-        /// 提交数据并获取返回内容
-        /// </summary>
-        /// <param name="Url"></param>
-        /// <param name="Args"></param>
-        /// <param name="enc"></param>
-        /// <returns></returns>
-        public string PostFile(string Url, string Path) {
-            string respHTML = "";
-            //string szError = "";
-            Exception Err = null;
+            // 新建一个HttpClient
+            var webRequest = new System.Net.Http.HttpClient(handler);
+            HttpResponseMessage response = webRequest.GetAsync(url, HttpCompletionOption.ResponseHeadersRead).Result;
 
-            try {
-                System.Net.HttpWebRequest httpReq;
-                //System.Net.HttpWebResponse httpResp;
-                System.Uri httpURL = new System.Uri(Url);
+            // 创建文件操作流
+            using (FileStream fs = System.IO.File.Open(path, FileMode.Create)) {
 
-                httpReq = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(httpURL);
-                httpReq.Method = "POST";
-                //httpReq.KeepAlive = true;
-                httpReq.Credentials = CredentialCache.DefaultCredentials;
-                httpReq.KeepAlive = false;
-                httpReq.Timeout = 600000;
-                httpReq.Headers.Add("Cookie", _cookies.ToString());
+                var task = response.Content.CopyToAsync(fs);
+                var contentLength = response.Content.Headers.ContentLength.GetValueOrDefault();
+                bool isDone = false;
 
-                string boundary = "---------------------------" + DateTime.Now.Ticks.ToString("x");
-                byte[] boundarybytes = Encoding.ASCII.GetBytes("\r\n--" + boundary + "\r\n");
-                byte[] endbytes = Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
-
-                httpReq.ContentType = "multipart/form-data; boundary=" + boundary;
-
-                //byte[] bs = enc.GetBytes(Args);
-
-                //httpReq.KeepAlive = false;
-                //httpReq.ContentType = "application/x-www-form-urlencoded";
-                //httpReq.ContentLength = bs.Length;
-                //httpReq.
-
-                //异步提交
-                httpReq.BeginGetRequestStream(new AsyncCallback((IAsyncResult ar) => {
-
-                    try {
-
-                        HttpWebRequest hwr = ar.AsyncState as HttpWebRequest;
-
-                        //post数据
-                        using (System.IO.Stream reqStream = hwr.EndGetRequestStream(ar)) {
-                            //reqStream.Write(bs, 0, bs.Length);
-                            //reqStream.Flush();
-
-                            string headerTemplate = "Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\nContent-Type: application/octet-stream\r\n\r\n";
-                            byte[] buffer = new byte[4096];
-                            int bytesRead = 0;
-                            //for (int i = 0; i < files.Length; i++) {
-                            reqStream.Write(boundarybytes, 0, boundarybytes.Length);
-                            string header = string.Format(headerTemplate, "file0", System.IO.Path.GetFileName(Path));
-                            byte[] headerbytes = System.Text.Encoding.UTF8.GetBytes(header);
-                            reqStream.Write(headerbytes, 0, headerbytes.Length);
-                            using (System.IO.FileStream fileStream = new System.IO.FileStream(Path, FileMode.Open, FileAccess.Read)) {
-                                while ((bytesRead = fileStream.Read(buffer, 0, buffer.Length)) != 0) {
-                                    reqStream.Write(buffer, 0, bytesRead);
-                                }
-                            }
-                            //}
-
-                            //1.3 form end
-                            reqStream.Write(endbytes, 0, endbytes.Length);
-                            //reqStream.Close();
+                // 判断是否需要进行回调
+                if (downloading != null) {
+                    new Task(() => {
+                        while (!task.IsCompleted) {
+                            downloading(contentLength, fs.Length);
+                            if (fs.Length >= contentLength && contentLength > 0) isDone = true;
+                            System.Threading.Thread.Sleep(500);
                         }
-
-                        //异步获取
-                        hwr.BeginGetResponse(new AsyncCallback((IAsyncResult wrar) => {
-
-                            try {
-
-                                HttpWebRequest wrwr = wrar.AsyncState as HttpWebRequest;
-                                System.Net.HttpWebResponse wr = (System.Net.HttpWebResponse)wrwr.EndGetResponse(wrar);
-                                SetCookies("" + wr.Headers["Set-Cookie"]);
-
-                                using (System.IO.Stream MyStream = wr.GetResponseStream()) {
-                                    System.IO.StreamReader reader = new System.IO.StreamReader(MyStream, Encoding.UTF8);
-
-                                    //byte[] TheBytes = new byte[MyStream.Length];
-                                    //MyStream.Read(TheBytes, 0, (int)MyStream.Length);
-
-                                    //respHTML = Encoding.UTF8.GetString(TheBytes);
-                                    respHTML = reader.ReadToEnd();
-                                    //Console.WriteLine(respHTML);
-
-                                    reader.Dispose();
-                                    MyStream.Dispose();
-                                }
-
-                            } catch (Exception ex) {
-                                dpz3.Debug.WriteLine("BeginGetResponse:" + ex.Message);
-                                //szError = ex.Message;
-                                Err = ex;
-                            }
-
-                        }), hwr);
-
-                    } catch (Exception ex) {
-                        dpz3.Debug.WriteLine("BeginGetRequestStream:" + ex.Message);
-                        Err = ex;
-                    }
-
-
-
-                }), httpReq);
-
-                int tick = Environment.TickCount;
-                bool bCheck = true;
-
-                while (bCheck) {
-                    if (Environment.TickCount - tick > 10) {
-                        tick = Environment.TickCount;
-                        if (respHTML != "") {
-                            bCheck = false;
-                            return respHTML;
-                        }
-                        if (Err != null) {
-                            bCheck = false;
-                            throw Err;
-                        }
-                    }
-                    System.Threading.Thread.Sleep(1);
+                    }).Start();
                 }
 
-                //httpResp = (System.Net.HttpWebResponse)httpReq.GetResponse();
+                task.Wait();
 
-                //httpResp.Close();
-                //httpReq = null;
-
-
-            } catch (Exception ex) {
-                throw new Exception("获取HTML发生异常", ex);
-                //System.Windows.Forms.MessageBox.Show("获取信息发生异常:\r\n" + ex.Message + "\r\n" + Url);
-                //Debug.WriteLine("Debug\\>GetHTML::Error(" + ex + ")");
+                // 判断是否需要再回调一次进度更新
+                if (downloading != null && contentLength > 0 && !isDone) downloading(contentLength, fs.Length);
             }
 
-            return respHTML;
-        }
-
-        /// <summary>
-        /// 提交数据并获取返回内容
-        /// </summary>
-        /// <param name="Url"></param>
-        /// <param name="Args"></param>
-        /// <param name="enc"></param>
-        /// <returns></returns>
-        public void DownFile(string Url, string Path) {
-            //string respHTML = "";
-            string szError = "";
-            bool bAccess = false;
-
-            try {
-                System.Net.HttpWebRequest httpReq;
-                //System.Net.HttpWebResponse httpResp;
-                System.Uri httpURL = new System.Uri(Url);
-
-                httpReq = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(httpURL);
-                httpReq.Method = "Get";
-                httpReq.Headers.Add("Cookie", _cookies.ToString());
-
-                //异步获取
-                httpReq.BeginGetResponse(new AsyncCallback((IAsyncResult wrar) => {
-
-                    try {
-
-                        HttpWebRequest wrwr = wrar.AsyncState as HttpWebRequest;
-                        System.Net.HttpWebResponse wr = (System.Net.HttpWebResponse)wrwr.EndGetResponse(wrar);
-                        SetCookies("" + wr.Headers["Set-Cookie"]);
-
-                        using (System.IO.Stream MyStream = wr.GetResponseStream()) {
-                            //System.IO.StreamReader reader = new System.IO.StreamReader(MyStream, Encoding.UTF8);
-
-                            //byte[] TheBytes = new byte[MyStream.Length];
-                            //MyStream.Read(TheBytes, 0, (int)MyStream.Length);
-                            //保存文件
-                            using (FileStream fs = System.IO.File.Create(Path)) {
-                                byte[] bytes = new byte[102400];
-                                int n = 0;
-                                do {
-                                    n = MyStream.Read(bytes, 0, 10240);
-                                    fs.Write(bytes, 0, n);
-                                } while (n > 0);
-                            }
-
-                            //下载成功
-                            bAccess = true;
-
-                            //respHTML = Encoding.UTF8.GetString(TheBytes);
-                            //respHTML = reader.ReadToEnd();
-                            //Console.WriteLine(respHTML);
-
-                            //reader.Dispose();
-                            MyStream.Dispose();
-                        }
-
-                    } catch (Exception ex) {
-                        dpz3.Debug.WriteLine("BeginGetResponse:" + ex.Message);
-                        szError = ex.Message;
-                    }
-
-                }), httpReq);
-
-            } catch (Exception ex) {
-                dpz3.Debug.WriteLine("BeginGetRequestStream:" + ex.Message);
-            }
-
-
-            int tick = Environment.TickCount;
-            bool bCheck = true;
-
-            while (bCheck) {
-                if (Environment.TickCount - tick > 10) {
-                    tick = Environment.TickCount;
-                    if (szError != "") {
-                        bCheck = false;
-                        throw new Exception(szError);
-                    }
-                    if (bAccess) bCheck = false;
-                }
-                System.Threading.Thread.Sleep(1);
-            }
-
-            //httpResp = (System.Net.HttpWebResponse)httpReq.GetResponse();
-
-            //httpResp.Close();
-            //httpReq = null;
-
-            //return respHTML;
-        }
-
-        /// <summary>
-        /// 提交数据并获取返回内容
-        /// </summary>
-        /// <param name="Url"></param>
-        /// <param name="Args"></param>
-        /// <param name="enc"></param>
-        /// <returns></returns>
-        public void DownFile(string Url, string Args, string Path) {
-            //string respHTML = "";
-            string szError = "";
-            bool bAccess = false;
-
-            try {
-                System.Net.HttpWebRequest httpReq;
-                //System.Net.HttpWebResponse httpResp;
-                System.Uri httpURL = new System.Uri(Url);
-
-                httpReq = (System.Net.HttpWebRequest)System.Net.WebRequest.Create(httpURL);
-                httpReq.Method = "POST";
-
-                byte[] bs = System.Text.Encoding.UTF8.GetBytes(Args);
-
-                //httpReq.KeepAlive = false;
-                httpReq.ContentType = "application/x-www-form-urlencoded";
-                httpReq.Headers.Add("Cookie", _cookies.ToString());
-
-                //异步提交
-                httpReq.BeginGetRequestStream(new AsyncCallback((IAsyncResult ar) => {
-
-                    try {
-
-                        HttpWebRequest hwr = ar.AsyncState as HttpWebRequest;
-
-                        //post数据
-                        using (System.IO.Stream reqStream = hwr.EndGetRequestStream(ar)) {
-                            reqStream.Write(bs, 0, bs.Length);
-                            reqStream.Flush();
-                            //reqStream.Close();
-                        }
-
-                        //异步获取
-                        hwr.BeginGetResponse(new AsyncCallback((IAsyncResult wrar) => {
-
-                            try {
-
-                                HttpWebRequest wrwr = wrar.AsyncState as HttpWebRequest;
-                                System.Net.HttpWebResponse wr = (System.Net.HttpWebResponse)wrwr.EndGetResponse(wrar);
-                                SetCookies("" + wr.Headers["Set-Cookie"]);
-
-                                using (System.IO.Stream MyStream = wr.GetResponseStream()) {
-                                    //System.IO.StreamReader reader = new System.IO.StreamReader(MyStream, Encoding.UTF8);
-
-                                    //byte[] TheBytes = new byte[MyStream.Length];
-                                    //MyStream.Read(TheBytes, 0, (int)MyStream.Length);
-
-                                    using (FileStream fs = System.IO.File.Create(Path)) {
-                                        byte[] bytes = new byte[102400];
-                                        int n = 0;
-                                        do {
-                                            n = MyStream.Read(bytes, 0, 10240);
-                                            fs.Write(bytes, 0, n);
-                                        } while (n > 0);
-                                    }
-
-                                    //下载成功
-                                    bAccess = true;
-
-                                    //respHTML = Encoding.UTF8.GetString(TheBytes);
-                                    //respHTML = reader.ReadToEnd();
-                                    //Console.WriteLine(respHTML);
-
-                                    //reader.Dispose();
-                                    MyStream.Dispose();
-                                }
-
-                            } catch (Exception ex) {
-                                dpz3.Debug.WriteLine("BeginGetResponse:" + ex.Message);
-                                szError = ex.Message;
-                            }
-
-                        }), hwr);
-
-                    } catch (Exception ex) {
-                        dpz3.Debug.WriteLine("BeginGetRequestStream:" + ex.Message);
-                    }
-
-
-
-                }), httpReq);
-
-                int tick = Environment.TickCount;
-                bool bCheck = true;
-
-                while (bCheck) {
-                    if (Environment.TickCount - tick > 10) {
-                        tick = Environment.TickCount;
-                        //if (respHTML != "") {
-                        //    bCheck = false;
-                        //    return respHTML;
-                        //}
-                        if (szError != "") {
-                            bCheck = false;
-                            throw new Exception(szError);
-                        }
-                        if (bAccess) bCheck = false;
-                    }
-                    System.Threading.Thread.Sleep(1);
-                }
-
-                //httpResp = (System.Net.HttpWebResponse)httpReq.GetResponse();
-
-                //httpResp.Close();
-                //httpReq = null;
-
-
-            } catch (Exception ex) {
-                throw new Exception("获取HTML发生异常:" + ex.Message);
-                //System.Windows.Forms.MessageBox.Show("获取信息发生异常:\r\n" + ex.Message + "\r\n" + Url);
-                //Debug.WriteLine("Debug\\>GetHTML::Error(" + ex + ")");
-            }
-
-            //return respHTML;
         }
 
     }
