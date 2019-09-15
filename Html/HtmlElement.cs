@@ -2,57 +2,53 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace dpz3.Xml {
+namespace dpz3.Html {
 
     /// <summary>
     /// 文本节点
     /// </summary>
-    public class XmlNode : BasicNode {
+    public class HtmlElement : HtmlNode {
 
         /// <summary>
         /// 获取子节点集合
         /// </summary>
-        public XmlNodeCollection Nodes { get; private set; }
+        public HtmlElementCollection Children { get; private set; }
 
         /// <summary>
-        /// 获取属性集合
+        /// 获取父节点
         /// </summary>
-        public dpz3.InsensitiveKeyValues<string> Attr { get; private set; }
+        public new HtmlElement Parent { get; internal set; }
 
         /// <summary>
-        /// 设置属性
+        /// 获取或设置名称属性
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="val"></param>
-        public void SetEncodeAttr(string key, string val) {
-            this.Attr[key] = Parser.EscapeDecode(val);
-        }
+        public new string Name { get { return base.Attr["name"]; } set { base.Attr["name"] = value; } }
 
         /// <summary>
-        /// 获取或设置是否为独立标签
+        /// 获取或设置id属性
         /// </summary>
-        public bool IsSingle { get; set; }
+        public string Id { get { return base.Attr["id"]; } set { base.Attr["id"] = value; } }
 
         /// <summary>
-        /// 获取名称
+        /// 获取标签名称
         /// </summary>
-        public string Name { get; private set; }
+        public string TagName { get { return base.Name; } }
 
         /// <summary>
         /// 对象实例化
         /// </summary>
         /// <param name="name"></param>
-        public XmlNode(string name) : base(NodeType.Normal) {
+        public HtmlElement(string name) : base(name) {
             this.Name = name;
-            this.Nodes = new XmlNodeCollection(this);
-            this.Attr = new InsensitiveKeyValues<string>();
+            this.Children = new HtmlElementCollection(this);
+            this.Parent = null;
         }
 
         // 获取包含的XML
-        private string GetInnerXml() {
+        private string GetInnerHtml() {
             StringBuilder res = new StringBuilder();
             for (int i = 0; i < this.Nodes.Count; i++) {
-                res.Append(this.Nodes[i].OuterXml);
+                res.Append(this.Nodes[i].OuterHTML);
             }
             return res.ToString();
         }
@@ -61,18 +57,18 @@ namespace dpz3.Xml {
         /// 获取完整XML
         /// </summary>
         /// <returns></returns>
-        protected override string OnGetOuterXml() {
+        protected override string OnGetOuterHtml() {
             StringBuilder res = new StringBuilder();
             res.AppendFormat("<{0}", this.Name);
             // 拼接属性
             foreach (var key in this.Attr.Keys) {
-                res.AppendFormat(" {0}=\"{1}\"", key, Parser.EscapeEncode(this.Attr[key]));
+                res.AppendFormat(" {0}=\"{1}\"", key, this.Attr[key]);
             }
             // 拼接完整XML
             if (this.IsSingle) {
                 res.Append("/>");
             } else {
-                res.AppendFormat(">{0}</{1}>", GetInnerXml(), this.Name);
+                res.AppendFormat(">{0}</{1}>", GetInnerHtml(), this.Name);
             }
             return res.ToString();
         }
@@ -81,15 +77,15 @@ namespace dpz3.Xml {
         /// 获取包含
         /// </summary>
         /// <returns></returns>
-        protected override string OnGetInnerXml() {
-            return GetInnerXml();
+        protected override string OnGetInnerHtml() {
+            return GetInnerHtml();
         }
 
         /// <summary>
         /// 设置包含XML
         /// </summary>
         /// <param name="xml"></param>
-        protected override void OnSetInnerXml(string xml) {
+        protected override void OnSetInnerHtml(string xml) {
             // 解析对象
             var nodes = Parser.GetNodes(xml, this);
             // 先释放资源
@@ -114,36 +110,16 @@ namespace dpz3.Xml {
         }
 
         /// <summary>
-        /// 获取一个子节点
-        /// </summary>
-        /// <param name="tagname"></param>
-        /// <returns></returns>
-        public XmlNode this[string tagName] {
-            get {
-                tagName = tagName.ToLower();
-                for (int i = 0; i < this.Nodes.Count; i++) {
-                    if (this.Nodes[i].NodeType == NodeType.Normal) {
-                        var node = (XmlNode)this.Nodes[i];
-                        if (node.Name.ToLower() == tagName) {
-                            return node;
-                        }
-                    }
-                }
-                return null;
-            }
-        }
-
-        /// <summary>
         /// 获取所有标签名节点
         /// </summary>
         /// <param name="tagName"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
-        public List<XmlNode> GetNodesByTagName(string tagName, bool searchChildNodes = true) {
-            List<XmlNode> nodes = new List<XmlNode>();
+        public HtmlElementCollection GetElementsByTagName(string tagName, bool searchChildNodes = true) {
+            HtmlElementCollection nodes = new HtmlElementCollection();
             for (int i = 0; i < this.Nodes.Count; i++) {
-                if (this.Nodes[i].NodeType == NodeType.Normal) {
-                    var node = (XmlNode)this.Nodes[i];
+                if (this.Nodes[i].NodeType == NodeType.Element) {
+                    var node = (HtmlElement)this.Nodes[i];
                     if (node.Name.ToLower() == tagName) {
                         nodes.Add(node);
                     }
@@ -152,10 +128,11 @@ namespace dpz3.Xml {
                     if (searchChildNodes) {
                         if (node.Nodes.Count > 0) {
                             // 获取子节点的查询结果并应用到结果中
-                            var childNodes = node.GetNodesByTagName(tagName);
+                            var childNodes = node.GetElementsByTagName(tagName);
                             for (int j = 0; j < childNodes.Count; j++) {
                                 nodes.Add(childNodes[j]);
                             }
+                            childNodes.Clear();
                         }
                     }
                 }
@@ -166,14 +143,15 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取所有满足属性限定的节点
         /// </summary>
-        /// <param name="tagName"></param>
+        /// <param name="attrName"></param>
+        /// <param name="attrValue"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
-        public List<XmlNode> GetNodesByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
-            List<XmlNode> nodes = new List<XmlNode>();
+        public HtmlElementCollection GetElementsByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
+            HtmlElementCollection nodes = new HtmlElementCollection();
             for (int i = 0; i < this.Nodes.Count; i++) {
-                if (this.Nodes[i].NodeType == NodeType.Normal) {
-                    var node = (XmlNode)this.Nodes[i];
+                if (this.Nodes[i].NodeType == NodeType.Element) {
+                    var node = (HtmlElement)this.Nodes[i];
                     if (node.Attr[attrName] == attrValue) {
                         nodes.Add(node);
                     }
@@ -182,10 +160,11 @@ namespace dpz3.Xml {
                     if (searchChildNodes) {
                         if (node.Nodes.Count > 0) {
                             // 获取子节点的查询结果并应用到结果中
-                            var childNodes = node.GetNodesByAttr(attrName, attrValue);
+                            var childNodes = node.GetElementsByAttr(attrName, attrValue);
                             for (int j = 0; j < childNodes.Count; j++) {
                                 nodes.Add(childNodes[j]);
                             }
+                            childNodes.Clear();
                         }
                     }
                 }
@@ -196,14 +175,14 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取第一个满足属性限定的节点
         /// </summary>
-        /// <param name="tagName"></param>
+        /// <param name="attrName"></param>
+        /// <param name="attrValue"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
-        public XmlNode GetNodeByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
-            List<XmlNode> nodes = new List<XmlNode>();
+        public HtmlElement GetElementByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
             for (int i = 0; i < this.Nodes.Count; i++) {
-                if (this.Nodes[i].NodeType == NodeType.Normal) {
-                    var node = (XmlNode)this.Nodes[i];
+                if (this.Nodes[i].NodeType == NodeType.Element) {
+                    var node = (HtmlElement)this.Nodes[i];
                     if (node.Attr[attrName] == attrValue) {
                         return node;
                     }
@@ -212,7 +191,7 @@ namespace dpz3.Xml {
                     if (searchChildNodes) {
                         if (node.Nodes.Count > 0) {
                             // 获取子节点的查询结果并应用到结果中
-                            var childNode = node.GetNodeByAttr(attrName, attrValue);
+                            var childNode = node.GetElementByAttr(attrName, attrValue);
                             if (childNode != null) return childNode;
                         }
                     }
@@ -223,24 +202,46 @@ namespace dpz3.Xml {
         }
 
         /// <summary>
-        /// 添加一个新的标准节点
+        /// 根据id查找元素
         /// </summary>
-        /// <param name="tagName"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public XmlNode AddNode(string tagName) {
-            XmlNode node = new XmlNode(tagName);
-            this.Nodes.Add(node);
-            return node;
+        public HtmlElement GetElementById(string id) {
+            return GetElementByAttr("id", id);
         }
 
         /// <summary>
-        /// 添加一个注释
+        /// 根据id查找元素
         /// </summary>
+        /// <param name="name"></param>
         /// <returns></returns>
-        public NoteNode AddNote() {
-            NoteNode node = new NoteNode();
-            this.Nodes.Add(node);
-            return node;
+        public HtmlElementCollection GetElementsByClassName(string name) {
+
+            string nameStart = $"{name} ";
+            string nameIn = $" {name} ";
+            string nameEnd = $" {name}";
+
+            HtmlElementCollection nodes = new HtmlElementCollection();
+            for (int i = 0; i < this.Nodes.Count; i++) {
+                if (this.Nodes[i].NodeType == NodeType.Element) {
+                    var node = (HtmlElement)this.Nodes[i];
+                    string className = node.Attr["class"];
+                    if (className == name || className.StartsWith(nameStart) || className.EndsWith(nameEnd) || className.IndexOf(nameIn) > 0) {
+                        nodes.Add(node);
+                    }
+
+                    // 深度查询
+                    if (node.Nodes.Count > 0) {
+                        // 获取子节点的查询结果并应用到结果中
+                        var childNodes = node.GetElementsByClassName(name);
+                        for (int j = 0; j < childNodes.Count; j++) {
+                            nodes.Add(childNodes[j]);
+                        }
+                        childNodes.Clear();
+                    }
+                }
+            }
+            return nodes;
         }
 
         /// <summary>

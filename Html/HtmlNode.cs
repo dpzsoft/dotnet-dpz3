@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace dpz3.Xml {
+namespace dpz3.Html {
 
     /// <summary>
     /// 文本节点
     /// </summary>
-    public class XmlNode : BasicNode {
+    public class HtmlNode : BasicNode {
 
         /// <summary>
         /// 获取子节点集合
         /// </summary>
-        public XmlNodeCollection Nodes { get; private set; }
+        public HtmlNodeCollection Nodes { get; protected set; }
 
         /// <summary>
         /// 获取属性集合
@@ -42,63 +42,10 @@ namespace dpz3.Xml {
         /// 对象实例化
         /// </summary>
         /// <param name="name"></param>
-        public XmlNode(string name) : base(NodeType.Normal) {
+        public HtmlNode(string name) : base(NodeType.Element) {
             this.Name = name;
-            this.Nodes = new XmlNodeCollection(this);
+            this.Nodes = new HtmlNodeCollection(this);
             this.Attr = new InsensitiveKeyValues<string>();
-        }
-
-        // 获取包含的XML
-        private string GetInnerXml() {
-            StringBuilder res = new StringBuilder();
-            for (int i = 0; i < this.Nodes.Count; i++) {
-                res.Append(this.Nodes[i].OuterXml);
-            }
-            return res.ToString();
-        }
-
-        /// <summary>
-        /// 获取完整XML
-        /// </summary>
-        /// <returns></returns>
-        protected override string OnGetOuterXml() {
-            StringBuilder res = new StringBuilder();
-            res.AppendFormat("<{0}", this.Name);
-            // 拼接属性
-            foreach (var key in this.Attr.Keys) {
-                res.AppendFormat(" {0}=\"{1}\"", key, Parser.EscapeEncode(this.Attr[key]));
-            }
-            // 拼接完整XML
-            if (this.IsSingle) {
-                res.Append("/>");
-            } else {
-                res.AppendFormat(">{0}</{1}>", GetInnerXml(), this.Name);
-            }
-            return res.ToString();
-        }
-
-        /// <summary>
-        /// 获取包含
-        /// </summary>
-        /// <returns></returns>
-        protected override string OnGetInnerXml() {
-            return GetInnerXml();
-        }
-
-        /// <summary>
-        /// 设置包含XML
-        /// </summary>
-        /// <param name="xml"></param>
-        protected override void OnSetInnerXml(string xml) {
-            // 解析对象
-            var nodes = Parser.GetNodes(xml, this);
-            // 先释放资源
-            for (int i = 0; i < this.Nodes.Count; i++) {
-                this.Nodes[i].Dispose();
-            }
-            this.Nodes.Clear();
-            // 重新设定子节点集合
-            this.Nodes = nodes;
         }
 
         /// <summary>
@@ -114,36 +61,16 @@ namespace dpz3.Xml {
         }
 
         /// <summary>
-        /// 获取一个子节点
-        /// </summary>
-        /// <param name="tagname"></param>
-        /// <returns></returns>
-        public XmlNode this[string tagName] {
-            get {
-                tagName = tagName.ToLower();
-                for (int i = 0; i < this.Nodes.Count; i++) {
-                    if (this.Nodes[i].NodeType == NodeType.Normal) {
-                        var node = (XmlNode)this.Nodes[i];
-                        if (node.Name.ToLower() == tagName) {
-                            return node;
-                        }
-                    }
-                }
-                return null;
-            }
-        }
-
-        /// <summary>
         /// 获取所有标签名节点
         /// </summary>
         /// <param name="tagName"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
-        public List<XmlNode> GetNodesByTagName(string tagName, bool searchChildNodes = true) {
-            List<XmlNode> nodes = new List<XmlNode>();
+        public List<HtmlNode> GetNodesByTagName(string tagName, bool searchChildNodes = true) {
+            List<HtmlNode> nodes = new List<HtmlNode>();
             for (int i = 0; i < this.Nodes.Count; i++) {
-                if (this.Nodes[i].NodeType == NodeType.Normal) {
-                    var node = (XmlNode)this.Nodes[i];
+                if ((this.Nodes[i].NodeType & NodeType.Element) == NodeType.Element) {
+                    var node = (HtmlNode)this.Nodes[i];
                     if (node.Name.ToLower() == tagName) {
                         nodes.Add(node);
                     }
@@ -166,14 +93,15 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取所有满足属性限定的节点
         /// </summary>
-        /// <param name="tagName"></param>
+        /// <param name="attrName"></param>
+        /// <param name="attrValue"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
-        public List<XmlNode> GetNodesByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
-            List<XmlNode> nodes = new List<XmlNode>();
+        public List<HtmlNode> GetNodesByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
+            List<HtmlNode> nodes = new List<HtmlNode>();
             for (int i = 0; i < this.Nodes.Count; i++) {
-                if (this.Nodes[i].NodeType == NodeType.Normal) {
-                    var node = (XmlNode)this.Nodes[i];
+                if ((this.Nodes[i].NodeType & NodeType.Element) == NodeType.Element) {
+                    var node = (HtmlNode)this.Nodes[i];
                     if (node.Attr[attrName] == attrValue) {
                         nodes.Add(node);
                     }
@@ -196,14 +124,15 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取第一个满足属性限定的节点
         /// </summary>
-        /// <param name="tagName"></param>
+        /// <param name="attrName"></param>
+        /// <param name="attrValue"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
-        public XmlNode GetNodeByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
-            List<XmlNode> nodes = new List<XmlNode>();
+        public HtmlNode GetNodeByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
+            List<HtmlNode> nodes = new List<HtmlNode>();
             for (int i = 0; i < this.Nodes.Count; i++) {
-                if (this.Nodes[i].NodeType == NodeType.Normal) {
-                    var node = (XmlNode)this.Nodes[i];
+                if ((this.Nodes[i].NodeType & NodeType.Element) == NodeType.Element) {
+                    var node = (HtmlNode)this.Nodes[i];
                     if (node.Attr[attrName] == attrValue) {
                         return node;
                     }
@@ -220,27 +149,6 @@ namespace dpz3.Xml {
                 }
             }
             return null;
-        }
-
-        /// <summary>
-        /// 添加一个新的标准节点
-        /// </summary>
-        /// <param name="tagName"></param>
-        /// <returns></returns>
-        public XmlNode AddNode(string tagName) {
-            XmlNode node = new XmlNode(tagName);
-            this.Nodes.Add(node);
-            return node;
-        }
-
-        /// <summary>
-        /// 添加一个注释
-        /// </summary>
-        /// <returns></returns>
-        public NoteNode AddNote() {
-            NoteNode node = new NoteNode();
-            this.Nodes.Add(node);
-            return node;
         }
 
         /// <summary>

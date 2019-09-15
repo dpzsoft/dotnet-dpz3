@@ -2,26 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace dpz3.Xml {
+namespace dpz3.Html {
 
     /// <summary>
     /// 节点类型
     /// </summary>
     public enum NodeType {
+
         /// <summary>
         /// 文本
         /// </summary>
         Text = 0x0,
 
         /// <summary>
-        /// CDATA
+        /// 元素节点
         /// </summary>
-        CData = 0x1,
-
-        /// <summary>
-        /// 标准节点
-        /// </summary>
-        Normal = 0x11,
+        Element = 0x10,
 
         /// <summary>
         /// 申明节点
@@ -48,7 +44,7 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取父节点
         /// </summary>
-        public XmlNode Parent { get; internal set; }
+        public HtmlNode Parent { get; internal set; }
 
         /// <summary>
         /// 实例化
@@ -63,20 +59,20 @@ namespace dpz3.Xml {
         /// 获取包含自身的完整XML字符串
         /// </summary>
         /// <returns></returns>
-        protected virtual string OnGetOuterXml() { return ""; }
+        protected virtual string OnGetOuterHtml() { return ""; }
 
         /// <summary>
         /// 获取包含自身的完整XML字符串
         /// </summary>
-        public string OuterXml {
-            get { return OnGetOuterXml(); }
+        public string OuterHTML {
+            get { return OnGetOuterHtml(); }
         }
 
         /// <summary>
-        /// 获取包含的XML字符串
+        /// 获取包含的Html字符串
         /// </summary>
         /// <returns></returns>
-        protected virtual string OnGetInnerXml() { return ""; }
+        protected virtual string OnGetInnerHtml() { return ""; }
 
         /// <summary>
         /// 获取包含的文本
@@ -88,14 +84,14 @@ namespace dpz3.Xml {
         /// 获取包含的XML字符串
         /// </summary>
         /// <returns></returns>
-        protected virtual void OnSetInnerXml(string xml) { throw new Exception("此节点不支持设置InnerXml属性"); }
+        protected virtual void OnSetInnerHtml(string xml) { throw new Exception("此节点不支持设置InnerHtml属性"); }
 
         /// <summary>
         /// 获取包含的XML字符串
         /// </summary>
-        public string InnerXml {
-            get { return OnGetInnerXml(); }
-            set { OnSetInnerXml(value); }
+        public string InnerHTML {
+            get { return OnGetInnerHtml(); }
+            set { OnSetInnerHtml(value); }
         }
 
         /// <summary>

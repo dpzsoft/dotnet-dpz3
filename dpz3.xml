@@ -496,6 +496,581 @@
             <param name="Path"></param>
             <param name="cnt"></param>
         </member>
+        <member name="T:dpz3.Html.NodeType">
+            <summary>
+            节点类型
+            </summary>
+        </member>
+        <member name="F:dpz3.Html.NodeType.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="F:dpz3.Html.NodeType.Element">
+            <summary>
+            元素节点
+            </summary>
+        </member>
+        <member name="F:dpz3.Html.NodeType.Declaration">
+            <summary>
+            申明节点
+            </summary>
+        </member>
+        <member name="F:dpz3.Html.NodeType.Note">
+            <summary>
+            注释
+            </summary>
+        </member>
+        <member name="T:dpz3.Html.BasicNode">
+            <summary>
+            基础节点
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.BasicNode.NodeType">
+            <summary>
+            获取节点类型
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.BasicNode.Parent">
+            <summary>
+            获取父节点
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.BasicNode.#ctor(dpz3.Html.NodeType)">
+            <summary>
+            实例化
+            </summary>
+            <param name="nodeType"></param>
+        </member>
+        <member name="M:dpz3.Html.BasicNode.OnGetOuterHtml">
+            <summary>
+            获取包含自身的完整XML字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Html.BasicNode.OuterHTML">
+            <summary>
+            获取包含自身的完整XML字符串
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.BasicNode.OnGetInnerHtml">
+            <summary>
+            获取包含的Html字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.BasicNode.OnGetInnerText">
+            <summary>
+            获取包含的文本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.BasicNode.OnSetInnerHtml(System.String)">
+            <summary>
+            获取包含的XML字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Html.BasicNode.InnerHTML">
+            <summary>
+            获取包含的XML字符串
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.BasicNode.InnerText">
+            <summary>
+            获取包含的XML字符串
+            </summary>
+        </member>
+        <member name="T:dpz3.Html.DeclarationNode">
+            <summary>
+            申明节点
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.DeclarationNode.Content">
+            <summary>
+            获取或设置
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.DeclarationNode.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.DeclarationNode.OnGetOuterHtml">
+            <summary>
+            获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.DeclarationNode.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:dpz3.Html.HtmlDataElement">
+            <summary>
+            数据元素
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlDataElement.Data">
+            <summary>
+            获取或设置关联数据
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlDataElement.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlDataElement.OnGetInnerHtml">
+            <summary>
+            获取包含的Html代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlDataElement.OnGetInnerText">
+            <summary>
+            获取包含的文本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlDataElement.OnSetInnerHtml(System.String)">
+            <summary>
+            设置包含的HTML代码
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="T:dpz3.Html.HtmlDocument">
+            <summary>
+            文档对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlDocument.Head">
+            <summary>
+            获取Head元素
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlDocument.Body">
+            <summary>
+            获取Body元素
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlDocument.Nodes">
+            <summary>
+            获取子节点集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlDocument.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="html"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlDocument.CreateElement(System.String)">
+            <summary>
+            建立新元素
+            </summary>
+            <param name="tagName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlDocument.GetElementsByTagName(System.String,System.Boolean)">
+            <summary>
+            获取所有标签名节点
+            </summary>
+            <param name="tagName"></param>
+            <param name="searchChildNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlDocument.GetElementsByAttr(System.String,System.String,System.Boolean)">
+            <summary>
+            获取所有满足属性限定的节点
+            </summary>
+            <param name="attrName"></param>
+            <param name="attrValue"></param>
+            <param name="searchChildNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlDocument.GetElementByAttr(System.String,System.String,System.Boolean)">
+            <summary>
+            获取第一个满足属性限定的节点
+            </summary>
+            <param name="attrName"></param>
+            <param name="attrValue"></param>
+            <param name="searchChildNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlDocument.GetElementById(System.String)">
+            <summary>
+            根据id查找元素
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlDocument.GetElementsByClassName(System.String)">
+            <summary>
+            根据id查找元素
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Html.HtmlDocument.InnerHTML">
+            <summary>
+            获取包含的XML字符串
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlDocument.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:dpz3.Html.HtmlElement">
+            <summary>
+            文本节点
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlElement.Children">
+            <summary>
+            获取子节点集合
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlElement.Parent">
+            <summary>
+            获取父节点
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlElement.Name">
+            <summary>
+            获取或设置名称属性
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlElement.Id">
+            <summary>
+            获取或设置id属性
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlElement.TagName">
+            <summary>
+            获取标签名称
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.OnGetOuterHtml">
+            <summary>
+            获取完整XML
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.OnGetInnerHtml">
+            <summary>
+            获取包含
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.OnSetInnerHtml(System.String)">
+            <summary>
+            设置包含XML
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.OnGetInnerText">
+            <summary>
+            获取内置文本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.GetElementsByTagName(System.String,System.Boolean)">
+            <summary>
+            获取所有标签名节点
+            </summary>
+            <param name="tagName"></param>
+            <param name="searchChildNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.GetElementsByAttr(System.String,System.String,System.Boolean)">
+            <summary>
+            获取所有满足属性限定的节点
+            </summary>
+            <param name="attrName"></param>
+            <param name="attrValue"></param>
+            <param name="searchChildNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.GetElementByAttr(System.String,System.String,System.Boolean)">
+            <summary>
+            获取第一个满足属性限定的节点
+            </summary>
+            <param name="attrName"></param>
+            <param name="attrValue"></param>
+            <param name="searchChildNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.GetElementById(System.String)">
+            <summary>
+            根据id查找元素
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.GetElementsByClassName(System.String)">
+            <summary>
+            根据id查找元素
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlElement.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:dpz3.Html.HtmlElementCollection">
+            <summary>
+            网页元素集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlElementCollection.#ctor(dpz3.Html.HtmlElement)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="parent"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlElementCollection.Add(dpz3.Html.HtmlElement)">
+            <summary>
+            添加元素
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlElementCollection.Add(dpz3.Html.HtmlElement,System.Boolean)">
+            <summary>
+            添加元素
+            </summary>
+            <param name="element"></param>
+            <param name="addNode"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlElementCollection.Insert(System.Int32,dpz3.Html.HtmlElement)">
+            <summary>
+            插入对象
+            </summary>
+            <param name="index"></param>
+            <param name="element"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlElementCollection.Insert(System.Int32,dpz3.Html.HtmlElement,System.Boolean)">
+            <summary>
+            插入对象
+            </summary>
+            <param name="index"></param>
+            <param name="element"></param>
+            <param name="insertNode"></param>
+        </member>
+        <member name="T:dpz3.Html.HtmlNode">
+            <summary>
+            文本节点
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlNode.Nodes">
+            <summary>
+            获取子节点集合
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlNode.Attr">
+            <summary>
+            获取属性集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlNode.SetEncodeAttr(System.String,System.String)">
+            <summary>
+            设置属性
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
+        </member>
+        <member name="P:dpz3.Html.HtmlNode.IsSingle">
+            <summary>
+            获取或设置是否为独立标签
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlNode.Name">
+            <summary>
+            获取名称
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlNode.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlNode.OnGetInnerText">
+            <summary>
+            获取内置文本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlNode.GetNodesByTagName(System.String,System.Boolean)">
+            <summary>
+            获取所有标签名节点
+            </summary>
+            <param name="tagName"></param>
+            <param name="searchChildNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlNode.GetNodesByAttr(System.String,System.String,System.Boolean)">
+            <summary>
+            获取所有满足属性限定的节点
+            </summary>
+            <param name="attrName"></param>
+            <param name="attrValue"></param>
+            <param name="searchChildNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlNode.GetNodeByAttr(System.String,System.String,System.Boolean)">
+            <summary>
+            获取第一个满足属性限定的节点
+            </summary>
+            <param name="attrName"></param>
+            <param name="attrValue"></param>
+            <param name="searchChildNodes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.HtmlNode.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:dpz3.Html.HtmlNodeCollection">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlNodeCollection.#ctor(dpz3.Html.HtmlNode)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="parent"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlNodeCollection.Add(dpz3.Html.BasicNode)">
+            <summary>
+            添加对象
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlNodeCollection.Insert(System.Int32,dpz3.Html.BasicNode)">
+            <summary>
+            插入对象
+            </summary>
+            <param name="index"></param>
+            <param name="node"></param>
+        </member>
+        <member name="T:dpz3.Html.NoteNode">
+            <summary>
+            文本节点
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.NoteNode.Note">
+            <summary>
+            获取或设置
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.NoteNode.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.NoteNode.OnGetOuterHtml">
+            <summary>
+            获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.NoteNode.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:dpz3.Html.Parser">
+            <summary>
+            解析器
+            </summary>
+        </member>
+        <member name="T:dpz3.Html.Parser.ParserTypes">
+            <summary>
+            解析器类型
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.Parser.EscapeEncode(System.String)">
+            <summary>
+            获取HTML转码后的序列化字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.Parser.EscapeDecode(System.String)">
+            <summary>
+            获取HTML反转码后的序列化字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.Parser.GetNodes(System.String,dpz3.Html.HtmlElement)">
+            <summary>
+            获取节点对象
+            </summary>
+            <param name="xml"></param>
+            <param name="parent"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.Parser.GetDocument(System.String)">
+            <summary>
+            获取一个文档对象
+            </summary>
+            <param name="xml"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Html.TextNode">
+            <summary>
+            文本节点
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.TextNode.Value">
+            <summary>
+            获取或设置
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.TextNode.SetEncodeValue(System.String)">
+            <summary>
+            设置带编码的值
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.TextNode.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.TextNode.OnGetOuterHtml">
+            <summary>
+            获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.TextNode.OnGetInnerText">
+            <summary>
+            获取内置文本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.TextNode.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
         <member name="T:dpz3.InsensitiveKeyValues`1">
             <summary>
             大小写不敏感的键值存储
@@ -1817,12 +2392,11 @@
             获取父节点
             </summary>
         </member>
-        <member name="M:dpz3.Xml.BasicNode.#ctor(dpz3.Xml.NodeType,dpz3.Xml.XmlNode)">
+        <member name="M:dpz3.Xml.BasicNode.#ctor(dpz3.Xml.NodeType)">
             <summary>
             实例化
             </summary>
             <param name="nodeType"></param>
-            <param name="node"></param>
         </member>
         <member name="M:dpz3.Xml.BasicNode.OnGetOuterXml">
             <summary>
@@ -2121,10 +2695,11 @@
             获取名称
             </summary>
         </member>
-        <member name="M:dpz3.Xml.XmlNode.#ctor(System.String,dpz3.Xml.XmlNode)">
+        <member name="M:dpz3.Xml.XmlNode.#ctor(System.String)">
             <summary>
             对象实例化
             </summary>
+            <param name="name"></param>
         </member>
         <member name="M:dpz3.Xml.XmlNode.OnGetOuterXml">
             <summary>
@@ -2192,13 +2767,36 @@
             <summary>
             添加一个注释
             </summary>
-            <param name="tagName"></param>
             <returns></returns>
         </member>
         <member name="M:dpz3.Xml.XmlNode.OnDispose">
             <summary>
             释放资源
             </summary>
+        </member>
+        <member name="T:dpz3.Xml.XmlNodeCollection">
+            <summary>
+            节点集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Xml.XmlNodeCollection.#ctor(dpz3.Xml.XmlNode)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="parent"></param>
+        </member>
+        <member name="M:dpz3.Xml.XmlNodeCollection.Add(dpz3.Xml.BasicNode)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:dpz3.Xml.XmlNodeCollection.Insert(System.Int32,dpz3.Xml.BasicNode)">
+            <summary>
+            插入对象
+            </summary>
+            <param name="index"></param>
+            <param name="node"></param>
         </member>
     </members>
 </doc>
