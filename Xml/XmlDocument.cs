@@ -109,10 +109,11 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取第一个满足属性限定的节点
         /// </summary>
-        /// <param name="tagName"></param>
+        /// <param name="attrName"></param>
+        /// <param name="attrValue"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
-        public XmlNode GetNodeByAttr(string attrName, string attrValue) {
+        public XmlNode GetNodeByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
             List<XmlNode> nodes = new List<XmlNode>();
             for (int i = 0; i < this.Nodes.Count; i++) {
                 if (this.Nodes[i].NodeType == NodeType.Normal) {
@@ -121,11 +122,15 @@ namespace dpz3.Xml {
                         return node;
                     }
 
-                    if (node.Nodes.Count > 0) {
-                        // 获取子节点的查询结果并应用到结果中
-                        var childNode = node.GetNodeByAttr(attrName, attrValue);
-                        if (childNode != null) return childNode;
+                    // 是否深度检索
+                    if (searchChildNodes) {
+                        if (node.Nodes.Count > 0) {
+                            // 获取子节点的查询结果并应用到结果中
+                            var childNode = node.GetNodeByAttr(attrName, attrValue);
+                            if (childNode != null) return childNode;
+                        }
                     }
+
                 }
             }
             return null;

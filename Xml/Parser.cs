@@ -220,8 +220,23 @@ namespace dpz3.Xml {
                     case '/':
                         #region [=====斜杠=====]
                         if (pt == ParserTypes.NodeName) {
+
                             // 设置为标签结尾
                             pt = ParserTypes.NodeFinish;
+
+                            if (sb.Length > 0) {
+                                // 新增子对象，并设置为独立标签
+                                tagName = sb.ToString();
+                                var npNormal = (XmlNode)np;
+                                var nodeNew = new XmlNode(tagName, npNormal);
+                                nodeNew.IsSingle = true;
+                                npNormal.Nodes.Add(nodeNew);
+                                np = nodeNew;
+
+                                // 清理缓存
+                                tagName = null;
+                                sb.Clear();
+                            }
                         } else if (pt == ParserTypes.PropertyName) {
                             if (sb.Length > 0) throw new Exception($"规则外的字符'{chr}'");
                             // 设置为结尾标签，并设置为独立标签
