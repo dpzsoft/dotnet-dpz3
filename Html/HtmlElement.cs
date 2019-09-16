@@ -17,7 +17,7 @@ namespace dpz3.Html {
         /// <summary>
         /// 获取父节点
         /// </summary>
-        public new HtmlElement Parent { get; internal set; }
+        public new HtmlElement Parent { get { return (HtmlElement)base.Parent; } internal set { base.Parent = value; } }
 
         /// <summary>
         /// 获取或设置名称属性
@@ -40,8 +40,8 @@ namespace dpz3.Html {
         /// <param name="name"></param>
         public HtmlElement(string name) : base(name) {
             this.Name = name;
-            this.Children = new HtmlElementCollection(this);
             this.Parent = null;
+            this.Children = new HtmlElementCollection(this);
         }
 
         // 获取包含的XML

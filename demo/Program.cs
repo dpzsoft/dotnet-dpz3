@@ -14,6 +14,12 @@ namespace demo {
                 Console.WriteLine($"xml:\r\n{doc.InnerXml}");
             }
 
+            string urlCss = "https://v5.lywos.com/css/Shared/Home.css";
+            string szCss = dpz3.Net.HttpClient.Get(urlCss);
+            using (dpz3.Html.HtmlCss css = new dpz3.Html.HtmlCss(szCss)) {
+                Console.WriteLine($"css:\r\n{css.ToString()}");
+            }
+
             // 测试http方式获取数据
             string http = dpz3.Net.HttpClient.Get("http://v3.lywos.com/");
             Console.WriteLine($"http:{http.Length}");

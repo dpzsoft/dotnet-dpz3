@@ -510,6 +510,177 @@ namespace dpz3.Html {
         }
 
         /// <summary>
+        /// 填充CSS内容
+        /// </summary>
+        /// <param name="css"></param>
+        /// <param name="cssText"></param>
+        public static void FillCss(HtmlCss css, string cssText) {
+
+            // 当前解析器类型
+            ParserTypes pt = ParserTypes.NodeName;
+
+            // CSSS节点
+            HtmlCssMedia cssMedia = null;
+
+            // 缓存
+            string pName = null;
+            string pValue = null;
+            StringBuilder sb = new StringBuilder();
+
+            // 文档数据
+            int line = 1;
+            int site = 0;
+
+            for (int i = 0; i < cssText.Length; i++) {
+                site++;
+                char chr = cssText[i];
+                switch (chr) {
+                    #region [=====左大括号=====]
+                    case '{':
+                        if (pt == ParserTypes.NodeName || pt == ParserTypes.NodeFinish) {
+                            if (sb.Length <= 0) throw new Exception($"规则外的字符'{chr}'");
+                            if (cssMedia != null) throw new Exception($"规则外的字符'{chr}'");
+                            string name = sb.ToString().Trim();
+                            cssMedia = new HtmlCssMedia(name);
+                            css.Items.Add(cssMedia);
+
+                            // 设置解析模式
+                            pt = ParserTypes.PropertyName;
+                            // 清理缓存
+                            sb.Clear();
+                        } else {
+                            throw new Exception($"规则外的字符'{chr}'");
+                        }
+                        break;
+                    #endregion
+                    #region [=====右大括号=====]
+                    case '}':
+                        if (pt == ParserTypes.PropertyName) {
+                            if (sb.Length > 0) throw new Exception($"规则外的字符'{chr}'");
+                            if (cssMedia == null) throw new Exception($"规则外的字符'{chr}'");
+                            cssMedia = null;
+                            // 设置解析模式
+                            pt = ParserTypes.NodeName;
+                        } else {
+                            throw new Exception($"规则外的字符'{chr}'");
+                        }
+                        break;
+                    #endregion
+                    #region [=====冒号=====]
+                    case ':':
+                        if (pt == ParserTypes.PropertyName || pt == ParserTypes.PropertyNameFinish) {
+                            if (sb.Length <= 0) throw new Exception($"规则外的字符'{chr}'");
+                            if (cssMedia == null) throw new Exception($"规则外的字符'{chr}'");
+                            pName = sb.ToString();
+                            // 设置解析模式
+                            pt = ParserTypes.PropertyValue;
+                            // 清理缓存
+                            sb.Clear();
+                        } else if (pt == ParserTypes.NodeName || pt == ParserTypes.Note) {
+                            sb.Append(chr);
+                        } else {
+                            throw new Exception($"规则外的字符'{chr}'");
+                        }
+                        break;
+                    #endregion
+                    #region [=====分号=====]
+                    case ';':
+                        if (pt == ParserTypes.PropertyValue || pt == ParserTypes.PropertyValueFinish) {
+                            if (pName.IsNoneOrNull()) throw new Exception($"规则外的字符'{chr}'");
+                            if (sb.Length <= 0) throw new Exception($"规则外的字符'{chr}'");
+                            if (cssMedia == null) throw new Exception($"规则外的字符'{chr}'");
+                            pValue = sb.ToString();
+
+                            var unit = new HtmlCssItem() { Name = pName.Trim(), Content = pValue.Trim() };
+                            cssMedia.Items.Add(unit);
+
+                            // 设置解析模式
+                            pt = ParserTypes.PropertyName;
+                            // 清理缓存
+                            pName = null;
+                            pValue = null;
+                            sb.Clear();
+                        } else if (pt == ParserTypes.Note) {
+                            sb.Append(chr);
+                        } else {
+                            throw new Exception($"规则外的字符'{chr}'");
+                        }
+                        break;
+                    #endregion
+                    #region [=====斜杠=====]
+                    case '/':
+                        if (pt == ParserTypes.Note) {
+                            if (sb.Length <= 0) throw new Exception($"规则外的字符'{chr}'");
+                            if (sb[0] != '*') throw new Exception($"规则外的字符'{chr}'");
+
+                            if (sb.Length > 2) {
+                                if (sb[sb.Length - 1] == '*') {
+                                    string note = sb.ToString();
+                                    var unit = new HtmlCssItem() { Name = "/", Content = note };
+
+                                    if (cssMedia == null) {
+                                        css.Items.Add(unit);
+
+                                        // 设置解析模式
+                                        pt = ParserTypes.NodeName;
+                                    } else {
+                                        cssMedia.Items.Add(unit);
+
+                                        // 设置解析模式
+                                        pt = ParserTypes.PropertyName;
+                                    }
+
+                                    // 清理缓存
+                                    sb.Clear();
+                                } else {
+                                    sb.Append(chr);
+                                }
+                            }
+                        } else {
+                            if (sb.Length > 0) throw new Exception($"规则外的字符'{chr}'");
+
+                            // 设置解析模式
+                            pt = ParserTypes.Note;
+                        }
+                        break;
+                    #endregion
+                    #region [=====空格=====]
+                    case ' ':
+                        if (pt == ParserTypes.NodeName || pt == ParserTypes.PropertyName || pt == ParserTypes.PropertyValue) {
+                            if (sb.Length > 0) sb.Append(chr);
+                        }
+                        break;
+                    #endregion
+                    #region [=====回车换行=====]
+                    case '\r':
+                    case '\n':
+                        if (pt == ParserTypes.Note) {
+                            sb.Append(chr);
+                        } else if (pt == ParserTypes.NodeName) {
+                            if (sb.Length > 0) {
+                                // 设置解析模式
+                                pt = ParserTypes.NodeFinish;
+                            }
+                        } else if (pt == ParserTypes.PropertyName || pt == ParserTypes.PropertyValue) {
+                            if (sb.Length > 0) throw new Exception($"规则外的字符'{chr}'");
+                        }
+                        if (chr == '\n') {
+                            line++;
+                            site = 0;
+                        }
+                        break;
+                    #endregion
+                    default:
+                        if (pt == ParserTypes.NodeFinish || pt == ParserTypes.PropertyNameFinish || pt == ParserTypes.PropertyValueFinish) {
+                            throw new Exception($"规则外的字符'{chr}'");
+                        }
+                        sb.Append(chr);
+                        break;
+                }
+            }
+        }
+
+        /// <summary>
         /// 获取一个文档对象
         /// </summary>
         /// <param name="xml"></param>

@@ -607,6 +607,95 @@
             释放资源
             </summary>
         </member>
+        <member name="T:dpz3.Html.HtmlCss">
+            <summary>
+            Css管理器
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlCss.Items">
+            <summary>
+            单元集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlCss.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlCss.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlCss.OnParseString">
+            <summary>
+            获取标准字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Html.HtmlCssItem">
+            <summary>
+            Css设置单元
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlCssItem.Name">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlCssItem.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlCssItem.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlCssItem.OnParseString">
+            <summary>
+            获取标准字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Html.HtmlCssMedia">
+            <summary>
+            响应式片段
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlCssMedia.Keys">
+            <summary>
+            键名称集合
+            </summary>
+        </member>
+        <member name="P:dpz3.Html.HtmlCssMedia.Items">
+            <summary>
+            单元集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Html.HtmlCssMedia.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="names"></param>
+        </member>
+        <member name="M:dpz3.Html.HtmlCssMedia.OnParseString">
+            <summary>
+            获取标准字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Html.HtmlCssUnit">
+            <summary>
+            Css对象
+            </summary>
+        </member>
+        <member name="T:dpz3.Html.HtmlCssUnitCollection">
+            <summary>
+            Css对象
+            </summary>
+        </member>
         <member name="T:dpz3.Html.HtmlDataElement">
             <summary>
             数据元素
@@ -948,6 +1037,11 @@
             节点集合
             </summary>
         </member>
+        <member name="P:dpz3.Html.HtmlNodeCollection.Parent">
+            <summary>
+            获取父对象
+            </summary>
+        </member>
         <member name="M:dpz3.Html.HtmlNodeCollection.#ctor(dpz3.Html.HtmlNode)">
             <summary>
             对象实例化
@@ -1024,6 +1118,13 @@
             <param name="xml"></param>
             <param name="parent"></param>
             <returns></returns>
+        </member>
+        <member name="M:dpz3.Html.Parser.FillCss(dpz3.Html.HtmlCss,System.String)">
+            <summary>
+            填充CSS内容
+            </summary>
+            <param name="css"></param>
+            <param name="cssText"></param>
         </member>
         <member name="M:dpz3.Html.Parser.GetDocument(System.String)">
             <summary>
@@ -1742,6 +1843,11 @@
         <member name="P:dpz3.KeyValues`1.Count">
             <summary>
             获取集合内元素数量
+            </summary>
+        </member>
+        <member name="M:dpz3.KeyValues`1.Clear">
+            <summary>
+            清空集合
             </summary>
         </member>
         <member name="M:dpz3.KeyValues`1.ContainsKey(System.String)">

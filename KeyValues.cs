@@ -73,8 +73,11 @@ namespace dpz3 {
             throw new NotImplementedException();
         }
 
-        void ICollection<KeyValuePair<string, T>>.Clear() {
-            throw new NotImplementedException();
+        /// <summary>
+        /// 清空集合
+        /// </summary>
+        public void Clear() {
+            dict.Clear();
         }
 
         bool ICollection<KeyValuePair<string, T>>.Contains(KeyValuePair<string, T> item) {
