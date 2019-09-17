@@ -4,6 +4,17 @@
         <name>dpz3</name>
     </assembly>
     <members>
+        <member name="T:dpz3.Console.Arguments">
+            <summary>
+            参数集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Console.Arguments.#ctor(System.String[])">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="args"></param>
+        </member>
         <member name="T:dpz3.Debug">
             <summary>
             调试输出专用类

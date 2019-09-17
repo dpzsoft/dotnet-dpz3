@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.1909.11</Version>
+    <Version>1.0.1909.13</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>一个基于.Net Standard的综合性辅助开发套件基础件，包含基础类型扩展、文件处理、常见协议解析处理(json/xml/html)及网络访问</Description>
+    <Description>一个基于.Net Standard的综合性辅助开发套件基础件，包含基础类型扩展、文件处理、常见协议解析处理(json/xml/html/css)及网络访问</Description>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageId>dotnet-dpz3</PackageId>

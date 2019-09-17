@@ -59,7 +59,7 @@ namespace dpz3.Html {
         /// <returns></returns>
         protected override string OnGetOuterHtml() {
             StringBuilder res = new StringBuilder();
-            res.AppendFormat("<{0}", this.Name);
+            res.AppendFormat("<{0}", this.TagName);
             // 拼接属性
             foreach (var key in this.Attr.Keys) {
                 res.AppendFormat(" {0}=\"{1}\"", key, this.Attr[key]);
