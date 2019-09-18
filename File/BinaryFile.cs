@@ -135,7 +135,7 @@ namespace dpz3.File {
                 }
             } else {
                 res = new byte[0];
-                if (create) WriteAlBytes(Path, new byte[0]);
+                if (create) WriteAllBytes(Path, new byte[0]);
             }
             return res;
         }
@@ -145,7 +145,7 @@ namespace dpz3.File {
         /// </summary>
         /// <param name="Path"></param>
         /// <param name="cnt"></param>
-        public static void WriteAlBytes(string Path, byte[] cnt) {
+        public static void WriteAllBytes(string Path, byte[] cnt) {
             using (System.IO.FileStream fs = System.IO.File.Open(Path, System.IO.FileMode.Create, System.IO.FileAccess.Write, System.IO.FileShare.Read)) {
                 //byte[] bs = System.Text.Encoding.UTF8.GetBytes(cnt);
                 fs.Position = 0;

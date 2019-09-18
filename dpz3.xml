@@ -179,7 +179,7 @@
             <param name="create"></param>
             <returns></returns>
         </member>
-        <member name="M:dpz3.File.BinaryFile.WriteAlBytes(System.String,System.Byte[])">
+        <member name="M:dpz3.File.BinaryFile.WriteAllBytes(System.String,System.Byte[])">
             <summary>
             将内容写入文件
             </summary>
@@ -464,6 +464,11 @@
             以UTF8编码操作文件
             </summary>
         </member>
+        <member name="F:dpz3.File.UTF8File.WriteWithBoom">
+            <summary>
+            获取或设置是否带BOOM输出
+            </summary>
+        </member>
         <member name="M:dpz3.File.UTF8File.#ctor(System.String,System.IO.FileMode)">
             <summary>
             对象实例化
@@ -475,7 +480,7 @@
             <summary>
             读取文件内容
             </summary>
-            <param name="Path"></param>
+            <param name="path"></param>
             <param name="create"></param>
             <returns></returns>
         </member>
@@ -483,21 +488,21 @@
             <summary>
             读取文件内容
             </summary>
-            <param name="Path"></param>
+            <param name="path"></param>
             <returns></returns>
         </member>
         <member name="M:dpz3.File.UTF8File.WriteAllText(System.String,System.String)">
             <summary>
             将内容写入文件
             </summary>
-            <param name="Path"></param>
+            <param name="path"></param>
             <param name="cnt"></param>
         </member>
         <member name="M:dpz3.File.UTF8File.AppendText(System.String,System.String)">
             <summary>
             将内容追加写入文件
             </summary>
-            <param name="Path"></param>
+            <param name="path"></param>
             <param name="cnt"></param>
         </member>
         <member name="M:dpz3.File.UTF8File.AppendTextLine(System.String,System.String)">
