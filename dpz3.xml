@@ -854,11 +854,6 @@
             获取或设置id属性
             </summary>
         </member>
-        <member name="P:dpz3.Html.HtmlElement.TagName">
-            <summary>
-            获取标签名称
-            </summary>
-        </member>
         <member name="M:dpz3.Html.HtmlElement.#ctor(System.String)">
             <summary>
             对象实例化
@@ -1000,7 +995,7 @@
             获取或设置是否为独立标签
             </summary>
         </member>
-        <member name="P:dpz3.Html.HtmlNode.Name">
+        <member name="P:dpz3.Html.HtmlNode.TagName">
             <summary>
             获取名称
             </summary>
@@ -2747,7 +2742,7 @@
             <summary>
             获取一个子节点
             </summary>
-            <param name="tagname"></param>
+            <param name="tagName"></param>
             <returns></returns>
         </member>
         <member name="M:dpz3.Xml.XmlDocument.GetNodesByTagName(System.String,System.Boolean)">
@@ -2812,7 +2807,7 @@
             获取或设置是否为独立标签
             </summary>
         </member>
-        <member name="P:dpz3.Xml.XmlNode.Name">
+        <member name="P:dpz3.Xml.XmlNode.TagName">
             <summary>
             获取名称
             </summary>

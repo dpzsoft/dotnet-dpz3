@@ -160,7 +160,7 @@ namespace dpz3.Html {
                             } else {
                                 if (tagName.IsNone()) throw new Exception($"缺少标签名称");
                                 //if (np.Parent == null) throw new Exception($"多余的尾部标签");
-                                if (npNormal.Name != tagName) throw new Exception($"首尾标签名不匹配");
+                                if (npNormal.TagName != tagName) throw new Exception($"首尾标签名不匹配");
                                 // 返回上一层
                                 np = np.Parent;
                             }

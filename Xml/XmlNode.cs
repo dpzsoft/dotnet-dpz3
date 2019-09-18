@@ -36,14 +36,14 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取名称
         /// </summary>
-        public string Name { get; private set; }
+        public string TagName { get; private set; }
 
         /// <summary>
         /// 对象实例化
         /// </summary>
         /// <param name="name"></param>
         public XmlNode(string name) : base(NodeType.Normal) {
-            this.Name = name;
+            this.TagName = name;
             this.Nodes = new XmlNodeCollection(this);
             this.Attr = new InsensitiveKeyValues<string>();
         }
@@ -63,7 +63,7 @@ namespace dpz3.Xml {
         /// <returns></returns>
         protected override string OnGetOuterXml() {
             StringBuilder res = new StringBuilder();
-            res.AppendFormat("<{0}", this.Name);
+            res.AppendFormat("<{0}", this.TagName);
             // 拼接属性
             foreach (var key in this.Attr.Keys) {
                 res.AppendFormat(" {0}=\"{1}\"", key, Parser.EscapeEncode(this.Attr[key]));
@@ -72,7 +72,7 @@ namespace dpz3.Xml {
             if (this.IsSingle) {
                 res.Append("/>");
             } else {
-                res.AppendFormat(">{0}</{1}>", GetInnerXml(), this.Name);
+                res.AppendFormat(">{0}</{1}>", GetInnerXml(), this.TagName);
             }
             return res.ToString();
         }
@@ -124,7 +124,7 @@ namespace dpz3.Xml {
                 for (int i = 0; i < this.Nodes.Count; i++) {
                     if (this.Nodes[i].NodeType == NodeType.Normal) {
                         var node = (XmlNode)this.Nodes[i];
-                        if (node.Name.ToLower() == tagName) {
+                        if (node.TagName.ToLower() == tagName) {
                             return node;
                         }
                     }
@@ -144,7 +144,7 @@ namespace dpz3.Xml {
             for (int i = 0; i < this.Nodes.Count; i++) {
                 if (this.Nodes[i].NodeType == NodeType.Normal) {
                     var node = (XmlNode)this.Nodes[i];
-                    if (node.Name.ToLower() == tagName) {
+                    if (node.TagName.ToLower() == tagName) {
                         nodes.Add(node);
                     }
 

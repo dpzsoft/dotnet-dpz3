@@ -71,7 +71,7 @@ namespace dpz3.Html {
             for (int i = 0; i < this.Nodes.Count; i++) {
                 if (this.Nodes[i].NodeType == NodeType.Element) {
                     var node = (HtmlElement)this.Nodes[i];
-                    if (node.Name.ToLower() == tagName) {
+                    if (node.TagName.ToLower() == tagName) {
                         nodes.Add(node);
                     }
 

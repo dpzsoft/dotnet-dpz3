@@ -36,14 +36,14 @@ namespace dpz3.Html {
         /// <summary>
         /// 获取名称
         /// </summary>
-        public string Name { get; private set; }
+        public string TagName { get; private set; }
 
         /// <summary>
         /// 对象实例化
         /// </summary>
         /// <param name="name"></param>
         public HtmlNode(string name) : base(NodeType.Element) {
-            this.Name = name;
+            this.TagName = name;
             this.Nodes = new HtmlNodeCollection(this);
             this.Attr = new InsensitiveKeyValues<string>();
         }
@@ -71,7 +71,7 @@ namespace dpz3.Html {
             for (int i = 0; i < this.Nodes.Count; i++) {
                 if ((this.Nodes[i].NodeType & NodeType.Element) == NodeType.Element) {
                     var node = (HtmlNode)this.Nodes[i];
-                    if (node.Name.ToLower() == tagName) {
+                    if (node.TagName.ToLower() == tagName) {
                         nodes.Add(node);
                     }
 

@@ -22,7 +22,7 @@ namespace dpz3.Html {
         /// <summary>
         /// 获取或设置名称属性
         /// </summary>
-        public new string Name { get { return base.Attr["name"]; } set { base.Attr["name"] = value; } }
+        public string Name { get { return base.Attr["name"]; } set { base.Attr["name"] = value; } }
 
         /// <summary>
         /// 获取或设置id属性
@@ -30,16 +30,11 @@ namespace dpz3.Html {
         public string Id { get { return base.Attr["id"]; } set { base.Attr["id"] = value; } }
 
         /// <summary>
-        /// 获取标签名称
-        /// </summary>
-        public string TagName { get { return base.Name; } }
-
-        /// <summary>
         /// 对象实例化
         /// </summary>
         /// <param name="name"></param>
         public HtmlElement(string name) : base(name) {
-            this.Name = name;
+            //base.Name = name;
             this.Parent = null;
             this.Children = new HtmlElementCollection(this);
         }
@@ -68,7 +63,7 @@ namespace dpz3.Html {
             if (this.IsSingle) {
                 res.Append("/>");
             } else {
-                res.AppendFormat(">{0}</{1}>", GetInnerHtml(), this.Name);
+                res.AppendFormat(">{0}</{1}>", GetInnerHtml(), this.TagName);
             }
             return res.ToString();
         }
@@ -120,7 +115,7 @@ namespace dpz3.Html {
             for (int i = 0; i < this.Nodes.Count; i++) {
                 if (this.Nodes[i].NodeType == NodeType.Element) {
                     var node = (HtmlElement)this.Nodes[i];
-                    if (node.Name.ToLower() == tagName) {
+                    if (node.TagName.ToLower() == tagName) {
                         nodes.Add(node);
                     }
 

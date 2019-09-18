@@ -29,7 +29,7 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取一个子节点
         /// </summary>
-        /// <param name="tagname"></param>
+        /// <param name="tagName"></param>
         /// <returns></returns>
         public XmlNode this[string tagName] {
             get {
@@ -37,7 +37,7 @@ namespace dpz3.Xml {
                 for (int i = 0; i < this.Nodes.Count; i++) {
                     if (this.Nodes[i].NodeType == NodeType.Normal) {
                         var node = (XmlNode)this.Nodes[i];
-                        if (node.Name.ToLower() == tagName) {
+                        if (node.TagName.ToLower() == tagName) {
                             return node;
                         }
                     }
@@ -57,7 +57,7 @@ namespace dpz3.Xml {
             for (int i = 0; i < this.Nodes.Count; i++) {
                 if (this.Nodes[i].NodeType == NodeType.Normal) {
                     var node = (XmlNode)this.Nodes[i];
-                    if (node.Name.ToLower() == tagName) {
+                    if (node.TagName.ToLower() == tagName) {
                         nodes.Add(node);
                     }
 
