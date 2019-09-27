@@ -79,10 +79,10 @@ namespace dpz3.Html {
         /// <summary>
         /// 设置包含XML
         /// </summary>
-        /// <param name="xml"></param>
-        protected override void OnSetInnerHtml(string xml) {
+        /// <param name="html"></param>
+        protected override void OnSetInnerHtml(string html) {
             // 解析对象
-            var nodes = Parser.GetNodes(xml, this);
+            var nodes = Parser.GetNodes(html, this);
             // 先释放资源
             for (int i = 0; i < this.Nodes.Count; i++) {
                 this.Nodes[i].Dispose();

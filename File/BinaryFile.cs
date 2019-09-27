@@ -84,8 +84,18 @@ namespace dpz3.File {
         /// 读取内容
         /// </summary>
         /// <returns></returns>
-        public byte Read() {
+        public byte ReadByte() {
             return Read(1)[0];
+        }
+
+        /// <summary>
+        /// 写入内容
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public void WriteByte(byte value) {
+            this.Stream.WriteByte(value);
+            this.Stream.Flush();
         }
 
         /// <summary>

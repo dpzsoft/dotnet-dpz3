@@ -157,12 +157,16 @@ namespace dpz3.Html {
                                 if (!tagName.IsNone()) throw new Exception($"语法错误");
                                 // 返回上一层
                                 np = np.Parent;
+                                // 过滤父对象
+                                if (np == parent) np = null;
                             } else {
                                 if (tagName.IsNone()) throw new Exception($"缺少标签名称");
                                 //if (np.Parent == null) throw new Exception($"多余的尾部标签");
                                 if (npNormal.TagName != tagName) throw new Exception($"首尾标签名不匹配");
                                 // 返回上一层
                                 np = np.Parent;
+                                // 过滤父对象
+                                if (np == parent) np = null;
                             }
                             // 设置解析对象为空
                             pt = ParserTypes.None;
@@ -190,6 +194,8 @@ namespace dpz3.Html {
                                 npDeclaration.Content = sb.ToString();
                                 // 返回上一层
                                 np = np.Parent;
+                                // 过滤父对象
+                                if (np == parent) np = null;
                                 // 设置解析对象为空
                                 pt = ParserTypes.None;
                             } else {
@@ -202,6 +208,8 @@ namespace dpz3.Html {
                                         npNote.Note = sb.ToString();
                                         // 返回上层节点
                                         np = np.Parent;
+                                        // 过滤父对象
+                                        if (np == parent) np = null;
                                         // 设置解析
                                         pt = ParserTypes.None;
                                         // 清理缓存
@@ -244,6 +252,8 @@ namespace dpz3.Html {
                                     npCData.Data = sb.ToString();
                                     // 返回上层节点
                                     np = np.Parent;
+                                    // 过滤父对象
+                                    if (np == parent) np = null;
                                     // 设置解析
                                     pt = ParserTypes.None;
                                     // 清理缓存

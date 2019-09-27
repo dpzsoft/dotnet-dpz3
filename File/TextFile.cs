@@ -56,7 +56,7 @@ namespace dpz3.File {
             base.Position = pos;
             byte bs = 0;
             while (!base.IsEnd && bs != 10) {
-                bs = base.Read();
+                bs = base.ReadByte();
                 if (bs != 10 && bs != 13) {
                     list.Add((byte)bs);
                 }
@@ -77,7 +77,7 @@ namespace dpz3.File {
             //base.Position = pos;
             byte bs = 0;
             while (!base.IsEnd && bs != 10) {
-                bs = base.Read();
+                bs = base.ReadByte();
                 if (bs != 10 && bs != 13) {
                     list.Add((byte)bs);
                 }

@@ -145,10 +145,17 @@
             <param name="len"></param>
             <returns></returns>
         </member>
-        <member name="M:dpz3.File.BinaryFile.Read">
+        <member name="M:dpz3.File.BinaryFile.ReadByte">
             <summary>
             读取内容
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.File.BinaryFile.WriteByte(System.Byte)">
+            <summary>
+            写入内容
+            </summary>
+            <param name="value"></param>
             <returns></returns>
         </member>
         <member name="M:dpz3.File.BinaryFile.Write(System.Int64,System.Byte[])">
@@ -876,7 +883,7 @@
             <summary>
             设置包含XML
             </summary>
-            <param name="xml"></param>
+            <param name="html"></param>
         </member>
         <member name="M:dpz3.Html.HtmlElement.OnGetInnerText">
             <summary>
@@ -2275,6 +2282,104 @@
             <summary>
             获取字符串的sha1值
             </summary>
+        </member>
+        <member name="T:dpz3.Text.Pinyin">
+            <summary>
+            拼音处理
+            </summary>
+        </member>
+        <member name="T:dpz3.Text.Pinyin.PinyinInfo">
+            <summary>
+            拼音信息
+            </summary>
+        </member>
+        <member name="P:dpz3.Text.Pinyin.PinyinInfo.Pinyin">
+            <summary>
+            拼音
+            </summary>
+        </member>
+        <member name="P:dpz3.Text.Pinyin.PinyinInfo.Tone">
+            <summary>
+            声调
+            </summary>
+        </member>
+        <member name="P:dpz3.Text.Pinyin.PinyinInfo.PinyinWithTone">
+            <summary>
+            带声调拼音
+            </summary>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.PinyinInfo.#ctor(System.String,System.Int32)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="py"></param>
+            <param name="tone"></param>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.#ctor">
+            <summary>
+            都西昂实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.GetPinyin(System.Char)">
+            <summary>
+            根据字符获取拼音
+            </summary>
+            <param name="chr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.GetPinyin(System.String)">
+            <summary>
+            根据字符获取拼音
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.GetPinyinWithTone(System.Char)">
+            <summary>
+            根据字符获取拼音
+            </summary>
+            <param name="chr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.GetPinyinWithTone(System.String)">
+            <summary>
+            根据字符获取拼音
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.GetInitialLetters(System.String)">
+            <summary>
+            根据字符获取拼音
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.OnDispose">
+            <summary>
+            释放对象
+            </summary>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.GetPinyinFromString(System.String)">
+            <summary>
+            获取拼音
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.GetPinyinToneFromString(System.String)">
+            <summary>
+            获取带音节拼音
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Text.Pinyin.GetInitialLettersFromString(System.String)">
+            <summary>
+            获取首字母
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
         </member>
         <member name="T:dpz3.Time">
             <summary>
