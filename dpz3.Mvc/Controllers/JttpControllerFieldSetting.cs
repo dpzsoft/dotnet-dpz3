@@ -56,6 +56,7 @@ namespace dpz3.Mvc.Controllers {
         public JttpControllerFieldSetting() {
             this.Enabled = true;
             this.DataType = DataTypes.String;
+            this.IsMust = false;
         }
 
     }
