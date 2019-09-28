@@ -15,17 +15,14 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>X:\Projects\dpzsoft\dpz3\dotnet-dpz3\dpz3.xml</DocumentationFile>
+    <DocumentationFile>X:\Projects\dpzsoft\dotnet-dpz3\dpz3\dpz3.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="demo\**" />
     <EmbeddedResource Remove="demo\**" />
     <None Remove="demo\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="LICENSE">
+    <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dpz3.csproj" />
+    <ProjectReference Include="..\dpz3\dpz3.csproj" />
   </ItemGroup>
 
 </Project>

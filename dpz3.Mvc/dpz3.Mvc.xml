@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dpz3.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:dpz3.Mvc.Controllers.JttpControllerBase">
+            <summary>
+            基于Jttp协议的基础控制器
+            </summary>
+        </member>
+        <member name="P:dpz3.Mvc.Controllers.JttpControllerBase.JResponse">
+            <summary>
+            输出对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Mvc.Controllers.JttpControllerBase.JHeader">
+            <summary>
+            输出用的头部对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Mvc.Controllers.JttpControllerBase.JData">
+            <summary>
+            输出用的数据对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Mvc.Controllers.JttpControllerBase.Form">
+            <summary>
+            获取客户端提交的表单信息
+            </summary>
+        </member>
+        <member name="M:dpz3.Mvc.Controllers.JttpControllerBase.GetForm">
+            <summary>
+            获取客户端提交的表单信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Mvc.Controllers.JttpControllerBase.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.Mvc.Controllers.JttpControllerBase.FillRowToJsonObject(dpz3.db.Row,dpz3.Json.JsonObject)">
+            <summary>
+            将行数据填充到Json对象中
+            </summary>
+            <param name="row"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:dpz3.Mvc.Controllers.JttpControllerBase.FillRowsToJsonArray(dpz3.db.Rows,dpz3.Json.JsonArray)">
+            <summary>
+            将行集合填充到Json对象中
+            </summary>
+            <param name="rows"></param>
+            <param name="array"></param>
+        </member>
+        <member name="M:dpz3.Mvc.Controllers.JttpControllerBase.Success(System.String)">
+            <summary>
+            返回成功数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Mvc.Controllers.JttpControllerBase.Fail(System.String)">
+            <summary>
+            返回失败数据
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Mvc.Controllers.JttpControllerBase.Error(System.Int32,System.String,System.String)">
+            <summary>
+            返回错误数据
+            </summary>
+            <param name="code"></param>
+            <param name="msg"></param>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Mvc.Controllers.JttpControllerFieldSetting">
+            <summary>
+            控制器字段设置
+            </summary>
+        </member>
+        <member name="T:dpz3.Mvc.Controllers.JttpControllerFieldSetting.DataTypes">
+            <summary>
+            字段数据类型
+            </summary>
+        </member>
+        <member name="F:dpz3.Mvc.Controllers.JttpControllerFieldSetting.DataTypes.String">
+            <summary>
+            字符串
+            </summary>
+        </member>
+        <member name="F:dpz3.Mvc.Controllers.JttpControllerFieldSetting.DataTypes.Integer">
+            <summary>
+            整型
+            </summary>
+        </member>
+        <member name="F:dpz3.Mvc.Controllers.JttpControllerFieldSetting.DataTypes.Long">
+            <summary>
+            长整型
+            </summary>
+        </member>
+        <member name="F:dpz3.Mvc.Controllers.JttpControllerFieldSetting.DataTypes.Decimal">
+            <summary>
+            小数
+            </summary>
+        </member>
+        <member name="P:dpz3.Mvc.Controllers.JttpControllerFieldSetting.Enabled">
+            <summary>
+            获取或设置可用状态
+            </summary>
+        </member>
+        <member name="P:dpz3.Mvc.Controllers.JttpControllerFieldSetting.IsMust">
+            <summary>
+            获取或设置字段是否必须指定
+            </summary>
+        </member>
+        <member name="P:dpz3.Mvc.Controllers.JttpControllerFieldSetting.DataType">
+            <summary>
+            获取或设置数据类型
+            </summary>
+        </member>
+        <member name="M:dpz3.Mvc.Controllers.JttpControllerFieldSetting.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="T:dpz3.Mvc.Kestrel">
+            <summary>
+            Kestrel操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Mvc.Kestrel.DeployConfig(System.String,Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions)">
+            <summary>
+            应用配置
+            </summary>
+            <param name="path"></param>
+            <param name="options"></param>
+        </member>
+    </members>
+</doc>

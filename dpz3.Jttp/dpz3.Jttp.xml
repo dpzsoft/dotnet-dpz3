@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dpz3.Jttp</name>
+    </assembly>
+    <members>
+        <member name="T:dpz3.Jttp.Error">
+            <summary>
+            错误信息定义
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Error.Code">
+            <summary>
+            获取或设置错误代码
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Error.Info">
+            <summary>
+            获取或设置错误信息
+            </summary>
+        </member>
+        <member name="T:dpz3.Jttp.Header">
+            <summary>
+            头部定义
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Header.Ver">
+            <summary>
+            获取或设置版本信息
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Header.Type">
+            <summary>
+            获取或设置交互类型
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Header.SessionID">
+            <summary>
+            获取或设置交互信息
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Header.Time">
+            <summary>
+            获取或设置时间戳信息
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Header.Status">
+            <summary>
+            获取或设置状态信息
+            </summary>
+        </member>
+        <member name="T:dpz3.Jttp.Object">
+            <summary>
+            Jttp对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Object.Header">
+            <summary>
+            获取关联头部数据对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Object.Data">
+            <summary>
+            获取关联数据对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Object.Error">
+            <summary>
+            获取关联错误对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Object.Message">
+            <summary>
+            获取或设置消息信息
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Object.Text">
+            <summary>
+            获取或设置文本信息
+            </summary>
+        </member>
+        <member name="M:dpz3.Jttp.Object.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="json"></param>
+        </member>
+        <member name="M:dpz3.Jttp.Object.OnParseString">
+            <summary>
+            获取字符串表示形势
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

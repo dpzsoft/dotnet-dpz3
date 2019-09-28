@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dpz3.VDisk</name>
+    </assembly>
+    <members>
+        <member name="T:dpz3.VDisk.Manager">
+            <summary>
+            虚拟磁盘管理器
+            </summary>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.#ctor(System.String)">
+            <summary>
+            实例化一个虚拟磁盘管理器
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.GetParentFolder(System.String)">
+            <summary>
+            获取父路径
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.GetName(System.String)">
+            <summary>
+            获取路径中的名称
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.FileExist(System.String)">
+            <summary>
+            判断文件是否存在
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.FolderExist(System.String)">
+            <summary>
+            判断文件夹是否存在
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.CreateFolder(System.String)">
+            <summary>
+            创建一个目录
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.CreateFile(System.String)">
+            <summary>
+            创建一个文件
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.SaveFile(System.String,System.Byte[])">
+            <summary>
+            保存文件
+            </summary>
+            <param name="path"></param>
+            <param name="bytes"></param>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.ReadFile(System.String)">
+            <summary>
+            读取文件
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.VDisk.Manager.GetPathes(System.String)">
+            <summary>
+            获取子路径
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.VDisk.Types">
+            <summary>
+            关联数据类型
+            </summary>
+        </member>
+        <member name="T:dpz3.VDisk.Types.VirtualDiskInfo">
+            <summary>
+            硬盘信息
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualDiskInfo.Sign">
+            <summary>
+            信息标志
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualDiskInfo.Version">
+            <summary>
+            定义版本
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualDiskInfo.DataBlocks">
+            <summary>
+            数据区块记录
+            </summary>
+        </member>
+        <member name="T:dpz3.VDisk.Types.VirtualPathInfo">
+            <summary>
+            文件信息
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualPathInfo.Position">
+            <summary>
+            文件寻址
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualPathInfo.NextPosition">
+            <summary>
+            下一个文件寻址
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualPathInfo.FirstChildPosition">
+            <summary>
+            第一个子文件寻址
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualPathInfo.Type">
+            <summary>
+            存储类型
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualPathInfo.Name">
+            <summary>
+            存储名称
+            </summary>
+        </member>
+        <member name="T:dpz3.VDisk.Types.VirtualDataInfo">
+            <summary>
+            数据信息
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualDataInfo.Position">
+            <summary>
+            数据寻址
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualDataInfo.NextPosition">
+            <summary>
+            下一个文件寻址
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualDataInfo.Length">
+            <summary>
+            数据长度
+            </summary>
+        </member>
+        <member name="F:dpz3.VDisk.Types.VirtualDataInfo.Data">
+            <summary>
+            数据内容
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dpz3.XOrm</name>
+    </assembly>
+    <members>
+        <member name="T:dpz3.XOrm.Setting">
+            <summary>
+            设置类型
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.Setting.Version">
+            <summary>
+            获取或设置版本
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.Setting.Platforms">
+            <summary>
+            获取平台定义集合
+            </summary>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.FillData(dpz3.Xml.XmlNode)">
+            <summary>
+            填充数据
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.LoadFromUrl(System.String)">
+            <summary>
+            从网络加载设置
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.LoadFromFile(System.String)">
+            <summary>
+            从文件加载设置
+            </summary>
+            <param name="xmlPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.SaveToFile(System.String)">
+            <summary>
+            保存到文件
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.GetVersionCacheFromUrl(System.String)">
+            <summary>
+            从文件加载版本缓存
+            </summary>
+            <param name="xmlPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.GetVersionCacheFromFile(System.String)">
+            <summary>
+            从文件加载版本缓存
+            </summary>
+            <param name="xmlPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.SaveVersionCacheToFile(System.String)">
+            <summary>
+            保存到文件
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.OnParseString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.XOrm.Setting.Item(System.String)">
+            <summary>
+            获取或快速创建一个平台配置
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.Setting.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:dpz3.XOrm.SettingPlatform">
+            <summary>
+            平台设置项
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.SettingPlatform.Name">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.SettingPlatform.Title">
+            <summary>
+            获取或设置标题
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.SettingPlatform.Tables">
+            <summary>
+            获取表格定义集合
+            </summary>
+        </member>
+        <member name="M:dpz3.XOrm.SettingPlatform.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.XOrm.SettingPlatform.FillData(dpz3.Xml.XmlNode)">
+            <summary>
+            填充数据
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:dpz3.XOrm.SettingPlatform.OnParseString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.XOrm.SettingPlatform.Item(System.String)">
+            <summary>
+            获取或快速创建一个表配置
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.SettingPlatform.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:dpz3.XOrm.SettingTable">
+            <summary>
+            表设置项
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.SettingTable.Name">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.SettingTable.Title">
+            <summary>
+            获取或设置标题
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.SettingTable.Version">
+            <summary>
+            获取或设置版本
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.SettingTable.MD5">
+            <summary>
+            获取或设置MD5值
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.SettingTable.Path">
+            <summary>
+            获取或设置存储路径
+            </summary>
+        </member>
+        <member name="M:dpz3.XOrm.SettingTable.FillData(dpz3.Xml.XmlNode)">
+            <summary>
+            填充数据
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:dpz3.XOrm.SettingTable.OnParseString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.SettingTable.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:dpz3.XOrm.Syncer">
+            <summary>
+            配置同步器
+            </summary>
+        </member>
+        <member name="M:dpz3.XOrm.Syncer.#ctor(System.String,System.String)">
+            <summary>
+            实例化一个新的配置同步器
+            </summary>
+            <param name="url"></param>
+            <param name="path"></param>
+        </member>
+        <member name="M:dpz3.XOrm.Syncer.SyncSetting">
+            <summary>
+            同步设置文件
+            </summary>
+        </member>
+        <member name="M:dpz3.XOrm.Syncer.SyncTable(System.String,System.String)">
+            <summary>
+            同步表文件
+            </summary>
+        </member>
+        <member name="T:dpz3.XOrm.Table">
+            <summary>
+            表定义
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.Table.Name">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.Table.Title">
+            <summary>
+            获取或设置标题
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.Table.Inherit">
+            <summary>
+            获取或设置继承信息
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.Table.Description">
+            <summary>
+            获取或设置描述
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.Table.Fields">
+            <summary>
+            获取字段定义集合
+            </summary>s
+        </member>
+        <member name="M:dpz3.XOrm.Table.FillData(dpz3.Xml.XmlNode)">
+            <summary>
+            填充数据
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:dpz3.XOrm.Table.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:dpz3.XOrm.Table.LoadFromUrl(System.String)">
+            <summary>
+            从网络加载设置
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.Table.LoadFromFile(System.String)">
+            <summary>
+            从文件加载设置
+            </summary>
+            <param name="xmlPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.Table.SaveToFile(System.String)">
+            <summary>
+            保存到文件
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="P:dpz3.XOrm.Table.Item(System.String)">
+            <summary>
+            获取或快速创建一个字段配置
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.Table.OnParseString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.Table.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:dpz3.XOrm.TableField">
+            <summary>
+            表字段定义
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.TableField.Name">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.TableField.Title">
+            <summary>
+            获取或设置标题
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.TableField.DataType">
+            <summary>
+            获取或设置数据类型
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.TableField.DataSize">
+            <summary>
+            获取或设置数据尺寸
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.TableField.DataFloat">
+            <summary>
+            获取或设置数据精度
+            </summary>
+        </member>
+        <member name="M:dpz3.XOrm.TableField.FillData(dpz3.Xml.XmlNode)">
+            <summary>
+            填充数据
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:dpz3.XOrm.TableField.Copy">
+            <summary>
+            复制一个相同的自己
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.TableField.OnParseString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.TableField.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+    </members>
+</doc>
