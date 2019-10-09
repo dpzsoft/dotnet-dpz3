@@ -1912,6 +1912,659 @@
             释放内存
             </summary>
         </member>
+        <member name="T:dpz3.Markdown.MdBasic">
+            <summary>
+            Markdown的基础对象
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdBasic.OnGetHtmlString">
+            <summary>
+            获取HTML字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdBasic.ToHtml">
+            <summary>
+            转化为HTML代码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdBlock">
+            <summary>
+            区块
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdBlock.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdBlock.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdBlockBasic">
+            <summary>
+            包含内容的Markdown元素的基础块对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdBlockBasic.Children">
+            <summary>
+            获取子元素集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdBlockBasic.#ctor">
+            <summary>
+            实例化块对象
+            </summary>
+        </member>
+        <member name="T:dpz3.Markdown.MdBold">
+            <summary>
+            文本对象
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdBold.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdBold.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdBoldItalic">
+            <summary>
+            文本对象
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdBoldItalic.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdBoldItalic.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdCode">
+            <summary>
+            代码
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdCode.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdCode.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdCodeBlock">
+            <summary>
+            代码块
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdCodeBlock.Language">
+            <summary>
+            获取或设置语言
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdCodeBlock.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdCodeBlock.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdCodeLine">
+            <summary>
+            代码行
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdCodeLine.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdCodeLine.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdContentBasic">
+            <summary>
+            包含内容的Markdown元素的基础对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdContentBasic.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="T:dpz3.Markdown.MdDocument">
+            <summary>
+            Markdown 文档对象
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdDocument.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdDocument.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdItalic">
+            <summary>
+            文本对象
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdItalic.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdItalic.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdLevelBlockBasic">
+            <summary>
+            带层级的块基础对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdLevelBlockBasic.Level">
+            <summary>
+            获取或设置层次
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdLevelBlockBasic.LevelString">
+            <summary>
+            获取或设置层次表示字符串
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdLevelBlockBasic.#ctor">
+            <summary>
+            实例化
+            </summary>
+        </member>
+        <member name="T:dpz3.Markdown.MdLevelContentBasic">
+            <summary>
+            带层级的块基础对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdLevelContentBasic.Level">
+            <summary>
+            获取或设置层次
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdLevelContentBasic.LevelString">
+            <summary>
+            获取或设置层次表示字符串
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdLevelContentBasic.#ctor">
+            <summary>
+            实例化
+            </summary>
+        </member>
+        <member name="T:dpz3.Markdown.MdLine">
+            <summary>
+            文本对象
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdLine.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdLine.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdLink">
+            <summary>
+            超链接
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdLink.Url">
+            <summary>
+            获取或设置链接地址
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdLink.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdLink.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdOrderedList">
+            <summary>
+            有序列表
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdOrderedList.SerialNumber">
+            <summary>
+            获取或设置序号
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdOrderedList.#ctor">
+            <summary>
+            对象初始化
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdOrderedList.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdOrderedList.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdOrderedListItem">
+            <summary>
+            无序列表项
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdOrderedListItem.SerialNumber">
+            <summary>
+            获取或设置序号
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdOrderedListItem.#ctor">
+            <summary>
+            对象初始化
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdOrderedListItem.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdOrderedListItem.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdSpace">
+            <summary>
+            空行，可用于清除格式
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdSpace.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdSpace.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdStrikethrough">
+            <summary>
+            删除线
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdStrikethrough.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdStrikethrough.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTable">
+            <summary>
+            表格
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdTable.Headers">
+            <summary>
+            获取头定义集合
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdTable.Aligns">
+            <summary>
+            获取头定义集合
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdTable.Rows">
+            <summary>
+            获取数据定义集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTable.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTable.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTableAlign">
+            <summary>
+            表格头部数据
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTableAlign.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTableCell">
+            <summary>
+            表格行
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTableCell.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTableCell.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTableHeader">
+            <summary>
+            表格头部数据
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdTableHeader.Align">
+            <summary>
+            获取或设置对齐方式
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTableHeader.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTableHeader.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTableRow">
+            <summary>
+            表格行
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdTableRow.Children">
+            <summary>
+            获取头定义集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTableRow.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTableRow.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdText">
+            <summary>
+            文本对象
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdText.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdText.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTextLine">
+            <summary>
+            文本行
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdTextLine.IsSection">
+            <summary>
+            是否为段落
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTextLine.#ctor">
+            <summary>
+            实例化对象
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTextLine.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTextLine.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTitle1">
+            <summary>
+            一级标题
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle1.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle1.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTitle2">
+            <summary>
+            二级标题
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle2.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle2.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTitle3">
+            <summary>
+            三级标题
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle3.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle3.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTitle4">
+            <summary>
+            四级标题
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle4.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle4.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTitle5">
+            <summary>
+            五级标题
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle5.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle5.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdTitle6">
+            <summary>
+            六级标题
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle6.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle6.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdUnorderedList">
+            <summary>
+            无序列表
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdUnorderedList.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdUnorderedList.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.MdUnorderedListItem">
+            <summary>
+            无序列表项
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdUnorderedListItem.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdUnorderedListItem.OnGetHtmlString">
+            <summary>
+            获取HTML表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Markdown.Parser">
+            <summary>
+            Markdown
+            </summary>
+        </member>
+        <member name="M:dpz3.Markdown.Parser.GetDocument(System.String)">
+            <summary>
+            获取对象
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.Parser.Escape(System.String)">
+            <summary>
+            获取HTML转码后的序列化字符串
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
         <member name="T:dpz3.Net.Dns">
             <summary>
             DNS专用类
@@ -2185,6 +2838,13 @@
             <summary>
             专用操作对象基类
             </summary>
+        </member>
+        <member name="M:dpz3.Object.IsNull(System.Object)">
+            <summary>
+            获取对象是否为空
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
         </member>
         <member name="M:dpz3.Object.OnDispose">
             <summary>

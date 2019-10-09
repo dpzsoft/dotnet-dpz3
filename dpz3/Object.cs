@@ -8,6 +8,15 @@ namespace dpz3 {
     public abstract class Object : IDisposable {
 
         /// <summary>
+        /// 获取对象是否为空
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool IsNull(System.Object obj) {
+            return Equals(obj, null);
+        }
+
+        /// <summary>
         /// 继承函数，销毁函数
         /// </summary>
         protected virtual void OnDispose() { }
