@@ -7,13 +7,18 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 代码行
     /// </summary>
-    public class MdCodeLine : MdContentBasic {
+    public class MdCodeLine : MdBasicContent {
+
+        /// <summary>
+        /// 对象实例化
+        /// </summary>
+        public MdCodeLine() : base(MdTypes.CodeLine) { }
 
         /// <summary>
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
+        protected override string OnGetMarkdownString() {
             return String.Format("    {0}\r\n", base.Content);
         }
 

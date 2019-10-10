@@ -5,16 +5,21 @@ using System.Text;
 namespace dpz3.Markdown {
 
     /// <summary>
-    /// 四级标题
+    /// 文本对象
     /// </summary>
-    public class MdTitle4 : MdContentBasic {
+    public class MdNull : MdBasic {
+
+        /// <summary>
+        /// 对象实例化
+        /// </summary>
+        public MdNull() : base(MdTypes.Null) { }
 
         /// <summary>
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
-            return String.Format("#### {0}\r\n\r\n", Parser.Escape(base.Content));
+        protected override string OnGetMarkdownString() {
+            return "\r\n";
         }
 
         /// <summary>
@@ -22,7 +27,7 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnGetHtmlString() {
-            return String.Format("<h4>{0}</h4>", base.Content);
+            return "";
         }
 
     }

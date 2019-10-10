@@ -18,7 +18,7 @@ namespace dpz3.Markdown {
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
+        protected override string OnGetMarkdownString() {
             return String.Format("| {0} ", Parser.Escape(base.Content));
         }
 

@@ -7,19 +7,12 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 区块
     /// </summary>
-    public class MdBlock : MdLevelBlockBasic {
+    public class MdBlock : MdBasicBlock {
 
         /// <summary>
-        /// 获取标准字符串表示
+        /// 对象实例化
         /// </summary>
-        /// <returns></returns>
-        protected override string OnParseString() {
-            StringBuilder sb = new StringBuilder();
-            foreach (var md in base.Children) {
-                sb.Append(md.ToString());
-            }
-            return sb.ToString();
-        }
+        public MdBlock() : base(MdTypes.Block, "> ") { }
 
         /// <summary>
         /// 获取HTML表示形式

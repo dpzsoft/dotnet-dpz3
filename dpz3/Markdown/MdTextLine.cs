@@ -7,7 +7,7 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 文本行
     /// </summary>
-    public class MdTextLine : MdBlockBasic {
+    public class MdTextLine : MdBasicBlock {
 
         /// <summary>
         /// 是否为段落
@@ -17,7 +17,7 @@ namespace dpz3.Markdown {
         /// <summary>
         /// 实例化对象
         /// </summary>
-        public MdTextLine() {
+        public MdTextLine() : base(MdTypes.TextLine) {
             this.IsSection = false;
         }
 
@@ -25,13 +25,12 @@ namespace dpz3.Markdown {
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
+        protected override string OnGetMarkdownString() {
             StringBuilder sb = new StringBuilder();
             foreach (var md in base.Children) {
                 sb.Append(md.ToString());
             }
             sb.Append("\r\n");
-            if (this.IsSection) sb.Append("\r\n");
             return sb.ToString();
         }
 
@@ -41,14 +40,14 @@ namespace dpz3.Markdown {
         /// <returns></returns>
         protected override string OnGetHtmlString() {
             StringBuilder sb = new StringBuilder();
-            if (IsSection) sb.Append("<p>");
+            if (IsSection) {
+                sb.Append("<p>");
+            }
             foreach (var md in base.Children) {
                 sb.Append(md.ToHtml());
             }
             if (IsSection) {
                 sb.Append("</p>");
-            } else {
-                sb.Append("<br />");
             }
             return sb.ToString();
         }

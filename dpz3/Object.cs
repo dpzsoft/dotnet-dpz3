@@ -12,7 +12,7 @@ namespace dpz3 {
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public bool IsNull(System.Object obj) {
+        public static bool IsNull(System.Object obj) {
             return Equals(obj, null);
         }
 

@@ -10,11 +10,16 @@ namespace dpz3.Markdown {
     public class MdLine : MdBasic {
 
         /// <summary>
+        /// 对象实例化
+        /// </summary>
+        public MdLine() : base(MdTypes.Line) { }
+
+        /// <summary>
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
-            return "***\r\n";
+        protected override string OnGetMarkdownString() {
+            return "******\r\n";
         }
 
         /// <summary>

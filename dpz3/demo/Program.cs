@@ -10,7 +10,11 @@ namespace demo {
 
             string md = dpz3.File.UTF8File.ReadAllText(@"X:\Temp\temp.md");
             using (var doc = dpz3.Markdown.Parser.GetDocument(md)) {
+                Console.WriteLine("String:");
                 Console.WriteLine(doc.ToString());
+                Console.WriteLine("Markdown:");
+                Console.WriteLine(doc.ToMarkdown());
+                Console.WriteLine("HTML:");
                 Console.WriteLine(doc.ToHtml());
             }
 

@@ -7,7 +7,12 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 超链接
     /// </summary>
-    public class MdLink : MdContentBasic {
+    public class MdTextLink : MdBasicContent {
+
+        /// <summary>
+        /// 对象实例化
+        /// </summary>
+        public MdTextLink() : base(MdTypes.TextLink) { }
 
         /// <summary>
         /// 获取或设置链接地址
@@ -18,7 +23,7 @@ namespace dpz3.Markdown {
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
+        protected override string OnGetMarkdownString() {
             return String.Format("[{0}]({1})", Parser.Escape(base.Content), this.Url);
         }
 

@@ -10,6 +10,11 @@ namespace dpz3.Markdown {
     public class MdTableRow : MdBasic {
 
         /// <summary>
+        /// 对象实例化
+        /// </summary>
+        public MdTableRow() : base(MdTypes.TableRow) { }
+
+        /// <summary>
         /// 获取头定义集合
         /// </summary>
         public List<MdTableCell> Children { get; private set; }
@@ -18,10 +23,10 @@ namespace dpz3.Markdown {
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
+        protected override string OnGetMarkdownString() {
             StringBuilder sb = new StringBuilder();
             foreach (var md in this.Children) {
-                sb.Append(md.ToString());
+                sb.Append(md.ToMarkdown());
                 sb.Append("|\r\n");
             }
             return sb.ToString();

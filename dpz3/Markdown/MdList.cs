@@ -7,7 +7,12 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 有序列表
     /// </summary>
-    public class MdOrderedList : MdLevelBlockBasic {
+    public class MdList : MdBasicBlock {
+
+        /// <summary>
+        /// 获取或设置是否为有序列表
+        /// </summary>
+        public bool IsOrdered { get; set; }
 
         /// <summary>
         /// 获取或设置序号
@@ -17,20 +22,9 @@ namespace dpz3.Markdown {
         /// <summary>
         /// 对象初始化
         /// </summary>
-        public MdOrderedList() {
+        public MdList() : base(MdTypes.List, "    ") {
             this.SerialNumber = 1;
-        }
-
-        /// <summary>
-        /// 获取标准字符串表示
-        /// </summary>
-        /// <returns></returns>
-        protected override string OnParseString() {
-            StringBuilder sb = new StringBuilder();
-            foreach (var md in base.Children) {
-                sb.Append(md.ToString());
-            }
-            return sb.ToString();
+            this.IsOrdered = false;
         }
 
         /// <summary>

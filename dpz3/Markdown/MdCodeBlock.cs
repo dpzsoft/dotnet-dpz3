@@ -7,7 +7,12 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 代码块
     /// </summary>
-    public class MdCodeBlock : MdContentBasic {
+    public class MdCodeBlock : MdBasicContent {
+
+        /// <summary>
+        /// 对象实例化
+        /// </summary>
+        public MdCodeBlock() : base(MdTypes.CodeBlock) {}
 
         /// <summary>
         /// 获取或设置语言
@@ -18,7 +23,7 @@ namespace dpz3.Markdown {
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
+        protected override string OnGetMarkdownString() {
             return String.Format("```{0}\r\n{1}\r\n```\r\n", this.Language, base.Content);
         }
 
