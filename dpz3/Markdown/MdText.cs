@@ -39,17 +39,21 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnGetMarkdownString() {
-            StringBuilder sb = new StringBuilder();
-            if (IsStrikethrough) sb.Append("~~");
-            if (IsBold) sb.Append("**");
-            if (IsItalic) sb.Append("*");
-            if (IsCode) sb.Append("`");
-            sb.Append(Parser.Escape(base.Content));
-            if (IsCode) sb.Append("`");
-            if (IsItalic) sb.Append("*");
-            if (IsBold) sb.Append("**");
-            if (IsStrikethrough) sb.Append("~~");
-            return sb.ToString();
+            if (this.ParentBlock.Type == MdTypes.CodeLine) {
+                return base.Content;
+            } else {
+                StringBuilder sb = new StringBuilder();
+                if (IsStrikethrough) sb.Append("~~");
+                if (IsBold) sb.Append("**");
+                if (IsItalic) sb.Append("*");
+                if (IsCode) sb.Append("`");
+                sb.Append(Parser.Escape(base.Content));
+                if (IsCode) sb.Append("`");
+                if (IsItalic) sb.Append("*");
+                if (IsBold) sb.Append("**");
+                if (IsStrikethrough) sb.Append("~~");
+                return sb.ToString();
+            }
         }
 
         /// <summary>
@@ -57,19 +61,23 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnGetHtmlString() {
-            StringBuilder sb = new StringBuilder();
-            if (IsStrikethrough) sb.Append("<del>");
-            if (IsBold) sb.Append("<b>");
-            if (IsItalic) sb.Append("<i>");
-            if (IsCode) sb.Append("<code>");
-            if (!(IsBold || IsStrikethrough || IsItalic || IsCode)) sb.Append("<span>");
-            sb.Append(base.Content);
-            if (!(IsBold || IsStrikethrough || IsItalic || IsCode)) sb.Append("</span>");
-            if (IsCode) sb.Append("</code>");
-            if (IsItalic) sb.Append("</i>");
-            if (IsBold) sb.Append("</b>");
-            if (IsStrikethrough) sb.Append("</del>");
-            return sb.ToString();
+            if (this.ParentBlock.Type == MdTypes.CodeLine) {
+                return base.Content;
+            } else {
+                StringBuilder sb = new StringBuilder();
+                if (IsStrikethrough) sb.Append("<del>");
+                if (IsBold) sb.Append("<b>");
+                if (IsItalic) sb.Append("<i>");
+                if (IsCode) sb.Append("<code>");
+                if (!(IsBold || IsStrikethrough || IsItalic || IsCode)) sb.Append("<span>");
+                sb.Append(base.Content);
+                if (!(IsBold || IsStrikethrough || IsItalic || IsCode)) sb.Append("</span>");
+                if (IsCode) sb.Append("</code>");
+                if (IsItalic) sb.Append("</i>");
+                if (IsBold) sb.Append("</b>");
+                if (IsStrikethrough) sb.Append("</del>");
+                return sb.ToString();
+            }
         }
 
     }

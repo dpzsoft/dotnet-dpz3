@@ -15,6 +15,14 @@ namespace dpz3.Markdown {
         public MdBlock() : base(MdTypes.Block, "> ") { }
 
         /// <summary>
+        /// 获取标准字符串
+        /// </summary>
+        /// <returns></returns>
+        protected override string OnParseString() {
+            return String.Format("[Block {0}]", base.Children.Count);
+        }
+
+        /// <summary>
         /// 获取HTML表示形式
         /// </summary>
         /// <returns></returns>

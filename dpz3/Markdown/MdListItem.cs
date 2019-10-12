@@ -7,7 +7,7 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 无序列表项
     /// </summary>
-    public class MdListItem : MdBasicContent {
+    public class MdListItem : MdBasicBlock {
 
         /// <summary>
         /// 获取或设置序号
@@ -22,6 +22,14 @@ namespace dpz3.Markdown {
         }
 
         /// <summary>
+        /// 获取标准字符串
+        /// </summary>
+        /// <returns></returns>
+        protected override string OnParseString() {
+            return String.Format("[ListItem {0}]\r\n", base.Children.Count);
+        }
+
+        /// <summary>
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
@@ -33,7 +41,7 @@ namespace dpz3.Markdown {
             } else {
                 sb.Append("+ ");
             }
-            sb.Append(Parser.Escape(base.Content));
+            sb.Append(base.Children.GetMarkdownString());
             return sb.ToString();
         }
 
@@ -42,7 +50,7 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnGetHtmlString() {
-            return String.Format("<li>{0}</li>", base.Content);
+            return String.Format("<li>{0}</li>", base.Children.GetHtmlString());
         }
 
     }

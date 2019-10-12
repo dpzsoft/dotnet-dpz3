@@ -15,16 +15,10 @@ namespace dpz3.Markdown {
         public MdBasicBlock ParentBlock { get; private set; }
 
         /// <summary>
-        /// 获取子元素集合
-        /// </summary>
-        public List<MdBasic> Children { get; private set; }
-
-        /// <summary>
         /// 实例化块对象
         /// </summary>
         public MdBasicCollection(MdBasicBlock parent) {
             this.ParentBlock = parent;
-            this.Children = new List<MdBasic>();
         }
 
         /// <summary>
@@ -42,7 +36,7 @@ namespace dpz3.Markdown {
         /// <returns></returns>
         internal string GetMarkdownString() {
             StringBuilder sb = new StringBuilder();
-            foreach (var md in this.Children) {
+            foreach (var md in this) {
                 sb.Append(md.ToMarkdown());
             }
             return sb.ToString();
@@ -54,7 +48,7 @@ namespace dpz3.Markdown {
         /// <returns></returns>
         internal string GetString() {
             StringBuilder sb = new StringBuilder();
-            foreach (var md in this.Children) {
+            foreach (var md in this) {
                 sb.Append(md.ToString());
             }
             return sb.ToString();
@@ -66,7 +60,7 @@ namespace dpz3.Markdown {
         /// <returns></returns>
         internal string GetHtmlString() {
             StringBuilder sb = new StringBuilder();
-            foreach (var md in this.Children) {
+            foreach (var md in this) {
                 sb.Append(md.ToHtml());
             }
             return sb.ToString();

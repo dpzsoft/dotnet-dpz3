@@ -16,9 +16,18 @@ namespace dpz3.Markdown {
 
         /// <summary>
         /// 实例化对象
+        /// <param name="mdType"></param>
         /// </summary>
-        public MdTextLine() : base(MdTypes.TextLine) {
+        public MdTextLine(MdTypes mdType = MdTypes.TextLine) : base(mdType) {
             this.IsSection = false;
+        }
+
+        /// <summary>
+        /// 获取标准字符串
+        /// </summary>
+        /// <returns></returns>
+        protected override string OnParseString() {
+            return base.Children.GetString();
         }
 
         /// <summary>
@@ -27,9 +36,7 @@ namespace dpz3.Markdown {
         /// <returns></returns>
         protected override string OnGetMarkdownString() {
             StringBuilder sb = new StringBuilder();
-            foreach (var md in base.Children) {
-                sb.Append(md.ToString());
-            }
+            sb.Append(this.Children.GetMarkdownString());
             sb.Append("\r\n");
             return sb.ToString();
         }
@@ -43,9 +50,7 @@ namespace dpz3.Markdown {
             if (IsSection) {
                 sb.Append("<p>");
             }
-            foreach (var md in base.Children) {
-                sb.Append(md.ToHtml());
-            }
+            sb.Append(base.Children.GetHtmlString());
             if (IsSection) {
                 sb.Append("</p>");
             }

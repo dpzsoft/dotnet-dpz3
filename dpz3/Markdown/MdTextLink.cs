@@ -32,7 +32,7 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnGetHtmlString() {
-            return String.Format("<a href=\"{0}\">{1}</a>", base.Content, this.Url);
+            return String.Format("<a href=\"{0}\">{1}</a>", this.Url, base.Content);
         }
 
     }

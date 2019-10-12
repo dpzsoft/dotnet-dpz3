@@ -26,13 +26,21 @@ namespace dpz3.Markdown {
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
+        protected override string OnParseString() {
+            return String.Format("[Title({0}) {1}]", this.Level, this.Children.Count);
+        }
+
+        /// <summary>
+        /// 获取标准字符串表示
+        /// </summary>
+        /// <returns></returns>
         protected override string OnGetMarkdownString() {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < this.Level; i++) {
                 sb.Append('#');
             }
             sb.Append(' ');
-            sb.Append(this.Children.GetString());
+            sb.Append(this.Children.GetMarkdownString());
             sb.Append("\r\n");
             return sb.ToString();
         }

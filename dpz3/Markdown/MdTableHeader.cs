@@ -7,19 +7,26 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 表格头部数据
     /// </summary>
-    public class MdTableHeader : MdTableCell {
+    public class MdTableHeader : MdBasicBlock {
 
         /// <summary>
-        /// 获取或设置对齐方式
+        /// 对象实例化
         /// </summary>
-        public string Align { get; private set; }
+        public MdTableHeader() : base(MdTypes.TableHeader) { }
 
         /// <summary>
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
         protected override string OnGetMarkdownString() {
-            return String.Format("| {0} ", Parser.Escape(base.Content));
+            StringBuilder sb = new StringBuilder();
+            foreach (var md in this.Children) {
+                sb.Append("| ");
+                sb.Append(md.ToMarkdown());
+                sb.Append(" ");
+            }
+            sb.Append("|");
+            return sb.ToString();
         }
 
         /// <summary>
@@ -27,12 +34,26 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnGetHtmlString() {
-            if (this.Align.IsNoneOrNull()) {
-                return String.Format("<th>{0}</th>", base.Content);
-            } else {
-                return String.Format("<th align=\"{0}\">{1}</th>", this.Align, base.Content);
+            StringBuilder sb = new StringBuilder();
+            MdTable mdTable = (MdTable)this.ParentBlock;
+            sb.Append("<tr>");
+            for (int i = 0; i < this.Children.Count; i++) {
+                var md = this.Children[i];
+                string align = null;
+                if (mdTable.Children.Count >= 2) {
+                    MdTableAlign mdTableAlign = (MdTableAlign)mdTable.Children[1];
+                    if (mdTableAlign.Children.Count > i) {
+                        align = mdTableAlign.Children[i].ToString();
+                    }
+                }
+                if (align.IsNoneOrNull()) {
+                    sb.AppendFormat("<th>{0}</th>", md.ToHtml());
+                } else {
+                    sb.AppendFormat("<th align=\"{0}\">{1}</th>", align, md.ToHtml());
+                }
             }
-
+            sb.Append("</tr>");
+            return sb.ToString();
         }
 
     }

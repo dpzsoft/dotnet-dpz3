@@ -122,6 +122,14 @@ namespace dpz3.Markdown {
         }
 
         /// <summary>
+        /// 获取标准字符串表示
+        /// </summary>
+        /// <returns></returns>
+        protected override string OnParseString() {
+            return String.Format("[Basic]");
+        }
+
+        /// <summary>
         /// 获取HTML字符串
         /// </summary>
         /// <returns></returns>

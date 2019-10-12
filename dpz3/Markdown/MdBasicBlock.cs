@@ -33,6 +33,21 @@ namespace dpz3.Markdown {
         /// 获取完整的分层字符串
         /// </summary>
         /// <returns></returns>
+        public string GetSpace() {
+            if (dpz3.Object.IsNull(this.ParentBlock)) {
+                return "";
+            } else {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(this.ParentBlock.GetSpace());
+                sb.Append("  ");
+                return sb.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 获取完整的分层字符串
+        /// </summary>
+        /// <returns></returns>
         public string GetFullLevelString() {
             if (dpz3.Object.IsNull(this.ParentBlock)) {
                 return this.LevelString;
@@ -57,7 +72,7 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnParseString() {
-            return this.Children.GetString();
+            return String.Format("[BasicBlock {0}]", this.Children.Count);
         }
 
         /// <summary>

@@ -2068,6 +2068,12 @@
             <param name="mdType"></param>
             </summary>
         </member>
+        <member name="M:dpz3.Markdown.MdBasic.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.Markdown.MdBasic.OnGetHtmlString">
             <summary>
             获取HTML字符串
@@ -2114,6 +2120,12 @@
             <param name="lvString"></param>
             </summary>
         </member>
+        <member name="M:dpz3.Markdown.MdBasicBlock.GetSpace">
+            <summary>
+            获取完整的分层字符串
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.Markdown.MdBasicBlock.GetFullLevelString">
             <summary>
             获取完整的分层字符串
@@ -2146,11 +2158,6 @@
         <member name="P:dpz3.Markdown.MdBasicCollection.ParentBlock">
             <summary>
             父区块
-            </summary>
-        </member>
-        <member name="P:dpz3.Markdown.MdBasicCollection.Children">
-            <summary>
-            获取子元素集合
             </summary>
         </member>
         <member name="M:dpz3.Markdown.MdBasicCollection.#ctor(dpz3.Markdown.MdBasicBlock)">
@@ -2200,7 +2207,7 @@
         </member>
         <member name="M:dpz3.Markdown.MdBasicContent.OnParseString">
             <summary>
-            返回字符串
+            获取标准字符串表示
             </summary>
             <returns></returns>
         </member>
@@ -2214,6 +2221,12 @@
             对象实例化
             </summary>
         </member>
+        <member name="M:dpz3.Markdown.MdBlock.OnParseString">
+            <summary>
+            获取标准字符串
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.Markdown.MdBlock.OnGetHtmlString">
             <summary>
             获取HTML表示形式
@@ -2225,15 +2238,21 @@
             代码块
             </summary>
         </member>
+        <member name="P:dpz3.Markdown.MdCodeBlock.Language">
+            <summary>
+            获取或设置语言
+            </summary>
+        </member>
         <member name="M:dpz3.Markdown.MdCodeBlock.#ctor">
             <summary>
             对象实例化
             </summary>
         </member>
-        <member name="P:dpz3.Markdown.MdCodeBlock.Language">
+        <member name="M:dpz3.Markdown.MdCodeBlock.OnParseString">
             <summary>
-            获取或设置语言
+            获取标准字符串
             </summary>
+            <returns></returns>
         </member>
         <member name="M:dpz3.Markdown.MdCodeBlock.OnGetMarkdownString">
             <summary>
@@ -2257,6 +2276,12 @@
             对象实例化
             </summary>
         </member>
+        <member name="M:dpz3.Markdown.MdCodeLine.OnParseString">
+            <summary>
+            获取标准字符串
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.Markdown.MdCodeLine.OnGetMarkdownString">
             <summary>
             获取标准字符串表示
@@ -2279,6 +2304,12 @@
             对象实例化
             </summary>
         </member>
+        <member name="M:dpz3.Markdown.MdDocument.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:dpz3.Markdown.MdLine">
             <summary>
             文本对象
@@ -2288,6 +2319,12 @@
             <summary>
             对象实例化
             </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdLine.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:dpz3.Markdown.MdLine.OnGetMarkdownString">
             <summary>
@@ -2321,6 +2358,12 @@
             对象初始化
             </summary>
         </member>
+        <member name="M:dpz3.Markdown.MdList.OnParseString">
+            <summary>
+            获取标准字符串
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.Markdown.MdList.OnGetHtmlString">
             <summary>
             获取HTML表示形式
@@ -2341,6 +2384,12 @@
             <summary>
             对象初始化
             </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdListItem.OnParseString">
+            <summary>
+            获取标准字符串
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:dpz3.Markdown.MdListItem.OnGetMarkdownString">
             <summary>
@@ -2376,9 +2425,20 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:dpz3.Markdown.MdNull.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:dpz3.Markdown.MdTable">
             <summary>
             表格
+            </summary>
+        </member>
+        <member name="P:dpz3.Markdown.MdTable.Row">
+            <summary>
+            获取或设置序号
             </summary>
         </member>
         <member name="M:dpz3.Markdown.MdTable.#ctor">
@@ -2386,22 +2446,7 @@
             对象实例化
             </summary>
         </member>
-        <member name="P:dpz3.Markdown.MdTable.Headers">
-            <summary>
-            获取头定义集合
-            </summary>
-        </member>
-        <member name="P:dpz3.Markdown.MdTable.Aligns">
-            <summary>
-            获取头定义集合
-            </summary>
-        </member>
-        <member name="P:dpz3.Markdown.MdTable.Rows">
-            <summary>
-            获取数据定义集合
-            </summary>
-        </member>
-        <member name="M:dpz3.Markdown.MdTable.OnGetMarkdownString">
+        <member name="M:dpz3.Markdown.MdTable.OnParseString">
             <summary>
             获取标准字符串表示
             </summary>
@@ -2423,9 +2468,21 @@
             对象实例化
             </summary>
         </member>
+        <member name="M:dpz3.Markdown.MdTableAlign.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.Markdown.MdTableAlign.OnGetMarkdownString">
             <summary>
             获取标准字符串表示
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Markdown.MdTableAlign.OnGetHtmlString">
+            <summary>
+            获取标准的HTML字符串
             </summary>
             <returns></returns>
         </member>
@@ -2456,9 +2513,9 @@
             表格头部数据
             </summary>
         </member>
-        <member name="P:dpz3.Markdown.MdTableHeader.Align">
+        <member name="M:dpz3.Markdown.MdTableHeader.#ctor">
             <summary>
-            获取或设置对齐方式
+            对象实例化
             </summary>
         </member>
         <member name="M:dpz3.Markdown.MdTableHeader.OnGetMarkdownString">
@@ -2481,11 +2538,6 @@
         <member name="M:dpz3.Markdown.MdTableRow.#ctor">
             <summary>
             对象实例化
-            </summary>
-        </member>
-        <member name="P:dpz3.Markdown.MdTableRow.Children">
-            <summary>
-            获取头定义集合
             </summary>
         </member>
         <member name="M:dpz3.Markdown.MdTableRow.OnGetMarkdownString">
@@ -2552,10 +2604,17 @@
             是否为段落
             </summary>
         </member>
-        <member name="M:dpz3.Markdown.MdTextLine.#ctor">
+        <member name="M:dpz3.Markdown.MdTextLine.#ctor(dpz3.Markdown.MdTypes)">
             <summary>
             实例化对象
+            <param name="mdType"></param>
             </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTextLine.OnParseString">
+            <summary>
+            获取标准字符串
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:dpz3.Markdown.MdTextLine.OnGetMarkdownString">
             <summary>
@@ -2611,6 +2670,12 @@
             对象实例化
             <param name="lv"></param>
             </summary>
+        </member>
+        <member name="M:dpz3.Markdown.MdTitle.OnParseString">
+            <summary>
+            获取标准字符串表示
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:dpz3.Markdown.MdTitle.OnGetMarkdownString">
             <summary>

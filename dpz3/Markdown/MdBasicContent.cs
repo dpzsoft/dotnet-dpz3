@@ -21,7 +21,7 @@ namespace dpz3.Markdown {
         public MdBasicContent(MdTypes mdType) : base(mdType) { }
 
         /// <summary>
-        /// 返回字符串
+        /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
         protected override string OnParseString() {
