@@ -7,7 +7,7 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 无序列表项
     /// </summary>
-    public class MdOrderedListItem : MdLevelContentBasic {
+    public class MdListItem : MdBasicBlock {
 
         /// <summary>
         /// 获取或设置序号
@@ -17,21 +17,31 @@ namespace dpz3.Markdown {
         /// <summary>
         /// 对象初始化
         /// </summary>
-        public MdOrderedListItem() {
+        public MdListItem() : base(MdTypes.ListItem) {
             this.SerialNumber = 1;
+        }
+
+        /// <summary>
+        /// 获取标准字符串
+        /// </summary>
+        /// <returns></returns>
+        protected override string OnParseString() {
+            return String.Format("[ListItem {0}]\r\n", base.Children.Count);
         }
 
         /// <summary>
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
+        protected override string OnGetMarkdownString() {
+            MdList mdList = (MdList)this.ParentBlock;
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < base.Level; i++) {
-                sb.Append(base.LevelString);
+            if (mdList.IsOrdered) {
+                sb.AppendFormat("{0}. ", this.SerialNumber);
+            } else {
+                sb.Append("+ ");
             }
-            sb.AppendFormat("{0}. ", this.SerialNumber);
-            sb.Append(Parser.Escape(base.Content));
+            sb.Append(base.Children.GetMarkdownString());
             return sb.ToString();
         }
 
@@ -40,7 +50,7 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnGetHtmlString() {
-            return String.Format("<li>{0}</li>", base.Content);
+            return String.Format("<li>{0}</li>", base.Children.GetHtmlString());
         }
 
     }

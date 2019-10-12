@@ -7,23 +7,25 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 表格行
     /// </summary>
-    public class MdTableRow : MdBasic {
+    public class MdTableRow : MdBasicBlock {
 
         /// <summary>
-        /// 获取头定义集合
+        /// 对象实例化
         /// </summary>
-        public List<MdTableCell> Children { get; private set; }
+        public MdTableRow() : base(MdTypes.TableRow) { }
 
         /// <summary>
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
+        protected override string OnGetMarkdownString() {
             StringBuilder sb = new StringBuilder();
             foreach (var md in this.Children) {
-                sb.Append(md.ToString());
-                sb.Append("|\r\n");
+                sb.Append("| ");
+                sb.Append(md.ToMarkdown());
+                sb.Append(" ");
             }
+            sb.Append("|");
             return sb.ToString();
         }
 
@@ -33,9 +35,11 @@ namespace dpz3.Markdown {
         /// <returns></returns>
         protected override string OnGetHtmlString() {
             StringBuilder sb = new StringBuilder();
+            MdTable mdTable = (MdTable)this.ParentBlock;
             sb.Append("<tr>");
-            foreach (var md in this.Children) {
-                sb.Append(md.ToHtml());
+            for (int i = 0; i < this.Children.Count; i++) {
+                var md = this.Children[i];
+                sb.AppendFormat("<td>{0}</td>", md.ToHtml());
             }
             sb.Append("</tr>");
             return sb.ToString();

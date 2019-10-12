@@ -5,29 +5,29 @@ using System.Text;
 namespace dpz3.Markdown {
 
     /// <summary>
-    /// 文本行
+    /// 一级标题
     /// </summary>
-    public class MdTextLine : MdBasicBlock {
+    public class MdTitle : MdBasicBlock {
 
         /// <summary>
-        /// 是否为段落
+        /// 层级
         /// </summary>
-        public bool IsSection { get; set; }
+        public int Level { get; private set; }
 
         /// <summary>
-        /// 实例化对象
-        /// <param name="mdType"></param>
+        /// 对象实例化
+        /// <param name="lv"></param>
         /// </summary>
-        public MdTextLine(MdTypes mdType = MdTypes.TextLine) : base(mdType) {
-            this.IsSection = false;
+        public MdTitle(int lv) : base(MdTypes.Title) {
+            this.Level = lv;
         }
 
         /// <summary>
-        /// 获取标准字符串
+        /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
         protected override string OnParseString() {
-            return base.Children.GetString();
+            return String.Format("[Title({0}) {1}]", this.Level, this.Children.Count);
         }
 
         /// <summary>
@@ -36,6 +36,10 @@ namespace dpz3.Markdown {
         /// <returns></returns>
         protected override string OnGetMarkdownString() {
             StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < this.Level; i++) {
+                sb.Append('#');
+            }
+            sb.Append(' ');
             sb.Append(this.Children.GetMarkdownString());
             sb.Append("\r\n");
             return sb.ToString();
@@ -46,15 +50,7 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnGetHtmlString() {
-            StringBuilder sb = new StringBuilder();
-            if (IsSection) {
-                sb.Append("<p>");
-            }
-            sb.Append(base.Children.GetHtmlString());
-            if (IsSection) {
-                sb.Append("</p>");
-            }
-            return sb.ToString();
+            return String.Format("<h{1}>{0}</h{1}>", base.OnGetHtmlString(), this.Level);
         }
 
     }

@@ -7,7 +7,12 @@ namespace dpz3.Markdown {
     /// <summary>
     /// 有序列表
     /// </summary>
-    public class MdOrderedList : MdLevelBlockBasic {
+    public class MdList : MdBasicBlock {
+
+        /// <summary>
+        /// 获取或设置是否为有序列表
+        /// </summary>
+        public bool IsOrdered { get; set; }
 
         /// <summary>
         /// 获取或设置序号
@@ -17,20 +22,17 @@ namespace dpz3.Markdown {
         /// <summary>
         /// 对象初始化
         /// </summary>
-        public MdOrderedList() {
+        public MdList() : base(MdTypes.List, "    ") {
             this.SerialNumber = 1;
+            this.IsOrdered = false;
         }
 
         /// <summary>
-        /// 获取标准字符串表示
+        /// 获取标准字符串
         /// </summary>
         /// <returns></returns>
         protected override string OnParseString() {
-            StringBuilder sb = new StringBuilder();
-            foreach (var md in base.Children) {
-                sb.Append(md.ToString());
-            }
-            return sb.ToString();
+            return String.Format("[List({0}) {1}]", this.IsOrdered, base.Children.Count);
         }
 
         /// <summary>
@@ -39,11 +41,17 @@ namespace dpz3.Markdown {
         /// <returns></returns>
         protected override string OnGetHtmlString() {
             StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("<ol start=\"{0}\">", this.SerialNumber);
-            foreach (var md in base.Children) {
-                sb.Append(md.ToHtml());
+            if (this.IsOrdered) {
+                sb.AppendFormat("<ol start=\"{0}\">", this.SerialNumber);
+            } else {
+                sb.Append("<ul>");
             }
-            sb.Append("</ol>");
+            sb.Append(base.Children.GetHtmlString());
+            if (this.IsOrdered) {
+                sb.Append("</ol>");
+            } else {
+                sb.Append("</ul>");
+            }
             return sb.ToString();
         }
 

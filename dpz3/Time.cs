@@ -71,7 +71,7 @@ namespace dpz3 {
         /// <summary>
         /// 申请一个新的示例
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="dt"></param>
         /// <returns></returns>
         public static Time New(DateTime dt) {
             return new Time(dt);

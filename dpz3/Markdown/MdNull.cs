@@ -5,21 +5,21 @@ using System.Text;
 namespace dpz3.Markdown {
 
     /// <summary>
-    /// 超链接
+    /// 文本对象
     /// </summary>
-    public class MdLink : MdContentBasic {
+    public class MdNull : MdBasic {
 
         /// <summary>
-        /// 获取或设置链接地址
+        /// 对象实例化
         /// </summary>
-        public string Url { get; set; }
+        public MdNull() : base(MdTypes.Null) { }
 
         /// <summary>
         /// 获取标准字符串表示
         /// </summary>
         /// <returns></returns>
-        protected override string OnParseString() {
-            return String.Format("[{0}]({1})", Parser.Escape(base.Content), this.Url);
+        protected override string OnGetMarkdownString() {
+            return "\r\n";
         }
 
         /// <summary>
@@ -27,7 +27,15 @@ namespace dpz3.Markdown {
         /// </summary>
         /// <returns></returns>
         protected override string OnGetHtmlString() {
-            return String.Format("<a href=\"{0}\">{1}</a>", base.Content, this.Url);
+            return "";
+        }
+
+        /// <summary>
+        /// 获取标准字符串表示
+        /// </summary>
+        /// <returns></returns>
+        protected override string OnParseString() {
+            return "[NULL]";
         }
 
     }

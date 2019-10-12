@@ -116,7 +116,7 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取一个子节点
         /// </summary>
-        /// <param name="tagname"></param>
+        /// <param name="tagName"></param>
         /// <returns></returns>
         public XmlNode this[string tagName] {
             get {
@@ -166,7 +166,8 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取所有满足属性限定的节点
         /// </summary>
-        /// <param name="tagName"></param>
+        /// <param name="attrName"></param>
+        /// <param name="attrValue"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
         public List<XmlNode> GetNodesByAttr(string attrName, string attrValue, bool searchChildNodes = true) {
@@ -196,7 +197,8 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取第一个满足属性限定的节点
         /// </summary>
-        /// <param name="tagName"></param>
+        /// <param name="attrName"></param>
+        /// <param name="attrValue"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
         public XmlNode GetNodeByAttr(string attrName, string attrValue, bool searchChildNodes = true) {

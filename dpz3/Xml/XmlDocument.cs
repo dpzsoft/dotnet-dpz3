@@ -79,7 +79,8 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取所有满足属性限定的节点
         /// </summary>
-        /// <param name="tagName"></param>
+        /// <param name="attrName"></param>
+        /// <param name="attrValue"></param>
         /// <param name="searchChildNodes"></param>
         /// <returns></returns>
         public List<XmlNode> GetNodesByAttr(string attrName, string attrValue, bool searchChildNodes = true) {

@@ -12,7 +12,53 @@ namespace dpz3.Html {
         /// <summary>
         /// 解析器类型
         /// </summary>
-        public enum ParserTypes { None, NodeName, NodeFinish, CData, PropertyName, PropertyNameFinish, PropertyValue, PropertyValueFinish, Note }
+        public enum ParserTypes {
+
+            /// <summary>
+            /// 无操作
+            /// </summary>
+            None,
+
+            /// <summary>
+            /// 节点名称
+            /// </summary>
+            NodeName,
+
+            /// <summary>
+            /// 节点结束
+            /// </summary>
+            NodeFinish,
+
+            /// <summary>
+            /// 数据
+            /// </summary>
+            CData,
+
+            /// <summary>
+            /// 属性名称
+            /// </summary>
+            PropertyName,
+
+            /// <summary>
+            /// 属性名称结束
+            /// </summary>
+            PropertyNameFinish,
+
+            /// <summary>
+            /// 属性值
+            /// </summary>
+            PropertyValue,
+
+            /// <summary>
+            /// 属性值结束
+            /// </summary>
+            PropertyValueFinish,
+
+            /// <summary>
+            /// 注释
+            /// </summary>
+            Note
+        }
 
         /// <summary>
         /// 获取HTML转码后的序列化字符串
