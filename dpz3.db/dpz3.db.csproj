@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>dotnet-dpz3-db</PackageId>
-    <Version>1.0.1909.3</Version>
+    <PackageId>dpz3.db</PackageId>
+    <Version>1.1.1911.4</Version>
     <Description>基于dpz3开发套件的数据库应用扩展(.Net Standard)，支持Sql Server、MySql、Sqlite和PostgreSql的原生SQL语句和通用封装函数操作</Description>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>
     <Authors>d.p.z software studio</Authors>
@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotnet-dpz3" Version="1.0.1909.5" />
+    <PackageReference Include="dpz3" Version="1.2.1911.25" />
     <PackageReference Include="Microsoft.Data.SQLite" Version="2.2.6" />
     <PackageReference Include="MySql.Data" Version="8.0.17" />
     <PackageReference Include="Npgsql" Version="4.0.9" />

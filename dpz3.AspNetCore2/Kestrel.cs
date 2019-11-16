@@ -3,7 +3,7 @@ using System.Net;
 using dpz3;
 using Microsoft.AspNetCore.Hosting;
 
-namespace dpz3.Mvc {
+namespace dpz3.AspNetCore2 {
 
     /// <summary>
     /// Kestrel操作器

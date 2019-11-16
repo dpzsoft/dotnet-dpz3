@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace dpz3.Mvc.Controllers {
+namespace dpz3.AspNetCore2.Controllers {
 
     /// <summary>
     /// 控制器字段设置

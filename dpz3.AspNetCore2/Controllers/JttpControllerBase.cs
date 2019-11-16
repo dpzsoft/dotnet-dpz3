@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace dpz3.Mvc.Controllers {
+namespace dpz3.AspNetCore2.Controllers {
 
     /// <summary>
     /// 基于Jttp协议的基础控制器

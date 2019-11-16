@@ -3047,14 +3047,14 @@
             页面信息
             </summary>
         </member>
+        <member name="P:dpz3.Net.Uri.Query">
+            <summary>
+            获取参数查询器
+            </summary>
+        </member>
         <member name="P:dpz3.Net.Uri.QueryString">
             <summary>
             获取参数字符串
-            </summary>
-        </member>
-        <member name="P:dpz3.Net.Uri.QueryJson">
-            <summary>
-            获取Json形式表示的参数
             </summary>
         </member>
         <member name="M:dpz3.Net.Uri.#ctor(System.String)">
@@ -3075,6 +3075,35 @@
             获取字符串显示形式
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:dpz3.Net.UriQuery">
+            <summary>
+            统一资源定位符参数查询器
+            </summary>
+        </member>
+        <member name="M:dpz3.Net.UriQuery.#ctor(System.String)">
+            <summary>
+            新建对象实例
+            </summary>
+            <param name="qs"></param>
+        </member>
+        <member name="P:dpz3.Net.UriQuery.Item(System.String)">
+            <summary>
+            获取或设置参数
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Net.UriQuery.OnParseString">
+            <summary>
+            获取字符串显示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Net.UriQuery.ToJson">
+            <summary>
+            获取Json形式表示的参数
+            </summary>
         </member>
         <member name="T:dpz3.Object">
             <summary>

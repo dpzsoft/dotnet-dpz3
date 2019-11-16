@@ -9,13 +9,6 @@ namespace dpz3.Net {
     /// </summary>
     public class Uri : dpz3.Object {
 
-        //private string gszUrl = "";//完整域名
-        private KeyValues<string> gArgs;//参数链表
-
-        //private string _page;//页面信息
-        //private string gszHost;//主机信息
-        //private string gszArgs;//参数列表
-
         /// <summary>
         /// 协议信息
         /// </summary>
@@ -41,37 +34,16 @@ namespace dpz3.Net {
         /// </summary>
         public string FileName { get; private set; } = "";
 
+
+        /// <summary>
+        /// 获取参数查询器
+        /// </summary>
+        public UriQuery Query { get; private set; }
+
         /// <summary>
         /// 获取参数字符串
         /// </summary>
-        public string QueryString {
-            get {
-                string res = "";
-                foreach (var arg in gArgs) {
-                    if (arg.Value != "") {
-                        if (res != "") res += "&";
-                        res += arg.Key + "=" + System.Web.HttpUtility.UrlEncode(arg.Value);
-                    }
-                }
-                return res != "" ? "?" + res : "";
-            }
-        }
-
-        /// <summary>
-        /// 获取Json形式表示的参数
-        /// </summary>
-        public string QueryJson {
-            get {
-                string res = "";
-                foreach (var arg in gArgs) {
-                    if (arg.Value != "") {
-                        if (res != "") res += ",";
-                        res += "\"" + arg.Key + "\":\"" + System.Web.HttpUtility.UrlEncode(arg.Value) + "\"";
-                    }
-                }
-                return "{" + res + "}";
-            }
-        }
+        public string QueryString { get { return this.Query.ToString(); } }
 
         /// <summary>
         /// 新建对象实例
@@ -81,8 +53,10 @@ namespace dpz3.Net {
             //gszUrl = url;
 
             //初始化参数列表
-            gArgs = new KeyValues<string>();
-            if (url.IsNone()) return;
+            if (url.IsNone()) {
+                this.Query = new UriQuery();
+                return;
+            }
 
             //清除两边多于的空格
             url = url.Trim();
@@ -133,17 +107,7 @@ namespace dpz3.Net {
             }
 
             //分析参数列表
-            if (argStr != "") {
-                string[] args = argStr.Split('&');
-
-                for (int i = 0; i < args.Length; i++) {
-                    int nDIdx = args[i].IndexOf("=");
-                    string szName = args[i].Substring(0, nDIdx);
-                    string szValue = args[i].Substring(nDIdx + 1);
-                    //gArgs.Add(szName, System.Web.HttpUtility.UrlDecode(szValue));
-                    this[szName] = System.Web.HttpUtility.UrlDecode(szValue);
-                }
-            }
+            this.Query = new UriQuery(argStr);
 
         }
 
@@ -154,11 +118,10 @@ namespace dpz3.Net {
         /// <returns></returns>
         public string this[string name] {
             get {
-                //name = name.ToLower();
-                return gArgs[name];
+                return this.Query[name];
             }
             set {
-                gArgs[name] = value;
+                this.Query[name] = value;
             }
         }
 
@@ -168,7 +131,12 @@ namespace dpz3.Net {
         /// <returns></returns>
         protected override string OnParseString() {
             string port = this.Port == "" ? "" : ":" + this.Port;
-            return $"{this.Procotol}//{this.Host}{port}{this.Path}{this.QueryString}";
+            string qs = this.Query.ToString();
+            if (qs.IsNoneOrNull()) {
+                return $"{this.Procotol}//{this.Host}{port}{this.Path}";
+            } else {
+                return $"{this.Procotol}//{this.Host}{port}{this.Path}?{qs}";
+            }
         }
 
 
