@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using dpz3;
 
 namespace demo {
     class Program {
         static void Main(string[] args) {
+
+            dpz3.Debug.WriteLine("123456");
+
+            string a = "123456";
+            int n = a.ToInteger();
+            string md5 = a.GetMD5();
+
+            Console.WriteLine($"n={n}");
+            Console.WriteLine($"md5={md5}");
 
             string md = dpz3.File.UTF8File.ReadAllText(@"X:\Temp\temp.md");
             using (var doc = dpz3.Markdown.Parser.GetDocument(md)) {

@@ -88,11 +88,25 @@ namespace dpz3.File {
             if (filename == null) filename = path;
             if (filename == "") throw new Exception("未找到存储地址");
 
-            string sz = "";
+            StringBuilder sb = new StringBuilder();
             foreach (var g in this.Groups) {
-                sz += g.ToString();
+                sb.Append(g.ToString());
+                sb.Append("\r\n");
             }
-            dpz3.File.UTF8File.WriteAllText(filename, sz);
+            dpz3.File.UTF8File.WriteAllText(filename, sb.ToString());
+        }
+
+        /// <summary>
+        /// 获取字符串表示形式
+        /// </summary>
+        /// <returns></returns>
+        protected override string OnParseString() {
+            StringBuilder sb = new StringBuilder();
+            foreach (var g in this.Groups) {
+                sb.Append(g.ToString());
+                sb.Append("\r\n");
+            }
+            return sb.ToString();
         }
 
         /// <summary>

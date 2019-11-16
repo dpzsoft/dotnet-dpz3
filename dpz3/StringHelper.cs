@@ -161,5 +161,43 @@ namespace dpz3 {
             return str_sha1_out;
         }
 
+        /*
+         2019.11.01 添加
+         */
+
+        // 比较两个字符串大小
+        private static int SortCompare(string s1, string s2) {
+            int len = s1.Length;
+            if (len < s2.Length) len = s2.Length;
+            for (int i = 0; i < len; i++) {
+                if (i >= s1.Length) return -1;
+                if (i >= s2.Length) return 1;
+
+                if (s1[i] > s2[i]) return 1;
+                if (s1[i] < s2[i]) return -1;
+            }
+            return 0;
+        }
+
+        /// <summary>
+        /// 是否对于指定字符串排序靠前
+        /// </summary>
+        /// <param name="sz"></param>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool SortBefore(this string sz, string str) {
+            return SortCompare(sz, str) < 0;
+        }
+
+        /// <summary>
+        /// 是否对于指定字符串排序靠后
+        /// </summary>
+        /// <param name="sz"></param>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool SortAfter(this string sz, string str) {
+            return SortCompare(sz, str) > 0;
+        }
+
     }
 }

@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dpz3, Version=1.0.1909.21, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotnet-dpz3.1.2.1911.23\lib\netstandard2.0\dpz3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,12 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\dpz3.csproj">
-      <Project>{493b7bdf-d4f3-4d84-bb5f-740b83f6e3f6}</Project>
-      <Name>dpz3</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
