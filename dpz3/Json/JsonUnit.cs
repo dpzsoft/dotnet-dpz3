@@ -308,7 +308,43 @@ namespace dpz3.Json {
         }
 
         /// <summary>
-        /// 获取一个字符串
+        /// 设置一个字符串
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public JsonUnit String(string key, string val) {
+            JsonString obj = (JsonString)OnGetChildItem(key);
+            if (obj == null) {
+                obj = new JsonString(this);
+                OnSetChildItem(key, obj);
+                obj.Value = val;
+            } else {
+                obj.Value = val;
+            }
+            return this;
+        }
+
+        /// <summary>
+        /// 设置一个字符串
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public JsonUnit String(int key, string val) {
+            JsonString obj = (JsonString)OnGetArrayItem(key);
+            if (obj == null) {
+                obj = new JsonString(this);
+                OnSetArrayItem(key, obj);
+                obj.Value = val;
+            } else {
+                obj.Value = val;
+            }
+            return this;
+        }
+
+        /// <summary>
+        /// 获取一个布尔型
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
@@ -337,6 +373,42 @@ namespace dpz3.Json {
             } else {
                 return (JsonBoolean)res;
             }
+        }
+
+        /// <summary>
+        /// 设置一个布尔型数据
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public JsonUnit Bool(string key, bool val) {
+            JsonBoolean obj = (JsonBoolean)OnGetChildItem(key);
+            if (obj == null) {
+                obj = new JsonBoolean(this);
+                OnSetChildItem(key, obj);
+                obj.Value = val;
+            } else {
+                obj.Value = val;
+            }
+            return this;
+        }
+
+        /// <summary>
+        /// 设置一个字符串
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public JsonUnit Bool(int key, bool val) {
+            JsonBoolean obj = (JsonBoolean)OnGetArrayItem(key);
+            if (obj == null) {
+                obj = new JsonBoolean(this);
+                OnSetArrayItem(key, obj);
+                obj.Value = val;
+            } else {
+                obj.Value = val;
+            }
+            return this;
         }
 
         /// <summary>
@@ -369,6 +441,42 @@ namespace dpz3.Json {
             } else {
                 return (JsonNumber)res;
             }
+        }
+
+        /// <summary>
+        /// 设置一个数值
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public JsonUnit Bool(string key, double val) {
+            JsonNumber obj = (JsonNumber)OnGetChildItem(key);
+            if (obj == null) {
+                obj = new JsonNumber(this);
+                OnSetChildItem(key, obj);
+                obj.Value = val;
+            } else {
+                obj.Value = val;
+            }
+            return this;
+        }
+
+        /// <summary>
+        /// 设置一个数值
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public JsonUnit Bool(int key, double val) {
+            JsonNumber obj = (JsonNumber)OnGetArrayItem(key);
+            if (obj == null) {
+                obj = new JsonNumber(this);
+                OnSetArrayItem(key, obj);
+                obj.Value = val;
+            } else {
+                obj.Value = val;
+            }
+            return this;
         }
 
         #endregion

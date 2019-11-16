@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>X:\Projects\dpzsoft\dpz3\dotnet-core-dpz3-mvc\dpz3.Mvc.xml</DocumentationFile>
+    <DocumentationFile>X:\Projects\dpzsoft\dotnet-dpz3\dpz3.AspNetCore2\dpz3.AspNetCore2.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
