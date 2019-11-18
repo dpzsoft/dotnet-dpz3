@@ -54,7 +54,6 @@ namespace dpz3.Net {
         /// <returns></returns>
         protected override string OnParseString() {
             StringBuilder sb = new StringBuilder();
-            sb.Append("{");
             foreach (var arg in _args) {
                 if (arg.Value != "") {
                     if (sb.Length > 0) sb.Append("&");
@@ -76,6 +75,7 @@ namespace dpz3.Net {
                     sb.AppendFormat("\"{0}\":\"{1}\"", arg.Key, arg.Value.Replace("\"", "\\\""));
                 }
             }
+            sb.Append("}");
             return sb.ToString();
         }
 
