@@ -161,6 +161,30 @@ namespace dpz3 {
             return str_sha1_out;
         }
 
+        /// <summary>
+        /// 获取字符串的sha256值
+        /// </summary>
+        public static string GetSha256(this string sz) {
+            var sha = new SHA256CryptoServiceProvider();
+            byte[] bytes_in = UTF8Encoding.Default.GetBytes(sz);
+            byte[] bytes_out = sha.ComputeHash(bytes_in);
+            string str_out = BitConverter.ToString(bytes_out).Replace("-", "").ToLower();
+            //str_sha1_out = str_sha1_out.Replace("-", "");
+            return str_out;
+        }
+
+        /// <summary>
+        /// 获取字符串的sha512值
+        /// </summary>
+        public static string GetSha512(this string sz) {
+            var sha = new SHA512CryptoServiceProvider();
+            byte[] bytes_in = UTF8Encoding.Default.GetBytes(sz);
+            byte[] bytes_out = sha.ComputeHash(bytes_in);
+            string str_out = BitConverter.ToString(bytes_out).Replace("-", "").ToLower();
+            //str_sha1_out = str_sha1_out.Replace("-", "");
+            return str_out;
+        }
+
         /*
          2019.11.01 添加
          */
