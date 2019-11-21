@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>dotnet-dpz3-jttp</PackageId>
-    <Version>1.0.1909.4</Version>
+    <PackageId>dpz3.jttp</PackageId>
+    <Version>1.1.1911.5</Version>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>
     <Description>基于dpz3开发套件的Json数据传输协议扩展(.Net Standard)，在标准的Json结构上加入Header、Data、Message等标准化的顶层对象</Description>
     <Authors>d.p.z software studio</Authors>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
@@ -22,14 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotnet-dpz3" Version="1.0.1909.6" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dpz3" Version="1.2.1911.25" />
   </ItemGroup>
 
 </Project>

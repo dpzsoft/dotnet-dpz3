@@ -43,6 +43,20 @@ namespace dpz3.File.Conf {
         }
 
         /// <summary>
+        /// 获取键集合
+        /// </summary>
+        public List<string> Keys {
+            get {
+                List<string> list = new List<string>();
+                for (int i = 0; i < settings.Count; i++) {
+                    Setting setting = settings[i];
+                    list.Add(setting.Key);
+                }
+                return list;
+            }
+        }
+
+        /// <summary>
         /// 获取或设置值
         /// </summary>
         /// <param name="key"></param>

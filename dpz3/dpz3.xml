@@ -237,6 +237,12 @@
             </summary>
             <param name="filename">The filename for the saved configuration file.</param>
         </member>
+        <member name="M:dpz3.File.ConfFile.OnParseString">
+            <summary>
+            获取字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.File.ConfFile.OnDispose">
             <summary>
             释放资源
@@ -330,6 +336,11 @@
             添加一条注释
             </summary>
             <param name="content"></param>
+        </member>
+        <member name="P:dpz3.File.Conf.SettingGroup.Keys">
+            <summary>
+            获取键集合
+            </summary>
         </member>
         <member name="P:dpz3.File.Conf.SettingGroup.Item(System.String)">
             <summary>
@@ -1795,9 +1806,25 @@
             <param name="index"></param>
             <returns></returns>
         </member>
+        <member name="M:dpz3.Json.JsonUnit.String(System.String,System.String)">
+            <summary>
+            设置一个字符串
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Json.JsonUnit.String(System.Int32,System.String)">
+            <summary>
+            设置一个字符串
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.Json.JsonUnit.Bool(System.String)">
             <summary>
-            获取一个字符串
+            获取一个布尔型
             </summary>
             <param name="key"></param>
             <returns></returns>
@@ -1807,6 +1834,22 @@
             获取一个字符串
             </summary>
             <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Json.JsonUnit.Bool(System.String,System.Boolean)">
+            <summary>
+            设置一个布尔型数据
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Json.JsonUnit.Bool(System.Int32,System.Boolean)">
+            <summary>
+            设置一个字符串
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
             <returns></returns>
         </member>
         <member name="M:dpz3.Json.JsonUnit.Number(System.String)">
@@ -1821,6 +1864,22 @@
             获取一个数值
             </summary>
             <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Json.JsonUnit.Bool(System.String,System.Double)">
+            <summary>
+            设置一个数值
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Json.JsonUnit.Bool(System.Int32,System.Double)">
+            <summary>
+            设置一个数值
+            </summary>
+            <param name="key"></param>
+            <param name="val"></param>
             <returns></returns>
         </member>
         <member name="M:dpz3.Json.JsonUnit.OnParseString">
@@ -1868,6 +1927,94 @@
             <param name="json"></param>
             <param name="tp"></param>
             <returns></returns>
+        </member>
+        <member name="T:dpz3.KeySortValues`1">
+            <summary>
+            自排序键/值存储字典
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:dpz3.KeySortValues`1.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.KeySortValues`1.OnReturnDefaultValue">
+            <summary>
+            返回默认值事件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.KeySortValues`1.Item(System.String)">
+            <summary>
+            获取或设置键值内容
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.KeySortValues`1.Keys">
+            <summary>
+            获取键集合
+            </summary>
+        </member>
+        <member name="P:dpz3.KeySortValues`1.Values">
+            <summary>
+            获取值集合
+            </summary>
+        </member>
+        <member name="P:dpz3.KeySortValues`1.Count">
+            <summary>
+            获取集合内元素数量
+            </summary>
+        </member>
+        <member name="M:dpz3.KeySortValues`1.Clear">
+            <summary>
+            清空集合
+            </summary>
+        </member>
+        <member name="M:dpz3.KeySortValues`1.ContainsKey(System.String)">
+            <summary>
+            获取列表中是否存在键值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.KeySortValues`1.GetEnumerator">
+            <summary>
+            获取枚举管理器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.KeySortValues`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            获取枚举接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.KeySortValues`1.Remove(System.String)">
+            <summary>
+            移除一个元素
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.KeySortValues`1.TryGetValue(System.String,`0@)">
+            <summary>
+            尝试获取值
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.KeySortValues`1.IsEmpty">
+            <summary>
+            获取对象内元素是否为空
+            </summary>
+        </member>
+        <member name="M:dpz3.KeySortValues`1.OnDispose">
+            <summary>
+            释放内存
+            </summary>
         </member>
         <member name="T:dpz3.KeyValues`1">
             <summary>
@@ -2948,14 +3095,14 @@
             页面信息
             </summary>
         </member>
+        <member name="P:dpz3.Net.Uri.Query">
+            <summary>
+            获取参数查询器
+            </summary>
+        </member>
         <member name="P:dpz3.Net.Uri.QueryString">
             <summary>
             获取参数字符串
-            </summary>
-        </member>
-        <member name="P:dpz3.Net.Uri.QueryJson">
-            <summary>
-            获取Json形式表示的参数
             </summary>
         </member>
         <member name="M:dpz3.Net.Uri.#ctor(System.String)">
@@ -2976,6 +3123,35 @@
             获取字符串显示形式
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:dpz3.Net.UriQuery">
+            <summary>
+            统一资源定位符参数查询器
+            </summary>
+        </member>
+        <member name="M:dpz3.Net.UriQuery.#ctor(System.String)">
+            <summary>
+            新建对象实例
+            </summary>
+            <param name="qs"></param>
+        </member>
+        <member name="P:dpz3.Net.UriQuery.Item(System.String)">
+            <summary>
+            获取或设置参数
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Net.UriQuery.OnParseString">
+            <summary>
+            获取字符串显示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Net.UriQuery.ToJson">
+            <summary>
+            获取Json形式表示的参数
+            </summary>
         </member>
         <member name="T:dpz3.Object">
             <summary>
@@ -3085,6 +3261,22 @@
             <summary>
             获取字符串的sha1值
             </summary>
+        </member>
+        <member name="M:dpz3.StringHelper.SortBefore(System.String,System.String)">
+            <summary>
+            是否对于指定字符串排序靠前
+            </summary>
+            <param name="sz"></param>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.StringHelper.SortAfter(System.String,System.String)">
+            <summary>
+            是否对于指定字符串排序靠后
+            </summary>
+            <param name="sz"></param>
+            <param name="str"></param>
+            <returns></returns>
         </member>
         <member name="T:dpz3.Text.Pinyin">
             <summary>

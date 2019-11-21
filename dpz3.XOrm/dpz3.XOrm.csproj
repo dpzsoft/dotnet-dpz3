@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.1909.4</Version>
+    <Version>1.1.1911.5</Version>
     <Description>基于dpz3开发套件二次扩展的XML定义式对象关系映射(XOrm)组件(.Net Standard)</Description>
-    <PackageId>dotnet-dpz3-xorm</PackageId>
+    <PackageId>dpz3.XOrm</PackageId>
     <Authors>d.p.z software studio</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>
@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotnet-dpz3" Version="1.0.1909.5" />
+    <PackageReference Include="dpz3" Version="1.2.1911.25" />
   </ItemGroup>
 
 </Project>
