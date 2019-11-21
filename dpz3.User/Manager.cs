@@ -36,6 +36,7 @@ namespace dpz3.User {
         /// <param name="user"></param>
         /// <returns></returns>
         public bool ExistUser(string user) {
+            if (user.IsNoneOrNull()) throw new Exception("用户名不能为空");
             user = user.ToLower();
             string path = $"{_dir}{user}.cfg";
             return System.IO.File.Exists(path);
@@ -48,6 +49,7 @@ namespace dpz3.User {
         public ConfigFile AddUser(string user) {
 
             // 验证用户字符
+            if (user.IsNoneOrNull()) throw new Exception("用户名不能为空");
             user = user.ToLower();
             for (int i = 0; i < user.Length; i++) {
                 if (User_Keys.IndexOf(user[i]) < 0) {
@@ -62,6 +64,8 @@ namespace dpz3.User {
             // 索引器增加
             idxer++;
             long id = dpz3.Time.Now.ToTimeStamp() + idxer;
+            _group["indexer"] = $"{idxer}";
+            _conf.Save();
 
             // 配置文件
             var cfg = new ConfigFile(path);
@@ -79,6 +83,7 @@ namespace dpz3.User {
         public ConfigFile GetUser(string user) {
 
             // 检验用户是否存在
+            if (user.IsNoneOrNull()) throw new Exception("用户名不能为空");
             user = user.ToLower();
             string path = $"{_dir}{user}.cfg";
             if (!System.IO.File.Exists(path)) return null;
@@ -86,6 +91,20 @@ namespace dpz3.User {
             // 配置文件
             var cfg = new ConfigFile(path);
             return cfg;
+        }
+
+        /// <summary>
+        /// 删除用户
+        /// </summary>
+        /// <param name="user"></param>
+        public void DeleteUser(string user) {
+
+            // 检验用户
+            if (user.IsNoneOrNull()) throw new Exception("用户名不能为空");
+            user = user.ToLower();
+            string path = $"{_dir}{user}.cfg";
+            if (System.IO.File.Exists(path)) System.IO.File.Delete(path);
+
         }
     }
 

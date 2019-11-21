@@ -34,13 +34,11 @@ namespace dpz3.File {
 
             for (int i = 0; i < lines.Length; i++) {
                 string line = lines[i].Trim();
-                if (line == "") {
+                if (line.IsNoneOrNull()) {
                     if (group == null) {
                         group = new Conf.SettingGroup() { Name = "" };
                         this.Groups.Add(group);
                     }
-                    //去掉末尾空行
-                    if (i != lines.Length - 1) group.AddEmptyLine();
                 } else if (line.StartsWith("[") && line.EndsWith("]")) {
                     group = new Conf.SettingGroup() { Name = line.Substring(1, line.Length - 2) };
                     this.Groups.Add(group);

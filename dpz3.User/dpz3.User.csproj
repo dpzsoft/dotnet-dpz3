@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.1911.1</Version>
+    <Version>1.0.1911.3</Version>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Description>基于dpz3开发套件的用户管理扩展(.Net Standard)，支持MD5/sha1/sha256/sha512方式密码加密，及文件式的用户信息存取</Description>

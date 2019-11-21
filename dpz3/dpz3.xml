@@ -3262,6 +3262,16 @@
             获取字符串的sha1值
             </summary>
         </member>
+        <member name="M:dpz3.StringHelper.GetSha256(System.String)">
+            <summary>
+            获取字符串的sha256值
+            </summary>
+        </member>
+        <member name="M:dpz3.StringHelper.GetSha512(System.String)">
+            <summary>
+            获取字符串的sha512值
+            </summary>
+        </member>
         <member name="M:dpz3.StringHelper.SortBefore(System.String,System.String)">
             <summary>
             是否对于指定字符串排序靠前
