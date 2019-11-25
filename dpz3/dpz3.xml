@@ -3186,6 +3186,455 @@
             释放对象
             </summary>
         </member>
+        <member name="T:dpz3.Serializable.Double">
+            <summary>
+            字节内容
+            </summary>
+        </member>
+        <member name="P:dpz3.Serializable.Double.Value">
+            <summary>
+            获取或设置值
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Double.#ctor(System.Double)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="P:dpz3.Serializable.Double.Size">
+            <summary>
+            存储大小
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Double.SetValue(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            设置内容
+            </summary>
+            <param name="val"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:dpz3.Serializable.Double.ToBytes">
+            <summary>
+            获取字节数字表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Serializable.Double.op_Implicit(System.Double)~dpz3.Serializable.Double">
+            <summary>
+            赋值方式创建内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Double.op_Implicit(dpz3.Serializable.Double)~System.Double">
+            <summary>
+            赋值防暑输出内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Double.ToString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Serializable.Int16">
+            <summary>
+            字节内容
+            </summary>
+        </member>
+        <member name="P:dpz3.Serializable.Int16.Value">
+            <summary>
+            获取或设置值
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Int16.#ctor(System.Int32)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="P:dpz3.Serializable.Int16.Size">
+            <summary>
+            存储大小
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Int16.SetValue(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            设置内容
+            </summary>
+            <param name="val"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:dpz3.Serializable.Int16.ToBytes">
+            <summary>
+            获取字节数字表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Serializable.Int16.op_Implicit(System.Int32)~dpz3.Serializable.Int16">
+            <summary>
+            赋值方式创建内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Int16.op_Implicit(dpz3.Serializable.Int16)~System.Int32">
+            <summary>
+            赋值防暑输出内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Int16.ToString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Serializable.Int32">
+            <summary>
+            字节内容
+            </summary>
+        </member>
+        <member name="P:dpz3.Serializable.Int32.Value">
+            <summary>
+            获取或设置值
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Int32.#ctor(System.Int64)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="P:dpz3.Serializable.Int32.Size">
+            <summary>
+            存储大小
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Int32.SetValue(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            设置内容
+            </summary>
+            <param name="val"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:dpz3.Serializable.Int32.ToBytes">
+            <summary>
+            获取字节数字表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Serializable.Int32.op_Implicit(System.Int64)~dpz3.Serializable.Int32">
+            <summary>
+            赋值方式创建内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Int32.op_Implicit(dpz3.Serializable.Int32)~System.Int64">
+            <summary>
+            赋值防暑输出内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Int32.ToString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Serializable.Int8">
+            <summary>
+            字节内容
+            </summary>
+        </member>
+        <member name="P:dpz3.Serializable.Int8.Value">
+            <summary>
+            获取或设置值
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Int8.#ctor(System.Byte)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="P:dpz3.Serializable.Int8.Size">
+            <summary>
+            存储大小
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Int8.SetValue(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            设置内容
+            </summary>
+            <param name="val"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:dpz3.Serializable.Int8.ToBytes">
+            <summary>
+            获取字节数字表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Serializable.Int8.op_Implicit(System.Byte)~dpz3.Serializable.Int8">
+            <summary>
+            赋值方式创建内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Int8.op_Implicit(dpz3.Serializable.Int8)~System.Byte">
+            <summary>
+            赋值防暑输出内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Int8.ToString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Serializable.ISerializable">
+            <summary>
+            可序列化单元
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.ISerializable.SetValue(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            设置字节内容
+            </summary>
+            <param name="val"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="P:dpz3.Serializable.ISerializable.Size">
+            <summary>
+            获取存储大小
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Serializable.ISerializable.ToBytes">
+            <summary>
+            获取字节数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Serializable.List">
+            <summary>
+            可序列化列表
+            </summary>
+        </member>
+        <member name="P:dpz3.Serializable.List.Size">
+            <summary>
+            获取存储尺寸
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.List.Add(System.Byte)">
+            <summary>
+            添加一个数据
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="M:dpz3.Serializable.List.Add(System.Int32)">
+            <summary>
+            添加一个数据
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="M:dpz3.Serializable.List.Add(System.Int64)">
+            <summary>
+            添加一个数据
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="M:dpz3.Serializable.List.Add(System.Single)">
+            <summary>
+            添加一个数据
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="M:dpz3.Serializable.List.Add(System.Double)">
+            <summary>
+            添加一个数据
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="M:dpz3.Serializable.List.Add(System.String)">
+            <summary>
+            添加一个数据
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="M:dpz3.Serializable.List.SetValue(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            内容
+            </summary>
+            <param name="val"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:dpz3.Serializable.List.ToBytes">
+            <summary>
+            获取字节数字表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Serializable.Object">
+            <summary>
+            可序列化对象
+            </summary>
+        </member>
+        <member name="F:dpz3.Serializable.Object._items">
+            <summary>
+            获取对象内元素集合
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Object.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Serializable.Object.Reg(dpz3.Serializable.ISerializable)">
+            <summary>
+            注册一个可序列化对象
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="P:dpz3.Serializable.Object.Size">
+            <summary>
+            获取存储尺寸
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Object.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Object.SetValue(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            内容
+            </summary>
+            <param name="val"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:dpz3.Serializable.Object.ToBytes">
+            <summary>
+            获取字节数字表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Serializable.Single">
+            <summary>
+            字节内容
+            </summary>
+        </member>
+        <member name="P:dpz3.Serializable.Single.Value">
+            <summary>
+            获取或设置值
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Single.#ctor(System.Single)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="P:dpz3.Serializable.Single.Size">
+            <summary>
+            存储大小
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.Single.SetValue(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            设置内容
+            </summary>
+            <param name="val"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:dpz3.Serializable.Single.ToBytes">
+            <summary>
+            获取字节数字表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Serializable.Single.op_Implicit(System.Single)~dpz3.Serializable.Single">
+            <summary>
+            赋值方式创建内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Single.op_Implicit(dpz3.Serializable.Single)~System.Single">
+            <summary>
+            赋值防暑输出内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.Single.ToString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Serializable.UTF8String">
+            <summary>
+            字节内容
+            </summary>
+        </member>
+        <member name="P:dpz3.Serializable.UTF8String.Value">
+            <summary>
+            获取或设置值
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.UTF8String.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="val"></param>
+        </member>
+        <member name="P:dpz3.Serializable.UTF8String.Size">
+            <summary>
+            存储大小
+            </summary>
+        </member>
+        <member name="M:dpz3.Serializable.UTF8String.SetValue(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            设置内容
+            </summary>
+            <param name="val"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+        </member>
+        <member name="M:dpz3.Serializable.UTF8String.ToBytes">
+            <summary>
+            获取字节数字表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Serializable.UTF8String.op_Implicit(System.String)~dpz3.Serializable.UTF8String">
+            <summary>
+            赋值方式创建内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.UTF8String.op_Implicit(dpz3.Serializable.UTF8String)~System.String">
+            <summary>
+            赋值防暑输出内容
+            </summary>
+            <param name="val">内容</param>
+        </member>
+        <member name="M:dpz3.Serializable.UTF8String.ToString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:dpz3.StringHelper">
             <summary>
             专用字符串扩展
