@@ -40,7 +40,11 @@ namespace dpz3.db.SqlUnits {
         /// <param name="right"></param>
         /// <returns></returns>        
         public static Formula operator &(Formula left, ISqlStringable right) {
-            return new Formula(left, "AND", right) { IsComplicated = true };
+            if (dpz3.Object.IsNull(left)) {
+                return (Formula)right;
+            } else {
+                return new Formula(left, "AND", right) { IsComplicated = true };
+            }
         }
 
         /// <summary>
@@ -50,7 +54,11 @@ namespace dpz3.db.SqlUnits {
         /// <param name="right"></param>
         /// <returns></returns>        
         public static Formula operator |(Formula left, ISqlStringable right) {
-            return new Formula(left, "OR", right) { IsComplicated = true };
+            if (dpz3.Object.IsNull(left)) {
+                return (Formula)right;
+            } else {
+                return new Formula(left, "OR", right) { IsComplicated = true };
+            }
         }
 
         /// <summary>
