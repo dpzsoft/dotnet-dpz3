@@ -140,16 +140,16 @@ namespace dpz3.Json {
                                 value = sb.ToString();
                                 if (value == "null" || value == "Null" || value == "NULL") {
                                     // 添加NULL值
-                                    jup.String(name).Value = null;
+                                    jup.String(name, null);
                                 } else if (value == "true" || value == "True" || value == "TRUE") {
                                     // 添加布尔值
-                                    jup.Bool(name).Value = true;
+                                    jup.Bool(name, true);
                                 } else if (value == "false" || value == "False" || value == "FALSE") {
                                     // 添加布尔值
-                                    jup.Bool(name).Value = false;
+                                    jup.Bool(name, false);
                                 } else if (value.IsDouble()) {
                                     // 添加数值
-                                    jup.Number(name).Value = value.ToDouble();
+                                    jup.Number(name, value.ToDouble());
                                 } else {
                                     throw new Exception($"规则外的\"{chr}\"操作符");
                                 }
@@ -161,7 +161,7 @@ namespace dpz3.Json {
                             } else if (pt == Parse_Done_Value) {
                                 // 添加字符串值
                                 if (name.IsNoneOrNull()) throw new Exception($"语法错误：缺少名称");
-                                jup.String(name).Value = value;
+                                jup.String(name, value);
                                 // 清理缓存
                                 sb.Clear();
                                 name = null;
@@ -244,16 +244,16 @@ namespace dpz3.Json {
                                 value = sb.ToString();
                                 if (value == "null" || value == "Null" || value == "NULL") {
                                     // 添加NULL值
-                                    jup.String(jup.Count).Value = null;
+                                    jup.String(jup.Count, null);
                                 } else if (value == "true" || value == "True" || value == "TRUE") {
                                     // 添加布尔值
-                                    jup.Bool(jup.Count).Value = true;
+                                    jup.Bool(jup.Count, true);
                                 } else if (value == "false" || value == "False" || value == "FALSE") {
                                     // 添加布尔值
-                                    jup.Bool(jup.Count).Value = false;
+                                    jup.Bool(jup.Count, false);
                                 } else if (value.IsDouble()) {
                                     // 添加数值
-                                    jup.Number(jup.Count).Value = value.ToDouble();
+                                    jup.Number(jup.Count, value.ToDouble());
                                 } else {
                                     throw new Exception($"规则外的\"{chr}\"操作符");
                                 }
@@ -265,7 +265,7 @@ namespace dpz3.Json {
                             } else if (pt == Parse_Done_Value) {
                                 // 添加字符串值
                                 if (!name.IsNoneOrNull()) throw new Exception($"语法错误：无效名称");
-                                jup.String(jup.Count).Value = value;
+                                jup.String(jup.Count, value);
                                 // 清理缓存
                                 sb.Clear();
                                 name = null;
@@ -396,27 +396,27 @@ namespace dpz3.Json {
                                     if (value == "null" || value == "Null" || value == "NULL") {
                                         // 添加字符串值
                                         if (jup.UnitType == UnitType.Object) {
-                                            jup.String(name).Value = null;
+                                            jup.String(name, null);
                                         } else if (jup.UnitType == UnitType.Array) {
-                                            jup.String(jup.Count).Value = null;
+                                            jup.String(jup.Count, null);
                                         } else {
                                             throw new Exception($"数据类型\"{jup.UnitType.ToString()}\"不支持设置子元素");
                                         }
                                     } else if (value == "true" || value == "True" || value == "TRUE") {
                                         // 添加布尔值
                                         if (jup.UnitType == UnitType.Object) {
-                                            jup.Bool(name).Value = true;
+                                            jup.Bool(name, true);
                                         } else if (jup.UnitType == UnitType.Array) {
-                                            jup.Bool(jup.Count).Value = true;
+                                            jup.Bool(jup.Count, true);
                                         } else {
                                             throw new Exception($"数据类型\"{jup.UnitType.ToString()}\"不支持设置子元素");
                                         }
                                     } else if (value == "false" || value == "False" || value == "FALSE") {
                                         // 添加布尔值
                                         if (jup.UnitType == UnitType.Object) {
-                                            jup.Bool(name).Value = false;
+                                            jup.Bool(name, false);
                                         } else if (jup.UnitType == UnitType.Array) {
-                                            jup.Bool(jup.Count).Value = false;
+                                            jup.Bool(jup.Count, false);
                                         } else {
                                             throw new Exception($"数据类型\"{jup.UnitType.ToString()}\"不支持设置子元素");
                                         }
@@ -424,9 +424,9 @@ namespace dpz3.Json {
                                         // 添加数值
                                         double dbl = value.ToDouble();
                                         if (jup.UnitType == UnitType.Object) {
-                                            jup.Number(name).Value = dbl;
+                                            jup.Number(name, dbl);
                                         } else if (jup.UnitType == UnitType.Array) {
-                                            jup.Number(jup.Count).Value = dbl;
+                                            jup.Number(jup.Count, dbl);
                                         } else {
                                             throw new Exception($"数据类型\"{jup.UnitType.ToString()}\"不支持设置子元素");
                                         }
@@ -442,9 +442,9 @@ namespace dpz3.Json {
                                 } else {
                                     // 添加字符串值
                                     if (jup.UnitType == UnitType.Object) {
-                                        jup.String(name).Value = value;
+                                        jup.String(name, value);
                                     } else if (jup.UnitType == UnitType.Array) {
-                                        jup.String(jup.Count).Value = value;
+                                        jup.String(jup.Count, value);
                                     } else {
                                         throw new Exception($"数据类型\"{jup.UnitType.ToString()}\"不支持设置子元素");
                                     }
@@ -497,28 +497,28 @@ namespace dpz3.Json {
                                     // 添加字符串值
                                     if (jup.UnitType == UnitType.Object) {
                                         if (name.IsNoneOrNull()) throw new Exception($"语法错误：名称不允许未空");
-                                        jup.String(name).Value = null;
+                                        jup.String(name, null);
                                     } else if (jup.UnitType == UnitType.Array) {
                                         if (!name.IsNoneOrNull()) throw new Exception($"语法错误：无效名称");
-                                        jup.String(jup.Count).Value = null;
+                                        jup.String(jup.Count, null);
                                     } else {
                                         throw new Exception($"数据类型\"{jup.UnitType.ToString()}\"不支持设置子元素");
                                     }
                                 } else if (value == "true" || value == "True" || value == "TRUE") {
                                     // 添加布尔值
                                     if (jup.UnitType == UnitType.Object) {
-                                        jup.Bool(name).Value = true;
+                                        jup.Bool(name, true);
                                     } else if (jup.UnitType == UnitType.Array) {
-                                        jup.Bool(jup.Count).Value = true;
+                                        jup.Bool(jup.Count, true);
                                     } else {
                                         throw new Exception($"数据类型\"{jup.UnitType.ToString()}\"不支持设置子元素");
                                     }
                                 } else if (value == "false" || value == "False" || value == "FALSE") {
                                     // 添加布尔值
                                     if (jup.UnitType == UnitType.Object) {
-                                        jup.Bool(name).Value = false;
+                                        jup.Bool(name, false);
                                     } else if (jup.UnitType == UnitType.Array) {
-                                        jup.Bool(jup.Count).Value = false;
+                                        jup.Bool(jup.Count, false);
                                     } else {
                                         throw new Exception($"数据类型\"{jup.UnitType.ToString()}\"不支持设置子元素");
                                     }
@@ -527,10 +527,10 @@ namespace dpz3.Json {
                                     double dbl = value.ToDouble();
                                     if (jup.UnitType == UnitType.Object) {
                                         if (name.IsNoneOrNull()) throw new Exception($"语法错误：名称不允许未空");
-                                        jup.Number(name).Value = dbl;
+                                        jup.Number(name, dbl);
                                     } else if (jup.UnitType == UnitType.Array) {
                                         if (!name.IsNoneOrNull()) throw new Exception($"语法错误：无效名称");
-                                        jup.Number(jup.Count).Value = dbl;
+                                        jup.Number(jup.Count, dbl);
                                     } else {
                                         throw new Exception($"数据类型\"{jup.UnitType.ToString()}\"不支持设置子元素");
                                     }

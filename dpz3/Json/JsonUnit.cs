@@ -280,14 +280,15 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public JsonString String(string key) {
+        public string String(string key) {
             var res = OnGetChildItem(key);
             if (res == null) {
                 var obj = new JsonString(this);
                 OnSetChildItem(key, obj);
-                return obj;
+                return obj.Value;
             } else {
-                return (JsonString)res;
+                var obj = (JsonString)res;
+                return obj.Value;
             }
         }
 
@@ -296,14 +297,15 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public JsonString String(int index) {
+        public string String(int index) {
             var res = OnGetArrayItem(index);
             if (res == null) {
                 var obj = new JsonString(this);
                 OnSetArrayItem(index, obj);
-                return obj;
+                return obj.Value;
             } else {
-                return (JsonString)res;
+                var obj = (JsonString)res;
+                return obj.Value;
             }
         }
 
@@ -328,14 +330,14 @@ namespace dpz3.Json {
         /// <summary>
         /// 设置一个字符串
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="index"></param>
         /// <param name="val"></param>
         /// <returns></returns>
-        public JsonUnit String(int key, string val) {
-            JsonString obj = (JsonString)OnGetArrayItem(key);
+        public JsonUnit String(int index, string val) {
+            JsonString obj = (JsonString)OnGetArrayItem(index);
             if (obj == null) {
                 obj = new JsonString(this);
-                OnSetArrayItem(key, obj);
+                OnSetArrayItem(index, obj);
                 obj.Value = val;
             } else {
                 obj.Value = val;
@@ -348,14 +350,15 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public JsonBoolean Bool(string key) {
+        public bool Bool(string key) {
             var res = OnGetChildItem(key);
             if (res == null) {
                 var obj = new JsonBoolean(this);
                 OnSetChildItem(key, obj);
-                return obj;
+                return obj.Value;
             } else {
-                return (JsonBoolean)res;
+                var obj = (JsonBoolean)res;
+                return obj.Value;
             }
         }
 
@@ -364,14 +367,15 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public JsonBoolean Bool(int index) {
+        public bool Bool(int index) {
             var res = OnGetArrayItem(index);
             if (res == null) {
                 var obj = new JsonBoolean(this);
                 OnSetArrayItem(index, obj);
-                return obj;
+                return obj.Value;
             } else {
-                return (JsonBoolean)res;
+                var obj = (JsonBoolean)res;
+                return obj.Value;
             }
         }
 
@@ -396,14 +400,14 @@ namespace dpz3.Json {
         /// <summary>
         /// 设置一个字符串
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="index"></param>
         /// <param name="val"></param>
         /// <returns></returns>
-        public JsonUnit Bool(int key, bool val) {
-            JsonBoolean obj = (JsonBoolean)OnGetArrayItem(key);
+        public JsonUnit Bool(int index, bool val) {
+            JsonBoolean obj = (JsonBoolean)OnGetArrayItem(index);
             if (obj == null) {
                 obj = new JsonBoolean(this);
-                OnSetArrayItem(key, obj);
+                OnSetArrayItem(index, obj);
                 obj.Value = val;
             } else {
                 obj.Value = val;
@@ -416,14 +420,15 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public JsonNumber Number(string key) {
+        public double Number(string key) {
             var res = OnGetChildItem(key);
             if (res == null) {
                 var obj = new JsonNumber(this);
                 OnSetChildItem(key, obj);
-                return obj;
+                return obj.Value;
             } else {
-                return (JsonNumber)res;
+                var obj = (JsonNumber)res;
+                return obj.Value;
             }
         }
 
@@ -432,14 +437,15 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public JsonNumber Number(int index) {
+        public double Number(int index) {
             var res = OnGetArrayItem(index);
             if (res == null) {
                 var obj = new JsonNumber(this);
                 OnSetArrayItem(index, obj);
-                return obj;
+                return obj.Value;
             } else {
-                return (JsonNumber)res;
+                var obj = (JsonNumber)res;
+                return obj.Value;
             }
         }
 
@@ -449,7 +455,7 @@ namespace dpz3.Json {
         /// <param name="key"></param>
         /// <param name="val"></param>
         /// <returns></returns>
-        public JsonUnit Bool(string key, double val) {
+        public JsonUnit Number(string key, double val) {
             JsonNumber obj = (JsonNumber)OnGetChildItem(key);
             if (obj == null) {
                 obj = new JsonNumber(this);
@@ -464,14 +470,14 @@ namespace dpz3.Json {
         /// <summary>
         /// 设置一个数值
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="index"></param>
         /// <param name="val"></param>
         /// <returns></returns>
-        public JsonUnit Bool(int key, double val) {
-            JsonNumber obj = (JsonNumber)OnGetArrayItem(key);
+        public JsonUnit Number(int index, double val) {
+            JsonNumber obj = (JsonNumber)OnGetArrayItem(index);
             if (obj == null) {
                 obj = new JsonNumber(this);
-                OnSetArrayItem(key, obj);
+                OnSetArrayItem(index, obj);
                 obj.Value = val;
             } else {
                 obj.Value = val;

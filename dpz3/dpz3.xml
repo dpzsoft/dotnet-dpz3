@@ -1818,7 +1818,7 @@
             <summary>
             设置一个字符串
             </summary>
-            <param name="key"></param>
+            <param name="index"></param>
             <param name="val"></param>
             <returns></returns>
         </member>
@@ -1848,7 +1848,7 @@
             <summary>
             设置一个字符串
             </summary>
-            <param name="key"></param>
+            <param name="index"></param>
             <param name="val"></param>
             <returns></returns>
         </member>
@@ -1866,7 +1866,7 @@
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="M:dpz3.Json.JsonUnit.Bool(System.String,System.Double)">
+        <member name="M:dpz3.Json.JsonUnit.Number(System.String,System.Double)">
             <summary>
             设置一个数值
             </summary>
@@ -1874,11 +1874,11 @@
             <param name="val"></param>
             <returns></returns>
         </member>
-        <member name="M:dpz3.Json.JsonUnit.Bool(System.Int32,System.Double)">
+        <member name="M:dpz3.Json.JsonUnit.Number(System.Int32,System.Double)">
             <summary>
             设置一个数值
             </summary>
-            <param name="key"></param>
+            <param name="index"></param>
             <param name="val"></param>
             <returns></returns>
         </member>
