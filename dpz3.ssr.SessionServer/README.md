@@ -99,7 +99,7 @@
 
 ## Nuget引用
 
-此组件目前已支持在Nuget仓库下载，Nuget页面为[https://www.nuget.org/packages/dotnet-core-simple-session-server/](https://www.nuget.org/packages/dotnet-core-simple-session-server/)
+此组件目前已支持在Nuget仓库下载，Nuget页面为[https://www.nuget.org/packages/dpz3.ssr.SessionServer/](https://www.nuget.org/packages/dpz3.ssr.SessionServer/)
 
 
 

@@ -3,8 +3,8 @@
 
 ## 通讯协议
 
-详细的通讯协议可参考服务端组件[https://github.com/inmount/dotnet-core-simple-session-server](https://github.com/inmount/dotnet-core-simple-session-server)
+详细的通讯协议可参考服务端组件
 
 ## Nuget引用
 
-此组件目前已支持在Nuget仓库下载，Nuget页面为[https://www.nuget.org/packages/dotnet-core-simple-session-client/](https://www.nuget.org/packages/dotnet-core-simple-session-client/)
+此组件目前已支持在Nuget仓库下载，Nuget页面为[https://www.nuget.org/packages/dpz3.ssr.SessionClient/](https://www.nuget.org/packages/dpz3.ssr.SessionClient/)
