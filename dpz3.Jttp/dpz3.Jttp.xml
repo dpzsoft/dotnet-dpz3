@@ -19,6 +19,12 @@
             获取或设置错误信息
             </summary>
         </member>
+        <member name="M:dpz3.Jttp.Error.#ctor(dpz3.Json.JsonObject)">
+            <summary>
+            设置
+            </summary>
+            <param name="obj"></param>
+        </member>
         <member name="T:dpz3.Jttp.Header">
             <summary>
             头部定义
@@ -44,10 +50,31 @@
             获取或设置时间戳信息
             </summary>
         </member>
-        <member name="P:dpz3.Jttp.Header.Status">
+        <member name="P:dpz3.Jttp.Header.VerifySalt">
             <summary>
-            获取或设置状态信息
+            获取或设置验证加盐
             </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Header.VerifyType">
+            <summary>
+            获取或设置验证加盐
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Header.VerifySign">
+            <summary>
+            获取或设置验证签名
+            </summary>
+        </member>
+        <member name="M:dpz3.Jttp.Header.Init(dpz3.Jttp.Header)">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:dpz3.Jttp.Header.#ctor(dpz3.Json.JsonObject)">
+            <summary>
+            设置
+            </summary>
+            <param name="obj"></param>
         </member>
         <member name="T:dpz3.Jttp.Object">
             <summary>
@@ -62,6 +89,11 @@
         <member name="P:dpz3.Jttp.Object.Data">
             <summary>
             获取关联数据对象
+            </summary>
+        </member>
+        <member name="P:dpz3.Jttp.Object.List">
+            <summary>
+            获取关联列表对象
             </summary>
         </member>
         <member name="P:dpz3.Jttp.Object.Error">
@@ -79,11 +111,21 @@
             获取或设置文本信息
             </summary>
         </member>
+        <member name="P:dpz3.Jttp.Object.Result">
+            <summary>
+            获取或设置返回状态
+            </summary>
+        </member>
         <member name="M:dpz3.Jttp.Object.#ctor(System.String)">
             <summary>
             对象实例化
             </summary>
             <param name="json"></param>
+        </member>
+        <member name="M:dpz3.Jttp.Object.SignUp(System.String,System.String)">
+            <summary>
+            加签运算
+            </summary>
         </member>
         <member name="M:dpz3.Jttp.Object.OnParseString">
             <summary>

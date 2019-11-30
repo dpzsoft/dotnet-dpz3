@@ -9,30 +9,65 @@ namespace dpz3.Jttp {
     /// </summary>
     public class Header {
 
+        // 头部对象
+        private dpz3.Json.JsonObject _obj;
+
         /// <summary>
         /// 获取或设置版本信息
         /// </summary>
-        public string Ver { get; set; }
+        public string Ver { get { return _obj.String("Ver"); } set { _obj.String("Ver", value); } }
 
         /// <summary>
         /// 获取或设置交互类型
         /// </summary>
-        public string Type { get; set; }
+        public string Type { get { return _obj.String("Type"); } set { _obj.String("Type", value); } }
 
         /// <summary>
         /// 获取或设置交互信息
         /// </summary>
-        public string SessionID { get; set; }
+        public string SessionID { get { return _obj.String("SessionID"); } set { _obj.String("SessionID", value); } }
 
         /// <summary>
         /// 获取或设置时间戳信息
         /// </summary>
-        public long Time { get; set; }
+        public long Time { get { return (long)_obj.Number("SessionID"); } set { _obj.Number("SessionID", value); } }
 
         /// <summary>
-        /// 获取或设置状态信息
+        /// 获取或设置验证加盐
         /// </summary>
-        public int Status { get; set; }
+        public string VerifySalt { get { return _obj.String("VerifySalt"); } set { _obj.String("VerifySalt", value); } }
+
+        /// <summary>
+        /// 获取或设置验证加盐
+        /// </summary>
+        public string VerifyType { get { return _obj.String("VerifyType"); } set { _obj.String("VerifyType", value); } }
+
+        /// <summary>
+        /// 获取或设置验证签名
+        /// </summary>
+        public string VerifySign { get { return _obj.String("VerifySign"); } set { _obj.String("VerifySign", value); } }
+
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        public void Init(Header header = null) {
+            if (!dpz3.Object.IsNull(header)) {
+                this.Ver = header.Ver;
+                this.Type = header.Type;
+                this.SessionID = header.SessionID;
+            } else {
+                this.Ver = "1.0";
+            }
+            this.Time = dpz3.Time.Now.ToTimeStamp();
+        }
+
+        /// <summary>
+        /// 设置
+        /// </summary>
+        /// <param name="obj"></param>
+        public Header(dpz3.Json.JsonObject obj) {
+            _obj = obj;
+        }
 
     }
 }

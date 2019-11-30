@@ -1,14 +1,14 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace dpz3.AspNetCore2.Controllers {
+namespace dpz3.AspNetCore.Controllers {
 
     /// <summary>
-    /// 基于Jttp协议的基础控制器
+    /// WebApi基础类
     /// </summary>
-    public abstract class JttpControllerBase : ControllerBase {
+    public abstract class ApiControllerBase : ControllerBase {
 
         /// <summary>
         /// 输出对象
@@ -16,50 +16,59 @@ namespace dpz3.AspNetCore2.Controllers {
         protected dpz3.Jttp.Object JResponse { get; private set; }
 
         /// <summary>
-        /// 输出用的头部对象
+        /// 获取格式化内容后的对象
         /// </summary>
-        protected dpz3.Jttp.Header JHeader { get { return JResponse.Header; } }
+        protected dpz3.Json.JsonObject JRequest { get; private set; }
 
         /// <summary>
-        /// 输出用的数据对象
+        /// 获取文本内容
         /// </summary>
-        protected dpz3.Json.JsonObject JData { get { return JResponse.Data; } }
+        protected string JRequestText { get; private set; }
 
         /// <summary>
-        /// 获取客户端提交的表单信息
-        /// </summary>
-        protected dpz3.KeyValues<string> Form { get; private set; }
-
-        /// <summary>
-        /// 获取客户端提交的表单信息
+        /// 可重载的初始化时间
         /// </summary>
         /// <returns></returns>
-        protected dpz3.KeyValues<string> GetForm() {
-            ICollection<string> keys = Request.Form.Keys;
-            foreach (string key in keys) {
-                this.Form[key] = Request.Form[key];
-            }
-            return this.Form;
+        protected virtual string OnInit() { return null; }
+
+        /// <summary>
+        /// 可重载的呈现时间
+        /// </summary>
+        /// <returns></returns>
+        protected virtual void OnRender() { }
+
+        /// <summary>
+        /// 操作初始化
+        /// </summary>
+        /// <returns></returns>
+        protected string Initialize() {
+
+            var reader = new System.IO.StreamReader(Request.Body);
+            string content = reader.ReadToEnd();
+            this.JRequestText = content;
+
+            // 解析获取到的数据
+            this.JRequest = (dpz3.Json.JsonObject)Json.Parser.ParseJson(content);
+
+            // 建立Jttp应答器
+            this.JResponse = new Jttp.Object();
+
+            // 返回初始化重载事件
+            return this.OnInit();
         }
 
         /// <summary>
         /// 对象实例化
         /// </summary>
-        public JttpControllerBase() {
-
-            // 建立Jttp应答器
-            this.JResponse = new Jttp.Object();
-
-            // 建立
-            this.Form = new KeyValues<string>();
-        }
+        public ApiControllerBase() { }
 
         /// <summary>
         /// 将行数据填充到Json对象中
         /// </summary>
         /// <param name="row"></param>
         /// <param name="obj"></param>
-        protected void FillRowToJsonObject(dpz3.db.Row row, dpz3.Json.JsonObject obj) {
+        protected void RenderData(dpz3.db.Row row, dpz3.Json.JsonObject obj = null) {
+            if (dpz3.Object.IsNull(obj)) obj = JResponse.Data;
             foreach (var item in row) {
                 obj.String(item.Key, item.Value);
             }
@@ -70,9 +79,10 @@ namespace dpz3.AspNetCore2.Controllers {
         /// </summary>
         /// <param name="rows"></param>
         /// <param name="array"></param>
-        protected void FillRowsToJsonArray(dpz3.db.Rows rows, dpz3.Json.JsonArray array) {
+        protected void RenderList(dpz3.db.Rows rows, dpz3.Json.JsonArray array = null) {
+            if (dpz3.Object.IsNull(array)) array = JResponse.List;
             foreach (var row in rows) {
-                FillRowToJsonObject(row, array.Object(array.Count));
+                RenderData(row, array.Object(array.Count));
             }
         }
 
@@ -81,8 +91,10 @@ namespace dpz3.AspNetCore2.Controllers {
         /// </summary>
         /// <returns></returns>
         protected string Success(string msg = null) {
-            JHeader.Status = 1;
+            JResponse.Result = 1;
             if (!msg.IsNoneOrNull()) JResponse.Message = msg;
+            // 重载
+            this.OnRender();
             return JResponse.ToString();
         }
 
@@ -92,8 +104,10 @@ namespace dpz3.AspNetCore2.Controllers {
         /// <param name="msg"></param>
         /// <returns></returns>
         protected string Fail(string msg = null) {
-            JHeader.Status = 0;
+            JResponse.Result = 0;
             if (!msg.IsNoneOrNull()) JResponse.Message = msg;
+            // 重载
+            this.OnRender();
             return JResponse.ToString();
         }
 
@@ -105,10 +119,12 @@ namespace dpz3.AspNetCore2.Controllers {
         /// <param name="info"></param>
         /// <returns></returns>
         protected string Error(int code = 0, string msg = null, string info = null) {
-            JHeader.Status = -1;
+            JResponse.Result = -1;
             if (!msg.IsNoneOrNull()) JResponse.Message = msg;
             JResponse.Error.Code = 0;
             if (info != null) JResponse.Error.Info = info;
+            // 重载
+            this.OnRender();
             return JResponse.ToString();
         }
 
