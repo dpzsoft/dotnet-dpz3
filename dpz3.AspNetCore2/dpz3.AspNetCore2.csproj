@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>1.1.1911.9</Version>
+    <Version>1.1.1911.11</Version>
     <PackageId>dpz3.AspNetCore2</PackageId>
     <Authors>d.p.z software studio</Authors>
     <Description>基于dpz3开发套件的MVC相关扩展组件(.Net Core)</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <AssemblyVersion>1.0.1909.6</AssemblyVersion>
     <RootNamespace>dpz3.AspNetCore</RootNamespace>
   </PropertyGroup>
