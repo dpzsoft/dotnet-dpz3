@@ -48,6 +48,11 @@ namespace dpz3.Jttp {
         public string VerifySign { get { return _obj.String("VerifySign"); } set { _obj.String("VerifySign", value); } }
 
         /// <summary>
+        /// 获取或设置状态信息
+        /// </summary>
+        public int Status { get { return (int)_obj.Number("Status"); } set { _obj.Number("Status", value); } }
+
+        /// <summary>
         /// 初始化
         /// </summary>
         public void Init(Header header = null) {

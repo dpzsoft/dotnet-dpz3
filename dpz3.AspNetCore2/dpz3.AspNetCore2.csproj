@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>1.1.1911.11</Version>
+    <Version>1.1.1911.12</Version>
     <PackageId>dpz3.AspNetCore2</PackageId>
     <Authors>d.p.z software studio</Authors>
     <Description>基于dpz3开发套件的MVC相关扩展组件(.Net Core)</Description>
@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="dpz3.db" Version="1.1.1911.5" />
-    <PackageReference Include="dpz3.jttp" Version="1.1.1911.6" />
+    <PackageReference Include="dpz3.jttp" Version="1.1.1911.8" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>

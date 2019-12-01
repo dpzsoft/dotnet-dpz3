@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>dpz3.Jttp</PackageId>
-    <Version>1.1.1911.7</Version>
+    <Version>1.1.1911.8</Version>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>
     <Description>基于dpz3开发套件的Json数据传输协议扩展(.Net Standard)，在标准的Json结构上加入Header、Data、Message等标准化的顶层对象</Description>
     <Authors>d.p.z software studio</Authors>
