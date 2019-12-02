@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using System.Net;
 
-namespace dpz3.AspNetCore3 {
+namespace dpz3.AspNetCore {
 
     /// <summary>
     /// Kestrel操作器

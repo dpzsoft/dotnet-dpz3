@@ -1,18 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <PackageId>dpz3.AspNetCore3</PackageId>
-    <Version>1.0.1911.2</Version>
+    <Version>1.1.1912.4</Version>
     <Description>一套服务于Asp.Net Core 3.0的dpz3套件扩展，包含Kestrel服务的快速配置</Description>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>d.p.z software studio</Authors>
+    <RootNamespace>dpz3.AspNetCore</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>X:\Projects\dpzsoft\dotnet-dpz3\dpz3.AspNetCore3\dpz3.AspNetCore3.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotnet-dpz3" Version="1.2.1911.23" />
+    <PackageReference Include="dpz3" Version="1.2.1911.33" />
+    <PackageReference Include="dpz3.db" Version="1.1.1911.5" />
+    <PackageReference Include="dpz3.Jttp" Version="1.1.1911.8" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
   <ItemGroup>
