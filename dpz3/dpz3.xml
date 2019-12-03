@@ -1370,6 +1370,31 @@
             释放资源
             </summary>
         </member>
+        <member name="T:dpz3.Json.JsonArrayOperator">
+            <summary>
+            数值对象操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Json.JsonArrayOperator.#ctor(dpz3.Json.JsonUnit)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="jsonUnit"></param>
+        </member>
+        <member name="P:dpz3.Json.JsonArrayOperator.Item(System.Int32)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonArrayOperator.Item(System.String)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="T:dpz3.Json.JsonBoolean">
             <summary>
             布尔单元类型
@@ -1409,6 +1434,106 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:dpz3.Json.JsonBoolOperator">
+            <summary>
+            数值对象操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Json.JsonBoolOperator.#ctor(dpz3.Json.JsonUnit)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="jsonUnit"></param>
+        </member>
+        <member name="P:dpz3.Json.JsonBoolOperator.Item(System.Int32)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonBoolOperator.Item(System.String)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Json.JsonFloatOperator">
+            <summary>
+            数值对象操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Json.JsonFloatOperator.#ctor(dpz3.Json.JsonUnit)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="jsonUnit"></param>
+        </member>
+        <member name="P:dpz3.Json.JsonFloatOperator.Item(System.Int32)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonFloatOperator.Item(System.String)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Json.JsonLongOperator">
+            <summary>
+            数值对象操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Json.JsonLongOperator.#ctor(dpz3.Json.JsonUnit)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="jsonUnit"></param>
+        </member>
+        <member name="P:dpz3.Json.JsonLongOperator.Item(System.Int32)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonLongOperator.Item(System.String)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Json.JsonIntOperator">
+            <summary>
+            数值对象操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Json.JsonIntOperator.#ctor(dpz3.Json.JsonUnit)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="jsonUnit"></param>
+        </member>
+        <member name="P:dpz3.Json.JsonIntOperator.Item(System.Int32)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonIntOperator.Item(System.String)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="T:dpz3.Json.JsonNumber">
             <summary>
             数值单元类型
@@ -1446,6 +1571,31 @@
             <summary>
             获取Json字符串
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Json.JsonNumberOperator">
+            <summary>
+            数值对象操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Json.JsonNumberOperator.#ctor(dpz3.Json.JsonUnit)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="jsonUnit"></param>
+        </member>
+        <member name="P:dpz3.Json.JsonNumberOperator.Item(System.Int32)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonNumberOperator.Item(System.String)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="key"></param>
             <returns></returns>
         </member>
         <member name="T:dpz3.Json.JsonObject">
@@ -1488,6 +1638,31 @@
             <summary>
             释放资源
             </summary>
+        </member>
+        <member name="T:dpz3.Json.JsonObjectOperator">
+            <summary>
+            数值对象操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Json.JsonObjectOperator.#ctor(dpz3.Json.JsonUnit)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="jsonUnit"></param>
+        </member>
+        <member name="P:dpz3.Json.JsonObjectOperator.Item(System.Int32)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonObjectOperator.Item(System.String)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
         </member>
         <member name="T:dpz3.Json.JsonString">
             <summary>
@@ -1566,6 +1741,31 @@
             <summary>
             释放资源
             </summary>
+        </member>
+        <member name="T:dpz3.Json.JsonStringOperator">
+            <summary>
+            数值对象操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Json.JsonStringOperator.#ctor(dpz3.Json.JsonUnit)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="jsonUnit"></param>
+        </member>
+        <member name="P:dpz3.Json.JsonStringOperator.Item(System.Int32)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonStringOperator.Item(System.String)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
         </member>
         <member name="T:dpz3.Json.UnitType">
             <summary>
@@ -1881,6 +2081,51 @@
             <param name="index"></param>
             <param name="val"></param>
             <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonUnit.Num">
+            <summary>
+            获取数值操作器
+            </summary>
+        </member>
+        <member name="P:dpz3.Json.JsonUnit.Dbl">
+            <summary>
+            获取数值操作器
+            </summary>
+        </member>
+        <member name="P:dpz3.Json.JsonUnit.Int">
+            <summary>
+            获取数值操作器
+            </summary>
+        </member>
+        <member name="P:dpz3.Json.JsonUnit.Lng">
+            <summary>
+            获取数值操作器
+            </summary>
+        </member>
+        <member name="P:dpz3.Json.JsonUnit.Flo">
+            <summary>
+            获取数值操作器
+            </summary>
+        </member>
+        <member name="P:dpz3.Json.JsonUnit.Str">
+            <summary>
+            获取字符串操作器
+            </summary>
+        </member>
+        <member name="P:dpz3.Json.JsonUnit.Bol">
+            <summary>
+            获取字符串操作器
+            </summary>
+        </member>
+        <member name="P:dpz3.Json.JsonUnit.Obj">
+            <summary>
+            获取对象操作器
+            </summary>
+        </member>
+        <member name="P:dpz3.Json.JsonUnit.Arr">
+            <summary>
+            获取对象操作器
+            </summary>
         </member>
         <member name="M:dpz3.Json.JsonUnit.OnParseString">
             <summary>

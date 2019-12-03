@@ -485,6 +485,112 @@ namespace dpz3.Json {
             return this;
         }
 
+        private JsonNumberOperator _number = null;
+
+        /// <summary>
+        /// 获取数值操作器
+        /// </summary>
+        public JsonNumberOperator Num {
+            get {
+                if (_number == null) _number = new JsonNumberOperator(this);
+                return _number;
+            }
+        }
+
+        /// <summary>
+        /// 获取数值操作器
+        /// </summary>
+        public JsonNumberOperator Dbl {
+            get {
+                if (_number == null) _number = new JsonNumberOperator(this);
+                return _number;
+            }
+        }
+
+        private JsonIntOperator _int = null;
+
+        /// <summary>
+        /// 获取数值操作器
+        /// </summary>
+        public JsonIntOperator Int {
+            get {
+                if (_int == null) _int = new JsonIntOperator(this);
+                return _int;
+            }
+        }
+
+        private JsonLongOperator _long = null;
+
+        /// <summary>
+        /// 获取数值操作器
+        /// </summary>
+        public JsonLongOperator Lng {
+            get {
+                if (_long == null) _long = new JsonLongOperator(this);
+                return _long;
+            }
+        }
+
+        private JsonFloatOperator _float = null;
+
+        /// <summary>
+        /// 获取数值操作器
+        /// </summary>
+        public JsonFloatOperator Flo {
+            get {
+                if (_float == null) _float = new JsonFloatOperator(this);
+                return _float;
+            }
+        }
+
+        private JsonStringOperator _string = null;
+
+        /// <summary>
+        /// 获取字符串操作器
+        /// </summary>
+        public JsonStringOperator Str {
+            get {
+                if (_string == null) _string = new JsonStringOperator(this);
+                return _string;
+            }
+        }
+
+        private JsonBoolOperator _bool = null;
+
+        /// <summary>
+        /// 获取字符串操作器
+        /// </summary>
+        public JsonBoolOperator Bol {
+            get {
+                if (_bool == null) _bool = new JsonBoolOperator(this);
+                return _bool;
+            }
+        }
+
+        private JsonObjectOperator _object = null;
+
+        /// <summary>
+        /// 获取对象操作器
+        /// </summary>
+        public JsonObjectOperator Obj {
+            get {
+                if (_object == null) _object = new JsonObjectOperator(this);
+                return _object;
+            }
+        }
+
+        private JsonArrayOperator _array = null;
+
+        /// <summary>
+        /// 获取对象操作器
+        /// </summary>
+        public JsonArrayOperator Arr {
+            get {
+                if (_array == null) _array = new JsonArrayOperator(this);
+                return _array;
+            }
+        }
+
         #endregion
 
         /// <summary>
