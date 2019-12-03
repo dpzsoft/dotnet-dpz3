@@ -103,6 +103,56 @@
             <param name="info"></param>
             <returns></returns>
         </member>
+        <member name="T:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting">
+            <summary>
+            控制器字段设置
+            </summary>
+        </member>
+        <member name="T:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting.DataTypes">
+            <summary>
+            字段数据类型
+            </summary>
+        </member>
+        <member name="F:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting.DataTypes.String">
+            <summary>
+            字符串
+            </summary>
+        </member>
+        <member name="F:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting.DataTypes.Integer">
+            <summary>
+            整型
+            </summary>
+        </member>
+        <member name="F:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting.DataTypes.Long">
+            <summary>
+            长整型
+            </summary>
+        </member>
+        <member name="F:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting.DataTypes.Decimal">
+            <summary>
+            小数
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting.Enabled">
+            <summary>
+            获取或设置可用状态
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting.IsMust">
+            <summary>
+            获取或设置字段是否必须指定
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting.DataType">
+            <summary>
+            获取或设置数据类型
+            </summary>
+        </member>
+        <member name="M:dpz3.AspNetCore.Controllers.ApiControllerFieldSetting.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
         <member name="T:dpz3.AspNetCore.Controllers.ApiControllerSecuritySessionBase">
             <summary>
             支持ssr.SessionServer的WebApi基础类
