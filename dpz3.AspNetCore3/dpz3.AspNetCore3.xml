@@ -231,12 +231,65 @@
             Kestrel操作器
             </summary>
         </member>
-        <member name="M:dpz3.AspNetCore.Kestrel.DeployConfig(System.String,Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions)">
+        <member name="M:dpz3.AspNetCore.Kestrel.DeployConfig(System.String,Microsoft.AspNetCore.Hosting.IWebHostBuilder)">
             <summary>
             应用配置
             </summary>
             <param name="path"></param>
-            <param name="options"></param>
+            <param name="webBuilder"></param>
+        </member>
+        <member name="M:dpz3.AspNetCore.Kestrel.DeployConfig(Microsoft.AspNetCore.Hosting.IWebHostBuilder,dpz3.AspNetCore.KestrelConfig)">
+            <summary>
+            应用配置
+            </summary>
+            <param name="webBuilder"></param>
+            <param name="config"></param>
+        </member>
+        <member name="T:dpz3.AspNetCore.KestrelConfig">
+            <summary>
+            Kestrel操作器
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.KestrelConfig.Enable">
+            <summary>
+            获取或设置服务有效性
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.KestrelConfig.HttpEnable">
+            <summary>
+            获取或设置HTTP服务有效性
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.KestrelConfig.HttpsEnable">
+            <summary>
+            获取或设置HTTPS服务有效性
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.KestrelConfig.HttpPort">
+            <summary>
+            获取或设置HTTP服务端口
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.KestrelConfig.HttpsPort">
+            <summary>
+            获取或设置HTTPS服务端口
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.KestrelConfig.HttpsPfxPath">
+            <summary>
+            获取或设置HTTPS证书路径
+            </summary>
+        </member>
+        <member name="P:dpz3.AspNetCore.KestrelConfig.HttpsPfxPwd">
+            <summary>
+            获取或设置HTTPS证书密码
+            </summary>
+        </member>
+        <member name="M:dpz3.AspNetCore.KestrelConfig.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="path"></param>
         </member>
     </members>
 </doc>

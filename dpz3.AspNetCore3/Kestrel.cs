@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Hosting;
 using System.Net;
 
 namespace dpz3.AspNetCore {
@@ -9,16 +9,25 @@ namespace dpz3.AspNetCore {
     /// </summary>
     public static class Kestrel {
 
+        private static bool CheckEnable(string config) {
+            config = config.ToLower();
+            return (config == "yes" || config == "true");
+        }
+
         /// <summary>
         /// 应用配置
         /// </summary>
         /// <param name="path"></param>
-        /// <param name="options"></param>
-        public static void DeployConfig(string path, KestrelServerOptions options) {
+        /// <param name="webBuilder"></param>
+        public static void DeployConfig(string path, IWebHostBuilder webBuilder) {
 
             // 当文件不存在时，执行初始化创建
             if (!System.IO.File.Exists(path)) {
                 using (dpz3.File.ConfFile file = new dpz3.File.ConfFile(path)) {
+
+                    // 建立服务配置
+                    var serverGroup = file["Server"];
+                    serverGroup["Enable"] = "no";
 
                     // 建立HTTP配置
                     var httpGroup = file["HTTP"];
@@ -40,23 +49,62 @@ namespace dpz3.AspNetCore {
             // 读取配置
             using (dpz3.File.ConfFile file = new dpz3.File.ConfFile(path)) {
 
-                // 读取HTTP配置
-                var httpGroup = file["HTTP"];
-                if (httpGroup["Enable"] == "yes") {
-                    // 填入配置中的监听端口
-                    
-                    options.Listen(IPAddress.Any, httpGroup["Port"].ToInteger());
-                }
+                // 读取服务配置
+                var serverGroup = file["Server"];
+                if (CheckEnable(serverGroup["Enable"])) {
+                    webBuilder.ConfigureKestrel(options => {
 
-                // 读取HTTPS配置
-                var httpsGroup = file["HTTPS"];
-                if (httpsGroup["Enable"] == "yes") {
-                    // 填入配置中的监听端口
-                    options.Listen(IPAddress.Any, httpsGroup["Port"].ToInteger(), listenOptions => {
-                        // 填入配置中的pfx文件路径和指定的密码
-                        listenOptions.UseHttps(httpsGroup["Pfx.Path"], httpsGroup["Pfx.Password"]);
+                        // 读取HTTP配置
+                        var httpGroup = file["HTTP"];
+                        if (CheckEnable(httpGroup["Enable"])) {
+                            // 填入配置中的监听端口
+
+                            options.Listen(IPAddress.Any, httpGroup["Port"].ToInteger());
+                        }
+
+                        // 读取HTTPS配置
+                        var httpsGroup = file["HTTPS"];
+                        if (httpsGroup["Enable"] == "yes") {
+                            // 填入配置中的监听端口
+                            options.Listen(IPAddress.Any, httpsGroup["Port"].ToInteger(), listenOptions => {
+                                // 填入配置中的pfx文件路径和指定的密码
+                                listenOptions.UseHttps(httpsGroup["Pfx.Path"], httpsGroup["Pfx.Password"]);
+                            });
+                        }
+
                     });
                 }
+
+            }
+        }
+
+        /// <summary>
+        /// 应用配置
+        /// </summary>
+        /// <param name="webBuilder"></param>
+        /// <param name="config"></param>
+        public static void DeployConfig(IWebHostBuilder webBuilder, KestrelConfig config) {
+
+            // 判断是否启用Kestrel服务
+            if (config.Enable) {
+                webBuilder.ConfigureKestrel(options => {
+
+                    // 判断是否启用HTTP配置
+                    if (config.HttpEnable) {
+                        // 填入配置中的监听端口
+                        options.Listen(IPAddress.Any, config.HttpPort);
+                    }
+
+                    // 判断是否启用HTTPS配置
+                    if (config.HttpsEnable) {
+                        // 填入配置中的监听端口
+                        options.Listen(IPAddress.Any, config.HttpsPort, listenOptions => {
+                            // 填入配置中的pfx文件路径和指定的密码
+                            listenOptions.UseHttps(config.HttpsPfxPath, config.HttpsPfxPwd);
+                        });
+                    }
+
+                });
             }
         }
 
