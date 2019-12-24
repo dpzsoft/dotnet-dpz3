@@ -65,6 +65,11 @@
             获取或设置验证签名
             </summary>
         </member>
+        <member name="P:dpz3.Jttp.Header.Status">
+            <summary>
+            获取或设置状态信息
+            </summary>
+        </member>
         <member name="M:dpz3.Jttp.Header.Init(dpz3.Jttp.Header)">
             <summary>
             初始化
@@ -132,6 +137,16 @@
             获取字符串表示形势
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:dpz3.Jttp.Signer">
+            <summary>
+            签名器
+            </summary>
+        </member>
+        <member name="M:dpz3.Jttp.Signer.SignUp(System.String,System.String,System.Int64,System.String,System.String,System.String)">
+            <summary>
+            加签运算
+            </summary>
         </member>
     </members>
 </doc>

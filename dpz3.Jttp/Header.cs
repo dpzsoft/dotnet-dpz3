@@ -30,7 +30,7 @@ namespace dpz3.Jttp {
         /// <summary>
         /// 获取或设置时间戳信息
         /// </summary>
-        public long Time { get { return (long)_obj.Number("SessionID"); } set { _obj.Number("SessionID", value); } }
+        public long Time { get { return (long)_obj.Number("Time"); } set { _obj.Number("Time", value); } }
 
         /// <summary>
         /// 获取或设置验证加盐

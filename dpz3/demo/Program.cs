@@ -68,6 +68,11 @@ namespace demo {
             Console.WriteLine($"n={n}");
             Console.WriteLine($"md5={md5}");
 
+            string str = dpz3.File.UTF8File.ReadAllText(@"X:\Projects\modular\core\ModularCore\bin\Debug\netcoreapp3.1\packages\simple-home\1.0.1912.4\modular.json");
+            Console.WriteLine(str);
+            var obj = dpz3.Json.Parser.ParseJson(str);
+            Console.WriteLine(obj.ToJsonString());
+
             //string md = dpz3.File.UTF8File.ReadAllText(@"X:\Temp\temp.md");
             //using (var doc = dpz3.Markdown.Parser.GetDocument(md)) {
             //    Console.WriteLine("String:");

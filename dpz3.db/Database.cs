@@ -70,6 +70,15 @@ namespace dpz3.db {
         /// </summary>
         public DatabaseTypes Type { get; protected set; }
 
+        // 检查有效性
+        private static bool CheckEnable(string str) {
+            if (str.IsNull()) return false;
+            str = str.ToLower();
+            if (str == "yes") return true;
+            if (str == "no") return true;
+            return false;
+        }
+
         /// <summary>
         /// 从配置文件中加载数据库定义
         /// </summary>
@@ -84,6 +93,7 @@ namespace dpz3.db {
 
                     // 建立Sqlserver示例
                     var sqlserverGroup = file["SqlServer"];
+                    sqlserverGroup["Enable"] = "no";
                     sqlserverGroup["Type"] = "SqlServer";
                     sqlserverGroup["Address"] = "127.0.0.1";
                     sqlserverGroup["Port"] = "1433";
@@ -93,6 +103,7 @@ namespace dpz3.db {
 
                     // 建立mysql示例
                     var mysqlGroup = file["MySql"];
+                    mysqlGroup["Enable"] = "no";
                     mysqlGroup["Type"] = "MySql";
                     mysqlGroup["Address"] = "127.0.0.1";
                     mysqlGroup["Port"] = "3306";
@@ -102,6 +113,7 @@ namespace dpz3.db {
 
                     // 建立mysql示例
                     var pgsqlGroup = file["PostgreSql"];
+                    pgsqlGroup["Enable"] = "no";
                     pgsqlGroup["Type"] = "PostgreSql";
                     pgsqlGroup["Address"] = "127.0.0.1";
                     pgsqlGroup["Port"] = "5432";
@@ -111,6 +123,7 @@ namespace dpz3.db {
 
                     // 建立sqlite示例
                     var sqliteGroup = file["Sqlite"];
+                    sqliteGroup["Enable"] = "no";
                     sqliteGroup["Type"] = "Sqlite";
                     sqliteGroup["Path"] = "/db/sqlite.db";
 
@@ -121,6 +134,11 @@ namespace dpz3.db {
 
             using (dpz3.File.ConfFile file = new File.ConfFile(path)) {
                 var confGroup = file[group];
+
+                // 当节点不存在时，返回null
+                if (confGroup == null) return null;
+                if (!CheckEnable(confGroup["Enable"])) return null;
+
                 string dbType = confGroup["Type"];
 
                 switch (dbType.ToLower()) {

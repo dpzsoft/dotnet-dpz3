@@ -287,8 +287,20 @@ namespace dpz3.Json {
                 OnSetChildItem(key, obj);
                 return obj.Value;
             } else {
-                var obj = (JsonString)res;
-                return obj.Value;
+                string objType = res.GetType().FullName;
+                switch (objType) {
+                    case "dpz3.Json.JsonString":
+                        var obj = (JsonString)res;
+                        return obj.Value;
+                    case "dpz3.Json.JsonNumber":
+                        var objNumber = (JsonNumber)res;
+                        return $"{objNumber.Value}";
+                    case "dpz3.Json.JsonBoolean":
+                        var objBool = (JsonBoolean)res;
+                        return $"{objBool.Value}";
+                    default:
+                        throw new Exception("操作类型错误");
+                }
             }
         }
 
@@ -304,8 +316,20 @@ namespace dpz3.Json {
                 OnSetArrayItem(index, obj);
                 return obj.Value;
             } else {
-                var obj = (JsonString)res;
-                return obj.Value;
+                string objType = res.GetType().FullName;
+                switch (objType) {
+                    case "dpz3.Json.JsonString":
+                        var obj = (JsonString)res;
+                        return obj.Value;
+                    case "dpz3.Json.JsonNumber":
+                        var objNumber = (JsonNumber)res;
+                        return $"{objNumber.Value}";
+                    case "dpz3.Json.JsonBoolean":
+                        var objBool = (JsonBoolean)res;
+                        return $"{objBool.Value}";
+                    default:
+                        throw new Exception("操作类型错误");
+                }
             }
         }
 
@@ -316,14 +340,9 @@ namespace dpz3.Json {
         /// <param name="val"></param>
         /// <returns></returns>
         public JsonUnit String(string key, string val) {
-            JsonString obj = (JsonString)OnGetChildItem(key);
-            if (obj == null) {
-                obj = new JsonString(this);
-                OnSetChildItem(key, obj);
-                obj.Value = val;
-            } else {
-                obj.Value = val;
-            }
+            var obj = new JsonString(this);
+            obj.Value = val;
+            OnSetChildItem(key, obj);
             return this;
         }
 
@@ -334,14 +353,9 @@ namespace dpz3.Json {
         /// <param name="val"></param>
         /// <returns></returns>
         public JsonUnit String(int index, string val) {
-            JsonString obj = (JsonString)OnGetArrayItem(index);
-            if (obj == null) {
-                obj = new JsonString(this);
-                OnSetArrayItem(index, obj);
-                obj.Value = val;
-            } else {
-                obj.Value = val;
-            }
+            var obj = new JsonString(this);
+            obj.Value = val;
+            OnSetArrayItem(index, obj);
             return this;
         }
 
@@ -357,8 +371,20 @@ namespace dpz3.Json {
                 OnSetChildItem(key, obj);
                 return obj.Value;
             } else {
-                var obj = (JsonBoolean)res;
-                return obj.Value;
+                string objType = res.GetType().FullName;
+                switch (objType) {
+                    case "dpz3.Json.JsonString":
+                        var obj = (JsonString)res;
+                        return obj.Value.ToLower() == "ture";
+                    case "dpz3.Json.JsonNumber":
+                        var objNumber = (JsonNumber)res;
+                        return objNumber.Value > 0;
+                    case "dpz3.Json.JsonBoolean":
+                        var objBool = (JsonBoolean)res;
+                        return objBool.Value;
+                    default:
+                        throw new Exception("操作类型错误");
+                }
             }
         }
 
@@ -374,8 +400,20 @@ namespace dpz3.Json {
                 OnSetArrayItem(index, obj);
                 return obj.Value;
             } else {
-                var obj = (JsonBoolean)res;
-                return obj.Value;
+                string objType = res.GetType().FullName;
+                switch (objType) {
+                    case "dpz3.Json.JsonString":
+                        var obj = (JsonString)res;
+                        return obj.Value.ToLower() == "ture";
+                    case "dpz3.Json.JsonNumber":
+                        var objNumber = (JsonNumber)res;
+                        return objNumber.Value > 0;
+                    case "dpz3.Json.JsonBoolean":
+                        var objBool = (JsonBoolean)res;
+                        return objBool.Value;
+                    default:
+                        throw new Exception("操作类型错误");
+                }
             }
         }
 
@@ -386,14 +424,9 @@ namespace dpz3.Json {
         /// <param name="val"></param>
         /// <returns></returns>
         public JsonUnit Bool(string key, bool val) {
-            JsonBoolean obj = (JsonBoolean)OnGetChildItem(key);
-            if (obj == null) {
-                obj = new JsonBoolean(this);
-                OnSetChildItem(key, obj);
-                obj.Value = val;
-            } else {
-                obj.Value = val;
-            }
+            var obj = new JsonBoolean(this);
+            obj.Value = val;
+            OnSetChildItem(key, obj);
             return this;
         }
 
@@ -404,14 +437,9 @@ namespace dpz3.Json {
         /// <param name="val"></param>
         /// <returns></returns>
         public JsonUnit Bool(int index, bool val) {
-            JsonBoolean obj = (JsonBoolean)OnGetArrayItem(index);
-            if (obj == null) {
-                obj = new JsonBoolean(this);
-                OnSetArrayItem(index, obj);
-                obj.Value = val;
-            } else {
-                obj.Value = val;
-            }
+            var obj = new JsonBoolean(this);
+            obj.Value = val;
+            OnSetArrayItem(index, obj);
             return this;
         }
 
@@ -427,8 +455,20 @@ namespace dpz3.Json {
                 OnSetChildItem(key, obj);
                 return obj.Value;
             } else {
-                var obj = (JsonNumber)res;
-                return obj.Value;
+                string objType = res.GetType().FullName;
+                switch (objType) {
+                    case "dpz3.Json.JsonString":
+                        var obj = (JsonString)res;
+                        return obj.Value.ToDouble();
+                    case "dpz3.Json.JsonNumber":
+                        var objNumber = (JsonNumber)res;
+                        return objNumber.Value;
+                    case "dpz3.Json.JsonBoolean":
+                        var objBool = (JsonBoolean)res;
+                        return objBool.Value ? 1 : 0;
+                    default:
+                        throw new Exception("操作类型错误");
+                }
             }
         }
 
@@ -444,8 +484,20 @@ namespace dpz3.Json {
                 OnSetArrayItem(index, obj);
                 return obj.Value;
             } else {
-                var obj = (JsonNumber)res;
-                return obj.Value;
+                string objType = res.GetType().FullName;
+                switch (objType) {
+                    case "dpz3.Json.JsonString":
+                        var obj = (JsonString)res;
+                        return obj.Value.ToDouble();
+                    case "dpz3.Json.JsonNumber":
+                        var objNumber = (JsonNumber)res;
+                        return objNumber.Value;
+                    case "dpz3.Json.JsonBoolean":
+                        var objBool = (JsonBoolean)res;
+                        return objBool.Value ? 1 : 0;
+                    default:
+                        throw new Exception("操作类型错误");
+                }
             }
         }
 
@@ -456,14 +508,9 @@ namespace dpz3.Json {
         /// <param name="val"></param>
         /// <returns></returns>
         public JsonUnit Number(string key, double val) {
-            JsonNumber obj = (JsonNumber)OnGetChildItem(key);
-            if (obj == null) {
-                obj = new JsonNumber(this);
-                OnSetChildItem(key, obj);
-                obj.Value = val;
-            } else {
-                obj.Value = val;
-            }
+            var obj = new JsonNumber(this);
+            obj.Value = val;
+            OnSetChildItem(key, obj);
             return this;
         }
 
@@ -474,14 +521,9 @@ namespace dpz3.Json {
         /// <param name="val"></param>
         /// <returns></returns>
         public JsonUnit Number(int index, double val) {
-            JsonNumber obj = (JsonNumber)OnGetArrayItem(index);
-            if (obj == null) {
-                obj = new JsonNumber(this);
-                OnSetArrayItem(index, obj);
-                obj.Value = val;
-            } else {
-                obj.Value = val;
-            }
+            var obj = new JsonNumber(this);
+            obj.Value = val;
+            OnSetArrayItem(index, obj);
             return this;
         }
 

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>dpz3.db</PackageId>
-    <Version>1.2.1912.6</Version>
+    <Version>1.2.1912.8</Version>
     <Description>基于dpz3开发套件的数据库应用扩展(.Net Standard)，支持Sql Server、MySql、Sqlite和PostgreSql的原生SQL语句和通用封装函数操作</Description>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>

@@ -60,11 +60,44 @@ namespace dpz3.AspNetCore.Controllers {
             // 输出头部信息
             string salt = Guid.NewGuid().ToString().Replace("-", "");
             long ts = dpz3.Time.Now.ToTimeStamp();
-            Response.Headers.Add("Verify_Token", this.VerifyToken);
-            Response.Headers.Add("Verify_Salt", salt);
-            Response.Headers.Add("Verify_Type", this.VerifyType);
-            Response.Headers.Add("Verify_Time", $"{ts}");
-            Response.Headers.Add("Verify_Sign", GetSign(this.VerifyToken, salt, ts, this.VerifyKey, this.VerifyType));
+
+            // Verify_Token
+            if (Response.Headers.ContainsKey("Verify_Token")) {
+                Response.Headers["Verify_Token"] = this.VerifyToken;
+            } else {
+                Response.Headers.Add("Verify_Token", this.VerifyToken);
+            }
+
+            // Verify_Salt
+            if (Response.Headers.ContainsKey("Verify_Salt")) {
+                Response.Headers["Verify_Salt"] = salt;
+            } else {
+                Response.Headers.Add("Verify_Salt", salt);
+            }
+
+            // Verify_Type
+            if (this.VerifyType.IsNoneOrNull()) this.VerifyType = "md5";
+            if (Response.Headers.ContainsKey("Verify_Type")) {
+                Response.Headers["Verify_Type"] = this.VerifyType;
+            } else {
+                Response.Headers.Add("Verify_Type", this.VerifyType);
+            }
+
+
+            // Verify_Time
+            if (Response.Headers.ContainsKey("Verify_Time")) {
+                Response.Headers["Verify_Time"] = $"{ts}";
+            } else {
+                Response.Headers.Add("Verify_Time", $"{ts}");
+            }
+
+            // Verify_Sign
+            string sign = GetSign(this.VerifyToken, salt, ts, this.VerifyKey, this.VerifyType);
+            if (Response.Headers.ContainsKey("Verify_Sign")) {
+                Response.Headers["Verify_Sign"] = sign;
+            } else {
+                Response.Headers.Add("Verify_Sign", sign);
+            }
         }
 
         /// <summary>

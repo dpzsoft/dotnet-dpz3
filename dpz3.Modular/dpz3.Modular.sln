@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dpz3.Modular", "dpz3.Modular.csproj", "{C4AE053D-200C-4DD3-BC4F-7AE65986EB74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4AE053D-200C-4DD3-BC4F-7AE65986EB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4AE053D-200C-4DD3-BC4F-7AE65986EB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4AE053D-200C-4DD3-BC4F-7AE65986EB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4AE053D-200C-4DD3-BC4F-7AE65986EB74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1145DE06-5868-4E66-A4B4-BDB6EAC951EC}
+	EndGlobalSection
+EndGlobal

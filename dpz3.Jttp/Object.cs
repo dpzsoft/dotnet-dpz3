@@ -119,32 +119,8 @@ namespace dpz3.Jttp {
                 this.Header.VerifyType = "md5";
             }
 
-            // 添加加签类型
-            sb.AppendFormat("$type={0}", sType);
-
-            // 添加盐
-            sb.AppendFormat("$salt={0}", salt);
-
-            // 添加时间戳
-            sb.AppendFormat("$time={0}", this.Header.Time);
-
-            // 添加交互标识
-            sb.AppendFormat("$session={0}", this.Header.SessionID);
-
-            // 添加附加信息
-            if (!attach.IsNoneOrNull()) sb.AppendFormat("$attach={0}", attach);
-
-            // 添加加签密钥
-            sb.AppendFormat("$key={0}", key);
-
-            switch (sType) {
-                case "md5": this.Header.VerifySign = sb.ToString().GetMD5(); break;
-                case "sha1": this.Header.VerifySign = sb.ToString().GetSha1(); break;
-                case "sha256": this.Header.VerifySign = sb.ToString().GetSha256(); break;
-                case "sha512": this.Header.VerifySign = sb.ToString().GetSha512(); break;
-                default: throw new Exception("不支持的加签算法");
-            }
-
+            // 计算签名
+            this.Header.VerifySign = Signer.SignUp(sType, this.Header.SessionID, this.Header.Time, salt, key, attach);
         }
 
         /// <summary>

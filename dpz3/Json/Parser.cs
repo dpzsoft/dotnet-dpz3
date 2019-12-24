@@ -242,7 +242,9 @@ namespace dpz3.Json {
 
                                 if (!name.IsNoneOrNull()) throw new Exception($"语法错误：无效名称");
                                 value = sb.ToString();
-                                if (value == "null" || value == "Null" || value == "NULL") {
+                                if (value == "") {
+                                    // 空数组，不做处理
+                                } else if (value == "null" || value == "Null" || value == "NULL") {
                                     // 添加NULL值
                                     jup.String(jup.Count, null);
                                 } else if (value == "true" || value == "True" || value == "TRUE") {
@@ -335,10 +337,10 @@ namespace dpz3.Json {
                         } else {
                             // 当未处于字符串模式时，则进入字符串模式
                             if (pt == Parse_Name) {
-                                if (!name.IsNull()) throw new Exception($"规则外的\"{chr}\"操作符");
+                                if (!name.IsNoneOrNull()) throw new Exception($"规则外的\"{chr}\"操作符");
                                 isString = true;
                             } else if (pt == Parse_Value) {
-                                if (!value.IsNull()) throw new Exception($"规则外的\"{chr}\"操作符");
+                                if (!value.IsNoneOrNull()) throw new Exception($"规则外的\"{chr}\"操作符");
                                 isString = true;
                             } else {
                                 throw new Exception($"规则外的\"{chr}\"操作符");
@@ -484,12 +486,15 @@ namespace dpz3.Json {
                             sb.Append(chr);
                         } else {
                             if (pt == Parse_Name) {
+                                // 判断是否为多余的空格
+                                if (sb.Length <= 0) break;
                                 // 当名称模式时，可作为隐藏结束符使用
                                 name = sb.ToString();
-                                if (name.IsNoneOrNull()) throw new Exception($"语法错误：名称不允许未空");
                                 sb.Clear();
                                 pt = Parse_Done_Name;
                             } else if (pt == Parse_Value) {
+                                // 判断是否为多余的空格
+                                if (sb.Length <= 0) break;
                                 // 当名称模式时，可作为隐藏结束符使用
                                 value = sb.ToString();
 

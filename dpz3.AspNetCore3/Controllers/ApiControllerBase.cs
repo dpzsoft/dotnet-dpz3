@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 
 namespace dpz3.AspNetCore.Controllers {
 
@@ -75,8 +77,17 @@ namespace dpz3.AspNetCore.Controllers {
 
             // Json数据模式
             if (_is_request_json) {
-                var reader = new System.IO.StreamReader(Request.Body);
-                string content = reader.ReadToEnd();
+                byte[] buffer = new byte[4096];
+                List<byte> ls = new List<byte>();
+                int res = 0;
+                do {
+                    res = Request.Body.Read(buffer, 0, buffer.Length);
+                    if (res > 0) {
+                        ls.AddRange(new ArraySegment<byte>(buffer, 0, res));
+                    }
+                } while (res > 0);
+                //var reader = new System.IO.StreamReader(Request.Body);
+                string content = System.Text.Encoding.UTF8.GetString(ls.ToArray());
                 this.JRequestText = content;
 
                 // 解析获取到的数据

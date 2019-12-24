@@ -3133,11 +3133,30 @@
         </member>
         <member name="M:dpz3.Net.HttpClient.Post(System.String,System.String,System.String)">
             <summary>
-            以Get方式获取数据
+            以Post方式获取数据
             </summary>
             <param name="url"></param>
             <param name="args"></param>
             <param name="contentType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Net.HttpClient.Post(System.String,System.String,dpz3.KeyValues{System.String},System.String)">
+            <summary>
+            以Post方式获取数据
+            </summary>
+            <param name="url"></param>
+            <param name="args"></param>
+            <param name="headers"></param>
+            <param name="contentType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Net.HttpClient.UploadFile(System.String,System.String,dpz3.KeyValues{System.String})">
+            <summary>
+            以Post方式获取数据
+            </summary>
+            <param name="path"></param>
+            <param name="url"></param>
+            <param name="headers"></param>
             <returns></returns>
         </member>
         <member name="M:dpz3.Net.HttpClient.Download(System.String,System.String,dpz3.Net.HttpClient.DownloadingDelegate)">
@@ -3146,6 +3165,15 @@
             </summary>
             <param name="url"></param>
             <param name="path"></param>
+            <param name="downloading"></param>
+        </member>
+        <member name="M:dpz3.Net.HttpClient.Download(System.String,System.String,dpz3.KeyValues{System.String},dpz3.Net.HttpClient.DownloadingDelegate)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="url"></param>
+            <param name="path"></param>
+            <param name="headers"></param>
             <param name="downloading"></param>
         </member>
         <member name="T:dpz3.Net.HttpModules.HttpCookies">
