@@ -10,6 +10,7 @@ namespace dpz3.AspNetCore {
     public static class Kestrel {
 
         private static bool CheckEnable(string config) {
+            if (config.IsNoneOrNull()) return false;
             config = config.ToLower();
             return (config == "yes" || config == "true");
         }
@@ -48,33 +49,27 @@ namespace dpz3.AspNetCore {
 
             // 读取配置
             using (dpz3.File.ConfFile file = new dpz3.File.ConfFile(path)) {
-
                 // 读取服务配置
                 var serverGroup = file["Server"];
                 if (CheckEnable(serverGroup["Enable"])) {
                     webBuilder.ConfigureKestrel(options => {
-
                         // 读取HTTP配置
                         var httpGroup = file["HTTP"];
                         if (CheckEnable(httpGroup["Enable"])) {
                             // 填入配置中的监听端口
-
                             options.Listen(IPAddress.Any, httpGroup["Port"].ToInteger());
                         }
-
                         // 读取HTTPS配置
                         var httpsGroup = file["HTTPS"];
-                        if (httpsGroup["Enable"] == "yes") {
+                        if (CheckEnable(httpsGroup["Enable"])) {
                             // 填入配置中的监听端口
                             options.Listen(IPAddress.Any, httpsGroup["Port"].ToInteger(), listenOptions => {
                                 // 填入配置中的pfx文件路径和指定的密码
                                 listenOptions.UseHttps(httpsGroup["Pfx.Path"], httpsGroup["Pfx.Password"]);
                             });
                         }
-
                     });
                 }
-
             }
         }
 
@@ -83,7 +78,7 @@ namespace dpz3.AspNetCore {
         /// </summary>
         /// <param name="webBuilder"></param>
         /// <param name="config"></param>
-        public static void DeployConfig(IWebHostBuilder webBuilder, KestrelConfig config) {
+        public static void Deploy(IWebHostBuilder webBuilder, KestrelConfig config) {
 
             // 判断是否启用Kestrel服务
             if (config.Enable) {

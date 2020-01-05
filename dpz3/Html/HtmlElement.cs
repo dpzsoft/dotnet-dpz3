@@ -57,7 +57,12 @@ namespace dpz3.Html {
             res.AppendFormat("<{0}", this.TagName);
             // 拼接属性
             foreach (var key in this.Attr.Keys) {
-                res.AppendFormat(" {0}=\"{1}\"", key, this.Attr[key]);
+                string value = this.Attr[key];
+                if (value.IsNull()) {
+                    res.AppendFormat(" {0}", key);
+                } else {
+                    res.AppendFormat(" {0}=\"{1}\"", key, value);
+                }
             }
             // 拼接完整XML
             if (this.IsSingle) {

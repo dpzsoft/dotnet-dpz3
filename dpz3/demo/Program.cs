@@ -70,7 +70,7 @@ namespace demo {
 
             string str = dpz3.File.UTF8File.ReadAllText(@"X:\Projects\modular\core\ModularCore\bin\Debug\netcoreapp3.1\packages\simple-home\1.0.1912.4\modular.json");
             Console.WriteLine(str);
-            var obj = dpz3.Json.Parser.ParseJson(str);
+            var obj = dpz3.Json.Parser.ParseJson("{}");
             Console.WriteLine(obj.ToJsonString());
 
             //string md = dpz3.File.UTF8File.ReadAllText(@"X:\Temp\temp.md");

@@ -131,7 +131,16 @@ namespace dpz3.Json {
                         } else {
 
                             // 特殊处理，如果当前为值解析，同时值为数值或null，则进行值设置操作
-                            if (pt == Parse_Value) {
+                            if (pt == Parse_Name) {
+
+                                // 判断是否已经定义名称
+                                if (sb.Length > 0) throw new Exception($"规则外的\"{chr}\"操作符");
+
+                                // 清理缓存
+                                sb.Clear();
+                                name = null;
+                                value = null;
+                            } else if (pt == Parse_Value) {
 
                                 // 父对象不允许为空
                                 if (jup == null) throw new Exception($"规则外的\"{chr}\"操作符");

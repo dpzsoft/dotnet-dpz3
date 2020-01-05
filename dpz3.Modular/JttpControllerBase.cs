@@ -8,7 +8,7 @@ namespace dpz3.Modular {
     /// <summary>
     /// Jttp控制器基类
     /// </summary>
-    public abstract class JttpControllerBase : ApiControllerBase {
+    public abstract class JttpControllerBase : ControllerBase {
 
         /// <summary>
         /// 获取请求器
@@ -24,6 +24,39 @@ namespace dpz3.Modular {
         /// 获取请求文本内容
         /// </summary>
         protected string RequestContent { get; private set; }
+
+        /// <summary>
+        /// 返回一个数据行
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        protected Result.Jttp RowSuccess(dpz3.db.Row row, string msg = null) {
+            Response.Result = 1;
+            if (!msg.IsNoneOrNull()) Response.Message = msg;
+            foreach (var item in row) {
+                Response.Data.String(item.Key, item.Value);
+            }
+            return new Result.Jttp() { Content = Response };
+        }
+
+        /// <summary>
+        /// 返回一个数据行集合
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        protected Result.Jttp RowsSuccess(dpz3.db.Rows rows, string msg = null) {
+            Response.Result = 1;
+            if (!msg.IsNoneOrNull()) Response.Message = msg;
+            var list = Response.List;
+            foreach (var row in rows) {
+                var obj = list.Obj[list.Count];
+                foreach (var item in row) {
+                    obj.String(item.Key, item.Value);
+                }
+            }
+            return new Result.Jttp() { Content = Response };
+        }
 
         /// <summary>
         /// 返回一个文本内容

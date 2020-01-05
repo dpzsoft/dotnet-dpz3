@@ -4,70 +4,77 @@
         <name>dpz3.Modular</name>
     </assembly>
     <members>
-        <member name="T:dpz3.Modular.ApiControllerBase">
+        <member name="T:dpz3.Modular.ControllerBase">
             <summary>
-            API控制器基类
+            控制器基类
             </summary>
         </member>
-        <member name="M:dpz3.Modular.ApiControllerBase.OnInitialize(dpz3.Modular.IHost)">
-            <summary>
-            初始化事件
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:dpz3.Modular.ApiControllerBase.OnInited">
+        <member name="M:dpz3.Modular.ControllerBase.OnInitialize(dpz3.Modular.IHost)">
             <summary>
             初始化事件
             </summary>
             <returns></returns>
         </member>
-        <member name="M:dpz3.Modular.ApiControllerBase.OnRender(dpz3.Modular.IResult)">
+        <member name="M:dpz3.Modular.ControllerBase.OnInited">
+            <summary>
+            初始化事件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Modular.ControllerBase.OnRender(dpz3.Modular.IResult)">
             <summary>
             可重载的呈现时间
             </summary>
             <returns></returns>
         </member>
-        <member name="P:dpz3.Modular.ApiControllerBase.Host">
+        <member name="P:dpz3.Modular.ControllerBase.Host">
             <summary>
             获取模块化宿主
             </summary>
         </member>
-        <member name="P:dpz3.Modular.ApiControllerBase.Context">
+        <member name="P:dpz3.Modular.ControllerBase.Context">
             <summary>
             获取超文本上下文
             </summary>
         </member>
-        <member name="P:dpz3.Modular.ApiControllerBase.Request">
+        <member name="P:dpz3.Modular.ControllerBase.Request">
             <summary>
             获取请求器
             </summary>
         </member>
-        <member name="P:dpz3.Modular.ApiControllerBase.Response">
+        <member name="P:dpz3.Modular.ControllerBase.Response">
             <summary>
             获取响应器
             </summary>
         </member>
-        <member name="M:dpz3.Modular.ApiControllerBase.SetResponseHeader(System.String,System.String)">
+        <member name="M:dpz3.Modular.ControllerBase.SetResponseHeader(System.String,System.String)">
             <summary>
             设置响应头
             </summary>
             <param name="key"></param>
             <param name="value"></param>
         </member>
-        <member name="M:dpz3.Modular.ApiControllerBase.Text(System.String)">
+        <member name="M:dpz3.Modular.ControllerBase.Text(System.String)">
             <summary>
             返回一个文本内容
             </summary>
             <param name="content"></param>
             <returns></returns>
         </member>
-        <member name="M:dpz3.Modular.ApiControllerBase.Initialize(dpz3.Modular.IHost)">
+        <member name="M:dpz3.Modular.ControllerBase.Html(System.String)">
+            <summary>
+            返回一个页面内容
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Modular.ControllerBase.Initialize(dpz3.Modular.IHost)">
             <summary>
             初始化控制器
             </summary>
             <returns></returns>
         </member>
-        <member name="M:dpz3.Modular.ApiControllerBase.Render(dpz3.Modular.IResult)">
+        <member name="M:dpz3.Modular.ControllerBase.Render(dpz3.Modular.IResult)">
             <summary>
             初始化控制器
             </summary>
@@ -123,6 +130,17 @@
             <param name="key"></param>
             <param name="value"></param>
         </member>
+        <member name="M:dpz3.Modular.ISessionManager.CreateSessionId">
+            <summary>
+            创建新的交互标识
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Modular.ISessionManager.Enable">
+            <summary>
+            获取交互标识是否可用
+            </summary>
+        </member>
         <member name="T:dpz3.Modular.JttpControllerBase">
             <summary>
             Jttp控制器基类
@@ -142,6 +160,21 @@
             <summary>
             获取请求文本内容
             </summary>
+        </member>
+        <member name="M:dpz3.Modular.JttpControllerBase.RowSuccess(dpz3.db.Row,System.String)">
+            <summary>
+            返回一个数据行
+            </summary>
+            <param name="row"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Modular.JttpControllerBase.RowsSuccess(dpz3.db.Rows,System.String)">
+            <summary>
+            返回一个数据行集合
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
         </member>
         <member name="M:dpz3.Modular.JttpControllerBase.Success(System.String)">
             <summary>
@@ -307,6 +340,35 @@
             </summary>
             <param name="modularType"></param>
             <param name="route"></param>
+        </member>
+        <member name="T:dpz3.Modular.Parser">
+            <summary>
+            模块化网站专用解析器
+            </summary>
+        </member>
+        <member name="M:dpz3.Modular.Parser.ParseAspxToCode(System.String,System.String)">
+            <summary>
+            将Html解析为可执行代码
+            </summary>
+            <param name="html"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Modular.Result.Html">
+            <summary>
+            文本类型
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.Result.Html.Content">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="M:dpz3.Modular.Result.Html.Render(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            呈现内容
+            </summary>
+            <param name="context"></param>
         </member>
         <member name="T:dpz3.Modular.Result.Jttp">
             <summary>

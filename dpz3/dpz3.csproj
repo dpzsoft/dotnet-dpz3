@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.3.1912.39</Version>
+    <Version>2.0.2001.41</Version>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>一套基于.Net Standard的综合性辅助开发套件基础件，包含基础类型扩展、字符串处理、文件处理、汉字拼音处理、常见协议解析处理(json/xml/html/css/Markdown)及网络访问</Description>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>

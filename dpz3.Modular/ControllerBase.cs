@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace dpz3.Modular {
 
     /// <summary>
-    /// API控制器基类
+    /// 控制器基类
     /// </summary>
-    public abstract class ApiControllerBase {
+    public abstract class ControllerBase {
 
         /// <summary>
         /// 初始化事件
@@ -75,6 +75,15 @@ namespace dpz3.Modular {
         /// <returns></returns>
         protected Result.Text Text(string content) {
             return new Result.Text() { Content = content };
+        }
+
+        /// <summary>
+        /// 返回一个页面内容
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        protected Result.Html Html(string content) {
+            return new Result.Html() { Content = content };
         }
 
         /// <summary>

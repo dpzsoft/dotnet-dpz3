@@ -23,5 +23,16 @@ namespace dpz3.Modular {
         /// <param name="value"></param>
         void SetValue(string key, string value);
 
+        /// <summary>
+        /// 创建新的交互标识
+        /// </summary>
+        /// <returns></returns>
+        string CreateSessionId();
+
+        /// <summary>
+        /// 获取交互标识是否可用
+        /// </summary>
+        bool Enable { get; }
+
     }
 }

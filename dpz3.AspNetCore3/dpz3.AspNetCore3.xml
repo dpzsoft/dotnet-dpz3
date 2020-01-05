@@ -238,7 +238,7 @@
             <param name="path"></param>
             <param name="webBuilder"></param>
         </member>
-        <member name="M:dpz3.AspNetCore.Kestrel.DeployConfig(Microsoft.AspNetCore.Hosting.IWebHostBuilder,dpz3.AspNetCore.KestrelConfig)">
+        <member name="M:dpz3.AspNetCore.Kestrel.Deploy(Microsoft.AspNetCore.Hosting.IWebHostBuilder,dpz3.AspNetCore.KestrelConfig)">
             <summary>
             应用配置
             </summary>

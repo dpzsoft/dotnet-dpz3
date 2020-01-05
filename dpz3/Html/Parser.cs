@@ -411,6 +411,22 @@ namespace dpz3.Html {
                                 tagName = null;
                                 sb.Clear();
                             }
+                        } else if (pt == ParserTypes.PropertyName) {
+                            // 判断是否为无值属性并处理
+                            if (sb.Length > 0) {
+                                pName = sb.ToString();
+                                // 设置标签内容
+                                if (np.NodeType == NodeType.Element) {
+                                    var npNormal = (HtmlElement)np;
+                                    npNormal.Attr[pName] = null;
+                                    //npNormal.SetEncodeAttr(pName, pValue);
+                                } else {
+                                    throw new Exception($"语法错误");
+                                }
+                                // 清理缓存
+                                sb.Clear();
+                                pName = null;
+                            }
                         } else if (pt == ParserTypes.PropertyValueFinish) {
                             // 设置解析类型为属性名称
                             pt = ParserTypes.PropertyName;
