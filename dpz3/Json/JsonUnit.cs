@@ -161,7 +161,7 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public JsonUnit this[int index] { get { return OnGetArrayItem(index); } set { this.OnSetArrayItem(index, value); } }
+        public JsonObject this[int index] { get { return this.Object(index); } set { this.OnSetArrayItem(index, value); } }
 
         /// <summary>
         /// 获取子对象
@@ -183,7 +183,7 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public JsonUnit this[string key] { get { return OnGetChildItem(key); } set { this.OnSetChildItem(key, value); } }
+        public JsonObject this[string key] { get { return this.Object(key); } set { this.OnSetChildItem(key, value); } }
 
         /// <summary>
         /// 获取子对象键值集合

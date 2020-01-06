@@ -9,6 +9,17 @@ namespace demo {
     class Program {
         static void Main(string[] args) {
 
+            string a = "abc";
+            string b = "123";
+            Console.WriteLine($"int a={a.ToInteger()}");
+            Console.WriteLine($"int b={b.ToInteger()}");
+
+            using (dpz3.Json.JsonObject json = new dpz3.Json.JsonObject()) {
+                json["obj"].Str["a"] = "abc";
+                json["obj"].Num["b"] = 123;
+                Console.WriteLine(json.ToJsonString());
+            }
+
             People p1 = new People();
             p1.Name.Value = "张三";
             p1.Age.Value = 18;
@@ -61,7 +72,7 @@ namespace demo {
 
             dpz3.Debug.WriteLine("123456");
 
-            string a = "123456";
+            //string a = "123456";
             int n = a.ToInteger();
             string md5 = a.GetMD5();
 

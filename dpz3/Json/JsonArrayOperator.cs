@@ -26,7 +26,7 @@ namespace dpz3.Json {
         /// <returns></returns>
         public JsonArray this[int index] {
             get {
-                var obj = _json[index];
+                var obj = _json.Array(index);
                 if (obj != null) return (JsonArray)obj;
                 return null;
             }
@@ -39,7 +39,7 @@ namespace dpz3.Json {
         /// <returns></returns>
         public JsonArray this[string key] {
             get {
-                var obj = _json[key];
+                var obj = _json.Array(key);
                 if (obj != null) return (JsonArray)obj;
                 return null;
             }

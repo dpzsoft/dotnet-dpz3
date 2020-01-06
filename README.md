@@ -2,6 +2,60 @@
 
 一套基于.Net Standard的综合性辅助开发套件基础件，包含基础类型扩展、字符串处理、文件处理、汉字拼音处理、常见协议解析处理(json/xml/html/css/Markdown)及网络访问
 
+## 致力于更有开发效率
+
+dpz3组件最初的版本构建，就是基于长期的C#开发经验，为的就是降低重复代码量，增加代码效率。
+
+一些常用的代码进行了封装从而使开发变得简单，如简单的强兼容数值转换（无法转换不报错直接返回0）：
+
+```
+using System;
+using dpz3;
+
+namespace demo {
+    class Program {
+        static void Main(string[] args) {
+            string a = "abc";
+            string b = "123";
+            Console.WriteLine($"int a={a.ToInteger()}");
+            Console.WriteLine($"int b={b.ToInteger()}");
+        }
+    }
+}
+```
+
+其执行结果为：
+
+```
+int a=0
+int b=123
+```
+
+一些常用的数据格式进行了解析实现，如Json数据处理：
+
+```
+using System;
+using dpz3;
+
+namespace demo {
+    class Program {
+        static void Main(string[] args) {
+            using (dpz3.Json.JsonObject json = new dpz3.Json.JsonObject()) {
+                json["obj"].Str["a"] = "abc";
+                json["obj"].Num["b"] = 123;
+                Console.WriteLine(json.ToJsonString());
+            }
+        }
+    }
+}
+```
+
+其执行结果为：
+
+```
+{"obj":{"a":"abc","b":123}}
+```
+
 ## 基于 dpz3 的扩展组件
 
 + dpz3.AspNetCore2 - 服务于asp.net core 2.x的MVC相关扩展组件
