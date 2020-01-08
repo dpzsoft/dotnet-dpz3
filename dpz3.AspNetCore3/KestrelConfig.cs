@@ -12,6 +12,7 @@ namespace dpz3.AspNetCore {
         private dpz3.File.Conf.SettingGroup _https;
 
         private bool CheckEnable(string config) {
+            if (config.IsNoneOrNull()) return false;
             config = config.ToLower();
             return (config == "yes" || config == "true");
         }
@@ -61,37 +62,37 @@ namespace dpz3.AspNetCore {
 
             _server = base["Server"];
             if (!_server.ContainsKey("Enable")) {
-                _server["Enable"] = "no";
+                this.Enable = false;
                 needSave = true;
             }
 
             // 初始化HTTP配置
             _http = base["HTTP"];
             if (!_http.ContainsKey("Enable")) {
-                _http["Enable"] = "no";
+                this.HttpEnable = false;
                 needSave = true;
             }
             if (!_http.ContainsKey("Port")) {
-                _http["Port"] = "80";
+                this.HttpPort = 80;
                 needSave = true;
             }
 
             // 初始化HTTPS配置
             _https = base["HTTPS"];
             if (!_https.ContainsKey("Enable")) {
-                _https["Enable"] = "no";
+                this.HttpsEnable = false;
                 needSave = true;
             }
             if (!_https.ContainsKey("Port")) {
-                _https["Port"] = "80";
+                this.HttpsPort = 8080;
                 needSave = true;
             }
             if (!_https.ContainsKey("Pfx.Path")) {
-                _https["Pfx.Path"] = "/ssl/ssl.pfx";
+                this.HttpsPfxPath = "/ssl/ssl.pfx";
                 needSave = true;
             }
             if (!_https.ContainsKey("Pfx.Password")) {
-                _https["Pfx.Password"] = "123456";
+                this.HttpsPfxPwd = "123456";
                 needSave = true;
             }
 

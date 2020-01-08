@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>dpz3.AspNetCore3</PackageId>
-    <Version>1.1.1912.17</Version>
+    <Version>2.0.2001.19</Version>
     <Description>基于dpz3套件开发的一套服务于Asp.Net Core 3.0的扩展，包含Kestrel服务的快速配置及WebApi基础件</Description>
     <PackageIconUrl></PackageIconUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -18,9 +18,9 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App"></FrameworkReference>
-    <PackageReference Include="dpz3" Version="1.3.1912.35" />
-    <PackageReference Include="dpz3.db" Version="1.2.1912.6" />
-    <PackageReference Include="dpz3.Jttp" Version="1.2.1912.9" />
+    <PackageReference Include="dpz3" Version="2.0.2001.42" />
+    <PackageReference Include="dpz3.db" Version="1.2.1912.8" />
+    <PackageReference Include="dpz3.Jttp" Version="1.2.1912.10" />
   </ItemGroup>
 
   <ItemGroup>
