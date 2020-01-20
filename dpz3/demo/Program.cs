@@ -20,7 +20,12 @@ namespace demo {
                 Console.WriteLine(json.ToJsonString());
             }
 
-            People p1 = new People();
+            using (dpz3.File.ConfFile file=new dpz3.File.ConfFile(@"X:\Projects\modular\core\ModularCore\bin\Debug\netcoreapp3.1\conf\kestrel.cfg")) {
+                var group = file["Server"];
+                Console.WriteLine($"Server.Enable={group["Enable"]}");
+            }
+
+                People p1 = new People();
             p1.Name.Value = "张三";
             p1.Age.Value = 18;
             p1.Sex.Value = "Man";

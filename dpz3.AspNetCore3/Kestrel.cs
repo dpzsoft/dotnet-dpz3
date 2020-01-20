@@ -23,9 +23,8 @@ namespace dpz3.AspNetCore {
         public static void DeployConfig(IWebHostBuilder webBuilder, string path) {
 
             // 读取配置
-            using (KestrelConfig config = new KestrelConfig(path)) {
-                DeployConfig(webBuilder, config);
-            }
+            KestrelConfig config = new KestrelConfig(path);
+            DeployConfig(webBuilder, config);
 
         }
 

@@ -23,7 +23,7 @@ namespace dpz3.File {
         public ConfFile(string file = "") {
             this.Groups = new List<Conf.SettingGroup>();
             path = file;
-            if (path != "") LoadFile();
+            if (!path.IsNoneOrNull()) LoadFile();
         }
 
         //加载文件内容
