@@ -42,8 +42,9 @@ namespace dpz3.Json {
         /// <returns></returns>
         public double this[string key] {
             get {
-                var obj = _json[key];
-                if (obj != null) return obj.GetNumber();
+                if (_json.Keys.Contains(key)) {
+                    return _json.Number(key);
+                }
                 return 0;
             }
             set {

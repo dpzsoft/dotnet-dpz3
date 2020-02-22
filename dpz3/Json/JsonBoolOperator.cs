@@ -26,8 +26,9 @@ namespace dpz3.Json {
         /// <returns></returns>
         public bool this[int index] {
             get {
-                var obj = _json[index];
-                if (obj != null) return obj.GetBoolean();
+                if (_json.Count <= index + 1) {
+                    return _json.Bool(index);
+                }
                 return false;
             }
             set {
@@ -42,8 +43,9 @@ namespace dpz3.Json {
         /// <returns></returns>
         public bool this[string key] {
             get {
-                var obj = _json[key];
-                if (obj != null) return obj.GetBoolean();
+                if (_json.Keys.Contains(key)) {
+                    return _json.Bool(key);
+                }
                 return false;
             }
             set {

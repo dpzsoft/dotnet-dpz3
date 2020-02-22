@@ -185,6 +185,86 @@
             释放资源
             </summary>
         </member>
+        <member name="T:dpz3.XOrm.StandaloneTable">
+            <summary>
+            独立表定义
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.StandaloneTable.Name">
+            <summary>
+            获取或设置名称
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.StandaloneTable.Version">
+            <summary>
+            获取或设置版本信息
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.StandaloneTable.Title">
+            <summary>
+            获取或设置标题
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.StandaloneTable.Description">
+            <summary>
+            获取或设置描述
+            </summary>
+        </member>
+        <member name="P:dpz3.XOrm.StandaloneTable.Fields">
+            <summary>
+            获取字段定义集合
+            </summary>s
+        </member>
+        <member name="M:dpz3.XOrm.StandaloneTable.FillData(dpz3.Xml.XmlNode)">
+            <summary>
+            填充数据
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:dpz3.XOrm.StandaloneTable.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:dpz3.XOrm.StandaloneTable.LoadFromUrl(System.String)">
+            <summary>
+            从网络加载设置
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.StandaloneTable.LoadFromFile(System.String)">
+            <summary>
+            从文件加载设置
+            </summary>
+            <param name="xmlPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.StandaloneTable.SaveToFile(System.String)">
+            <summary>
+            保存到文件
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="P:dpz3.XOrm.StandaloneTable.Item(System.String)">
+            <summary>
+            获取或快速创建一个字段配置
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.StandaloneTable.OnParseString">
+            <summary>
+            获取标准字符串表示形式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.XOrm.StandaloneTable.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
         <member name="T:dpz3.XOrm.Syncer">
             <summary>
             配置同步器

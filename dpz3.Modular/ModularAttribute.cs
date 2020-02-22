@@ -15,6 +15,10 @@ namespace dpz3.Modular {
         /// </summary>
         SessionApi = 0x02,
         /// <summary>
+        /// 带Session的普通类
+        /// </summary>
+        Session = 0x03,
+        /// <summary>
         /// Get方式访问的函数
         /// </summary>
         Get = 0x11,

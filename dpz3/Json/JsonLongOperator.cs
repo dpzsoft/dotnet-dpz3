@@ -7,7 +7,7 @@ namespace dpz3.Json {
     /// <summary>
     /// 数值对象操作器
     /// </summary>
-    public class JsonIntOperator {
+    public class JsonLongOperator {
 
         private JsonUnit _json;
 
@@ -15,7 +15,7 @@ namespace dpz3.Json {
         /// 对象实例化
         /// </summary>
         /// <param name="jsonUnit"></param>
-        public JsonIntOperator(JsonUnit jsonUnit) {
+        public JsonLongOperator(JsonUnit jsonUnit) {
             _json = jsonUnit;
         }
 
@@ -24,10 +24,11 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public int this[int index] {
+        public long this[int index] {
             get {
-                var obj = _json[index];
-                if (obj != null) return (int)obj.GetNumber();
+                if (_json.Count <= index + 1) {
+                    return (long)_json.Number(index);
+                }
                 return 0;
             }
             set {
@@ -40,10 +41,11 @@ namespace dpz3.Json {
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public int this[string key] {
+        public long this[string key] {
             get {
-                var obj = _json[key];
-                if (obj != null) return (int)obj.GetNumber();
+                if (_json.Keys.Contains(key)) {
+                    return (long)_json.Number(key);
+                }
                 return 0;
             }
             set {

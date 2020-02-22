@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.1.1911.5</Version>
+    <Version>2.0.2001.7</Version>
     <Description>基于dpz3开发套件二次扩展的XML定义式对象关系映射(XOrm)组件(.Net Standard)</Description>
     <PackageId>dpz3.XOrm</PackageId>
     <Authors>d.p.z software studio</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIconUrl>https://dev.lywos.com/Img/dpz/logo.jpg</PackageIconUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dpz3" Version="1.2.1911.25" />
+    <PackageReference Include="dpz3" Version="2.0.2001.45" />
   </ItemGroup>
 
 </Project>

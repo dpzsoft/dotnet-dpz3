@@ -26,9 +26,7 @@ namespace dpz3.Json {
         /// <returns></returns>
         public JsonArray this[int index] {
             get {
-                var obj = _json.Array(index);
-                if (obj != null) return (JsonArray)obj;
-                return null;
+                return _json.Array(index);
             }
         }
 

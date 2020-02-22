@@ -1484,31 +1484,6 @@
             <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="T:dpz3.Json.JsonLongOperator">
-            <summary>
-            数值对象操作器
-            </summary>
-        </member>
-        <member name="M:dpz3.Json.JsonLongOperator.#ctor(dpz3.Json.JsonUnit)">
-            <summary>
-            对象实例化
-            </summary>
-            <param name="jsonUnit"></param>
-        </member>
-        <member name="P:dpz3.Json.JsonLongOperator.Item(System.Int32)">
-            <summary>
-            获取或设置数值
-            </summary>
-            <param name="index"></param>
-            <returns></returns>
-        </member>
-        <member name="P:dpz3.Json.JsonLongOperator.Item(System.String)">
-            <summary>
-            获取或设置数值
-            </summary>
-            <param name="key"></param>
-            <returns></returns>
-        </member>
         <member name="T:dpz3.Json.JsonIntOperator">
             <summary>
             数值对象操作器
@@ -1528,6 +1503,31 @@
             <returns></returns>
         </member>
         <member name="P:dpz3.Json.JsonIntOperator.Item(System.String)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.Json.JsonLongOperator">
+            <summary>
+            数值对象操作器
+            </summary>
+        </member>
+        <member name="M:dpz3.Json.JsonLongOperator.#ctor(dpz3.Json.JsonUnit)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="jsonUnit"></param>
+        </member>
+        <member name="P:dpz3.Json.JsonLongOperator.Item(System.Int32)">
+            <summary>
+            获取或设置数值
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.Json.JsonLongOperator.Item(System.String)">
             <summary>
             获取或设置数值
             </summary>

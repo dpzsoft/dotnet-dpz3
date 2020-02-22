@@ -69,6 +69,16 @@ namespace dpz3.Modular {
         }
 
         /// <summary>
+        /// 设置Cookie缓存
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        protected void SetResponseCookie(string key, string value) {
+            var cookies = Response.Cookies;
+            cookies.Append(key, value);
+        }
+
+        /// <summary>
         /// 返回一个文本内容
         /// </summary>
         /// <param name="content"></param>

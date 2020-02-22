@@ -54,6 +54,13 @@
             <param name="key"></param>
             <param name="value"></param>
         </member>
+        <member name="M:dpz3.Modular.ControllerBase.SetResponseCookie(System.String,System.String)">
+            <summary>
+            设置Cookie缓存
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
         <member name="M:dpz3.Modular.ControllerBase.Text(System.String)">
             <summary>
             返回一个文本内容
@@ -79,6 +86,56 @@
             初始化控制器
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:dpz3.Modular.ControllerFieldSetting">
+            <summary>
+            控制器字段设置
+            </summary>
+        </member>
+        <member name="T:dpz3.Modular.ControllerFieldSetting.DataTypes">
+            <summary>
+            字段数据类型
+            </summary>
+        </member>
+        <member name="F:dpz3.Modular.ControllerFieldSetting.DataTypes.String">
+            <summary>
+            字符串
+            </summary>
+        </member>
+        <member name="F:dpz3.Modular.ControllerFieldSetting.DataTypes.Integer">
+            <summary>
+            整型
+            </summary>
+        </member>
+        <member name="F:dpz3.Modular.ControllerFieldSetting.DataTypes.Long">
+            <summary>
+            长整型
+            </summary>
+        </member>
+        <member name="F:dpz3.Modular.ControllerFieldSetting.DataTypes.Decimal">
+            <summary>
+            小数
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.ControllerFieldSetting.Enabled">
+            <summary>
+            获取或设置可用状态
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.ControllerFieldSetting.IsMust">
+            <summary>
+            获取或设置字段是否必须指定
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.ControllerFieldSetting.DataType">
+            <summary>
+            获取或设置数据类型
+            </summary>
+        </member>
+        <member name="M:dpz3.Modular.ControllerFieldSetting.#ctor">
+            <summary>
+            对象实例化
+            </summary>
         </member>
         <member name="T:dpz3.Modular.IHost">
             <summary>
@@ -140,6 +197,12 @@
             <summary>
             获取交互标识是否可用
             </summary>
+        </member>
+        <member name="M:dpz3.Modular.ISessionManager.GetSessionId">
+            <summary>
+            获取或设置交互标识
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:dpz3.Modular.JttpControllerBase">
             <summary>
@@ -309,6 +372,11 @@
             带Session类的API类
             </summary>
         </member>
+        <member name="F:dpz3.Modular.ModularTypes.Session">
+            <summary>
+            带Session的普通类
+            </summary>
+        </member>
         <member name="F:dpz3.Modular.ModularTypes.Get">
             <summary>
             Get方式访问的函数
@@ -401,6 +469,40 @@
             呈现内容
             </summary>
             <param name="context"></param>
+        </member>
+        <member name="T:dpz3.Modular.SessionControllerBase">
+            <summary>
+            带交互管理的Jttp管理器
+            </summary>
+        </member>
+        <member name="F:dpz3.Modular.SessionControllerBase.Session_Id">
+            <summary>
+            交互标识名称定义
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.SessionControllerBase.Session">
+            <summary>
+            获取交互信息管理器
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.SessionControllerBase.SessionID">
+            <summary>
+            获取交互信息管理器
+            </summary>
+        </member>
+        <member name="M:dpz3.Modular.SessionControllerBase.OnInitialize(dpz3.Modular.IHost)">
+            <summary>
+            重载初始化事件
+            </summary>
+            <param name="host"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Modular.SessionControllerBase.OnRender(dpz3.Modular.IResult)">
+            <summary>
+            重载呈现事件
+            </summary>
+            <param name="result"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

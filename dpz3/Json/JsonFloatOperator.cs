@@ -26,8 +26,9 @@ namespace dpz3.Json {
         /// <returns></returns>
         public float this[int index] {
             get {
-                var obj = _json[index];
-                if (obj != null) return (float)obj.GetNumber();
+                if (_json.Count <= index + 1) {
+                    return (float)_json.Number(index);
+                }
                 return 0;
             }
             set {
@@ -42,8 +43,9 @@ namespace dpz3.Json {
         /// <returns></returns>
         public float this[string key] {
             get {
-                var obj = _json[key];
-                if (obj != null) return (float)obj.GetNumber();
+                if (_json.Keys.Contains(key)) {
+                    return (float)_json.Number(key);
+                }
                 return 0;
             }
             set {

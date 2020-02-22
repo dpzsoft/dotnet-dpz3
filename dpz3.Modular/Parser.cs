@@ -91,7 +91,13 @@ namespace dpz3.Modular {
                                     if (line[0] == '=') {
                                         // 将已有代码进行处理
                                         line.Remove(0, 1);
-                                        sb.Append($"    sb.Append({line.ToString().Replace("\"", "\\\"")});\n");
+                                        sb.Append($"    sb.Append({line.ToString()});\n");
+                                        // 进入代码模式
+                                        tp = ParseAspxToCodeTypes.Content;
+                                        // 清理缓存
+                                        line.Clear();
+                                    } else if (line[0] == '@') {
+                                        // 申明部分不进行任何处理
                                         // 进入代码模式
                                         tp = ParseAspxToCodeTypes.Content;
                                         // 清理缓存

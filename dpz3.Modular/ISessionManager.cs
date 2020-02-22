@@ -34,5 +34,11 @@ namespace dpz3.Modular {
         /// </summary>
         bool Enable { get; }
 
+        /// <summary>
+        /// 获取或设置交互标识
+        /// </summary>
+        /// <returns></returns>
+        string GetSessionId();
+
     }
 }

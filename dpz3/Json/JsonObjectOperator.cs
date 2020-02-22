@@ -27,7 +27,7 @@ namespace dpz3.Json {
         public JsonObject this[int index] {
             get {
                 var obj = _json[index];
-                if (obj != null) return (JsonObject)obj;
+                if (obj != null) return obj;
                 return null;
             }
         }
@@ -40,7 +40,7 @@ namespace dpz3.Json {
         public JsonObject this[string key] {
             get {
                 var obj = _json[key];
-                if (obj != null) return (JsonObject)obj;
+                if (obj != null) return obj;
                 return null;
             }
         }
