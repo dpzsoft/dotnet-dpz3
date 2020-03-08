@@ -75,6 +75,13 @@
             <param name="content"></param>
             <returns></returns>
         </member>
+        <member name="M:dpz3.Modular.ControllerBase.File(System.String)">
+            <summary>
+            返回文件
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.Modular.ControllerBase.Initialize(dpz3.Modular.IHost)">
             <summary>
             初始化控制器
@@ -155,6 +162,36 @@
         <member name="P:dpz3.Modular.IHost.Connection">
             <summary>
             获取数据库连接管理器
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.IHost.Version">
+            <summary>
+            宿主版本
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.IHost.WorkFolder">
+            <summary>
+            工作目录
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.IHost.StorageFolder">
+            <summary>
+            文件存储目录
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.IHost.PackageName">
+            <summary>
+            包名称
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.IHost.PackageVersion">
+            <summary>
+            包版本
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.IHost.PackageWorkFolder">
+            <summary>
+            包工作目录
             </summary>
         </member>
         <member name="T:dpz3.Modular.IResult">
@@ -421,6 +458,22 @@
             <param name="html"></param>
             <param name="name"></param>
             <returns></returns>
+        </member>
+        <member name="T:dpz3.Modular.Result.File">
+            <summary>
+            文本类型
+            </summary>
+        </member>
+        <member name="P:dpz3.Modular.Result.File.Path">
+            <summary>
+            获取或设置内容
+            </summary>
+        </member>
+        <member name="M:dpz3.Modular.Result.File.Render(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            呈现内容
+            </summary>
+            <param name="context"></param>
         </member>
         <member name="T:dpz3.Modular.Result.Html">
             <summary>

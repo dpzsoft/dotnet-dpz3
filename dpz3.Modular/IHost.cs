@@ -25,5 +25,35 @@ namespace dpz3.Modular {
         /// </summary>
         dpz3.db.Connection Connection { get; }
 
+        /// <summary>
+        /// 宿主版本
+        /// </summary>
+        string Version { get; }
+
+        /// <summary>
+        /// 工作目录
+        /// </summary>
+        string WorkFolder { get; }
+
+        /// <summary>
+        /// 文件存储目录
+        /// </summary>
+        string StorageFolder { get; }
+
+        /// <summary>
+        /// 包名称
+        /// </summary>
+        string PackageName { get; }
+
+        /// <summary>
+        /// 包版本
+        /// </summary>
+        string PackageVersion { get; }
+
+        /// <summary>
+        /// 包工作目录
+        /// </summary>
+        string PackageWorkFolder { get; }
+
     }
 }

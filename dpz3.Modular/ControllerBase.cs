@@ -97,6 +97,15 @@ namespace dpz3.Modular {
         }
 
         /// <summary>
+        /// 返回文件
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        protected Result.File File(string path) {
+            return new Result.File() { Path = path };
+        }
+
+        /// <summary>
         /// 初始化控制器
         /// </summary>
         /// <returns></returns>
