@@ -44,6 +44,32 @@ namespace dpz3.Net {
         }
 
         /// <summary>
+        /// 以Get方式获取数据
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="headers"></param>
+        /// <returns></returns>
+        public static string Get(string url, dpz3.KeyValues<string> headers) {
+
+            // 新建一个Handler
+            var handler = new HttpClientHandler {
+                AutomaticDecompression = DecompressionMethods.None,
+                AllowAutoRedirect = true,
+                UseProxy = false,
+                Proxy = null,
+                ClientCertificateOptions = ClientCertificateOption.Automatic
+            };
+            // 新建一个HttpClient
+            var webRequest = new System.Net.Http.HttpClient(handler);
+            // 添加头信息
+            foreach (var h in headers) {
+                webRequest.DefaultRequestHeaders.Add(h.Key, h.Value);
+            }
+            return webRequest.GetStringAsync(url).GetAwaiter().GetResult();
+
+        }
+
+        /// <summary>
         /// 以Post方式获取数据
         /// </summary>
         /// <param name="url"></param>

@@ -35,7 +35,9 @@ namespace dpz3.Modular {
                 switch (chr) {
                     // 切换字符串模式
                     case '"':
-                        isString = !isString;
+                        if(tp == ParseAspxToCodeTypes.Code) {
+                            isString = !isString;
+                        }
                         line.Append(chr);
                         break;
                     case '<':

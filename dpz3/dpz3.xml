@@ -2261,6 +2261,30 @@
             释放内存
             </summary>
         </member>
+        <member name="T:dpz3.KeyStrings">
+            <summary>
+            键/值字符串集合
+            </summary>
+        </member>
+        <member name="M:dpz3.KeyStrings.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.KeyStrings.Set(System.String,System.String)">
+            <summary>
+            设置内容
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.KeyStrings.Create">
+            <summary>
+            实例化一个键/值字符串集合
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:dpz3.KeyValues`1">
             <summary>
             键/值存储字典
@@ -3129,6 +3153,14 @@
             以Get方式获取数据
             </summary>
             <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Net.HttpClient.Get(System.String,dpz3.KeyValues{System.String})">
+            <summary>
+            以Get方式获取数据
+            </summary>
+            <param name="url"></param>
+            <param name="headers"></param>
             <returns></returns>
         </member>
         <member name="M:dpz3.Net.HttpClient.Post(System.String,System.String,System.String)">
