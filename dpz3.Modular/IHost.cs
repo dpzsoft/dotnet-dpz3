@@ -55,5 +55,17 @@ namespace dpz3.Modular {
         /// </summary>
         string PackageWorkFolder { get; }
 
+        /// <summary>
+        /// 调试输出
+        /// </summary>
+        /// <param name="content"></param>
+        void Debug(string content);
+
+        /// <summary>
+        /// 调试输出
+        /// </summary>
+        /// <param name="content"></param>
+        void DebugLine(string content = null);
+
     }
 }

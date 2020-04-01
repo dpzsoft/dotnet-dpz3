@@ -573,6 +573,42 @@ namespace dpz3.db {
         }
 
         /// <summary>
+        /// 创建一个Sum函数对象
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public SqlUnits.Functions.Sum Sum(ISqlStringable obj) {
+            return new SqlUnits.Functions.Sum(obj);
+        }
+
+        /// <summary>
+        /// 创建一个Avg函数对象
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public SqlUnits.Functions.Avg Avg(ISqlStringable obj) {
+            return new SqlUnits.Functions.Avg(obj);
+        }
+
+        /// <summary>
+        /// 创建一个Max函数对象
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public SqlUnits.Functions.Max Max(ISqlStringable obj) {
+            return new SqlUnits.Functions.Max(obj);
+        }
+
+        /// <summary>
+        /// 创建一个Min函数对象
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public SqlUnits.Functions.Min Min(ISqlStringable obj) {
+            return new SqlUnits.Functions.Min(obj);
+        }
+
+        /// <summary>
         /// 创建一个随机排序对象
         /// </summary>
         /// <returns></returns>

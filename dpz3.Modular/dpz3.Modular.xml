@@ -194,6 +194,18 @@
             包工作目录
             </summary>
         </member>
+        <member name="M:dpz3.Modular.IHost.Debug(System.String)">
+            <summary>
+            调试输出
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:dpz3.Modular.IHost.DebugLine(System.String)">
+            <summary>
+            调试输出
+            </summary>
+            <param name="content"></param>
+        </member>
         <member name="T:dpz3.Modular.IResult">
             <summary>
             模块化函数返回

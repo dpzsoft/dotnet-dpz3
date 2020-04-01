@@ -198,6 +198,34 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
+        <member name="M:dpz3.db.Connection.Sum(dpz3.db.ISqlStringable)">
+            <summary>
+            创建一个Sum函数对象
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.db.Connection.Avg(dpz3.db.ISqlStringable)">
+            <summary>
+            创建一个Avg函数对象
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.db.Connection.Max(dpz3.db.ISqlStringable)">
+            <summary>
+            创建一个Max函数对象
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.db.Connection.Min(dpz3.db.ISqlStringable)">
+            <summary>
+            创建一个Min函数对象
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.db.Connection.Rand">
             <summary>
             创建一个随机排序对象
@@ -1633,6 +1661,37 @@
             <param name="multiTable"></param>
             <returns></returns>
         </member>
+        <member name="T:dpz3.db.SqlUnits.Functions.Avg">
+            <summary>
+            平均值函数
+            </summary>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Avg.#ctor(dpz3.db.ISqlStringable)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="P:dpz3.db.SqlUnits.Functions.Avg.IsComplicated">
+            <summary>
+            获取是否为复杂对象
+            </summary>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Avg.ToSqlString(dpz3.db.DatabaseTypes,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="tp"></param>
+            <param name="multiTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Avg.As(System.String)">
+            <summary>
+            重命名
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
         <member name="T:dpz3.db.SqlUnits.Functions.Basic">
             <summary>
             函数定义基类
@@ -1674,6 +1733,99 @@
             <returns></returns>
         </member>
         <member name="M:dpz3.db.SqlUnits.Functions.Count.As(System.String)">
+            <summary>
+            重命名
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.db.SqlUnits.Functions.Max">
+            <summary>
+            最大值函数
+            </summary>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Max.#ctor(dpz3.db.ISqlStringable)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="P:dpz3.db.SqlUnits.Functions.Max.IsComplicated">
+            <summary>
+            获取是否为复杂对象
+            </summary>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Max.ToSqlString(dpz3.db.DatabaseTypes,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="tp"></param>
+            <param name="multiTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Max.As(System.String)">
+            <summary>
+            重命名
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.db.SqlUnits.Functions.Min">
+            <summary>
+            最小值函数
+            </summary>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Min.#ctor(dpz3.db.ISqlStringable)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="P:dpz3.db.SqlUnits.Functions.Min.IsComplicated">
+            <summary>
+            获取是否为复杂对象
+            </summary>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Min.ToSqlString(dpz3.db.DatabaseTypes,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="tp"></param>
+            <param name="multiTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Min.As(System.String)">
+            <summary>
+            重命名
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.db.SqlUnits.Functions.Sum">
+            <summary>
+            求和函数
+            </summary>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Sum.#ctor(dpz3.db.ISqlStringable)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="P:dpz3.db.SqlUnits.Functions.Sum.IsComplicated">
+            <summary>
+            获取是否为复杂对象
+            </summary>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Sum.ToSqlString(dpz3.db.DatabaseTypes,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="tp"></param>
+            <param name="multiTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Functions.Sum.As(System.String)">
             <summary>
             重命名
             </summary>
