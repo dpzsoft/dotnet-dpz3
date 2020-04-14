@@ -2373,6 +2373,28 @@
             释放内存
             </summary>
         </member>
+        <member name="T:dpz3.Logger">
+            <summary>
+            日志记录器
+            </summary>
+        </member>
+        <member name="M:dpz3.Logger.#ctor(System.String)">
+            <summary>
+            对象实例化
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:dpz3.Logger.Write(System.String)">
+            <summary>
+            写入日志
+            </summary>
+            <param name="content"></param>
+        </member>
+        <member name="M:dpz3.Logger.OnDispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
         <member name="T:dpz3.Markdown.MdTypes">
             <summary>
             Markdown的元素类型

@@ -6,8 +6,8 @@
     <PackageLicenseFile>README.md</PackageLicenseFile>
     <PackageIcon>icon.jpg</PackageIcon>
     <PackageIconUrl />
-    <AssemblyVersion>2.2.2003.30</AssemblyVersion>
-    <Version>2.2.2003.31</Version>
+    <AssemblyVersion>2.3.2004.32</AssemblyVersion>
+    <Version>2.3.2004.32</Version>
     <Authors>d.p.z software studio</Authors>
   </PropertyGroup>
 
@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App"></FrameworkReference>
-    <PackageReference Include="dpz3" Version="2.1.2003.46" />
+    <PackageReference Include="dpz3" Version="2.2.2004.50" />
     <PackageReference Include="dpz3.db" Version="2.0.2003.9" />
     <PackageReference Include="dpz3.Jttp" Version="1.2.1912.10" />
   </ItemGroup>

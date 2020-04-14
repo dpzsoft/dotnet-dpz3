@@ -43,6 +43,7 @@ namespace dpz3.Modular {
         /// <summary>
         /// 返回一个数据行集合
         /// </summary>
+        /// <param name="rows"></param>
         /// <param name="msg"></param>
         /// <returns></returns>
         protected Result.Jttp RowsSuccess(dpz3.db.Rows rows, string msg = null) {

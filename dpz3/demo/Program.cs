@@ -7,8 +7,21 @@ using dpz3;
 
 namespace demo {
     class Program {
-        static void Main(string[] args) {
 
+        static void Test02() {
+            dpz3.Logger logger = new Logger(@"X:\temp");
+            logger.Write("Hello\r\n");
+            logger.Write("OK\r\n");
+            for (int i = 1; i <= 60; i++) {
+                System.Threading.Thread.Sleep(1000);
+                Console.Write(".");
+                logger.Write($"隔了{i}秒钟\r\n");
+                logger.Write($"这是第{i}行测试数据\r\n");
+            }
+            Console.WriteLine("OK");
+        }
+
+        static void Test01() {
             string a = "abc";
             string b = "123";
             Console.WriteLine($"int a={a.ToInteger()}");
@@ -20,12 +33,12 @@ namespace demo {
                 Console.WriteLine(json.ToJsonString());
             }
 
-            using (dpz3.File.ConfFile file=new dpz3.File.ConfFile(@"X:\Projects\modular\core\ModularCore\bin\Debug\netcoreapp3.1\conf\kestrel.cfg")) {
+            using (dpz3.File.ConfFile file = new dpz3.File.ConfFile(@"X:\Projects\modular\core\ModularCore\bin\Debug\netcoreapp3.1\conf\kestrel.cfg")) {
                 var group = file["Server"];
                 Console.WriteLine($"Server.Enable={group["Enable"]}");
             }
 
-                People p1 = new People();
+            People p1 = new People();
             p1.Name.Value = "张三";
             p1.Age.Value = 18;
             p1.Sex.Value = "Man";
@@ -110,6 +123,11 @@ namespace demo {
             //    sb.Append("</html>");
             //    dpz3.File.UTF8File.WriteAllText(@"X:\Temp\temp.html", sb.ToString());
             //}
+        }
+
+        static void Main(string[] args) {
+
+            Test02();
 
             Console.ReadKey();
             Environment.Exit(0);
