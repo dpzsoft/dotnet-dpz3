@@ -530,6 +530,120 @@
             <param name="Path"></param>
             <param name="cnt"></param>
         </member>
+        <member name="T:dpz3.Folder">
+            <summary>
+            文件夹操作
+            </summary>
+        </member>
+        <member name="M:dpz3.Folder.Create(System.String)">
+            <summary>
+            创建文件夹
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:dpz3.Folder.GetDirectories(System.String)">
+            <summary>
+            获取所属子文件夹
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Folder.GetFiles(System.String,System.String)">
+            <summary>
+            获取所属文件
+            </summary>
+            <param name="path"></param>
+            <param name="pattern"></param>
+            <returns></returns>
+        </member>
+        <member name="T:dpz3.HandleValues`1">
+            <summary>
+            带句柄的值存储字典
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:dpz3.HandleValues`1.#ctor">
+            <summary>
+            对象实例化
+            </summary>
+        </member>
+        <member name="M:dpz3.HandleValues`1.OnReturnDefaultValue">
+            <summary>
+            返回默认值事件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.HandleValues`1.Item(System.Int64)">
+            <summary>
+            获取或设置键值内容
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.HandleValues`1.Keys">
+            <summary>
+            获取键集合
+            </summary>
+        </member>
+        <member name="P:dpz3.HandleValues`1.Values">
+            <summary>
+            获取值集合
+            </summary>
+        </member>
+        <member name="P:dpz3.HandleValues`1.Count">
+            <summary>
+            获取集合内元素数量
+            </summary>
+        </member>
+        <member name="M:dpz3.HandleValues`1.Clear">
+            <summary>
+            清空集合
+            </summary>
+        </member>
+        <member name="M:dpz3.HandleValues`1.ContainsKey(System.Int64)">
+            <summary>
+            获取列表中是否存在键值
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.HandleValues`1.GetEnumerator">
+            <summary>
+            获取枚举管理器
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.HandleValues`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            获取枚举接口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.HandleValues`1.Remove(System.Int64)">
+            <summary>
+            移除一个元素
+            </summary>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.HandleValues`1.TryGetValue(System.Int64,`0@)">
+            <summary>
+            尝试获取值
+            </summary>
+            <param name="handle"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:dpz3.HandleValues`1.IsEmpty">
+            <summary>
+            获取对象内元素是否为空
+            </summary>
+        </member>
+        <member name="M:dpz3.HandleValues`1.OnDispose">
+            <summary>
+            释放内存
+            </summary>
+        </member>
         <member name="T:dpz3.Html.NodeType">
             <summary>
             节点类型
@@ -4715,6 +4829,19 @@
             <summary>
             获取包含的XML字符串
             </summary>
+        </member>
+        <member name="M:dpz3.Xml.XmlDocument.AddNode(System.String)">
+            <summary>
+            添加一个新的标准节点
+            </summary>
+            <param name="tagName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.Xml.XmlDocument.AddNote">
+            <summary>
+            添加一个注释
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:dpz3.Xml.XmlDocument.OnDispose">
             <summary>

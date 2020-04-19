@@ -18,8 +18,8 @@ namespace dpz3 {
         }
 
         /// <summary>
-        /// 是否内容为空，同IsNoneOrNull
-        /// 兼容接口，为避免混淆，请使用IsNoneOrNull进行为空判断
+        /// 是否内容为空，同IsEmpty
+        /// 兼容接口，为避免混淆，请使用IsEmpty进行为空判断
         /// </summary>
         public static bool IsNone(this string sz) {
             if (Equals(sz, null)) return true;
@@ -28,9 +28,19 @@ namespace dpz3 {
         }
 
         /// <summary>
-        /// 是否内容为空
+        /// 是否内容为空，同IsEmpty
+        /// 兼容接口，为避免混淆，请使用IsEmpty进行为空判断
         /// </summary>
         public static bool IsNoneOrNull(this string sz) {
+            if (Equals(sz, null)) return true;
+            if (Equals(sz, "")) return true;
+            return false;
+        }
+
+        /// <summary>
+        /// 是否内容为空
+        /// </summary>
+        public static bool IsEmpty(this string sz) {
             if (Equals(sz, null)) return true;
             if (Equals(sz, "")) return true;
             return false;
@@ -114,6 +124,13 @@ namespace dpz3 {
             long res = 0;
             long.TryParse(sz, out res);
             return res;
+        }
+
+        /// <summary>
+        /// 转为UTF-8数组
+        /// </summary>
+        public static byte[] ToUtf8Bytes(this string sz) {
+            return System.Text.Encoding.UTF8.GetBytes(sz);
         }
 
         /// <summary>
