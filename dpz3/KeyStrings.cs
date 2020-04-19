@@ -8,7 +8,7 @@ namespace dpz3 {
     /// <summary>
     /// 键/值字符串集合
     /// </summary>
-    public class KeyStrings : KeyValues<string> {
+    public class KeyStrings : KeyList<string> {
 
         /// <summary>
         /// 对象实例化

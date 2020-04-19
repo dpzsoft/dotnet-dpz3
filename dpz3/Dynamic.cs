@@ -90,7 +90,7 @@ namespace dpz3 {
     /// <summary>
     /// 动态类型
     /// </summary>
-    public class Dynamic : KeyValues<object>, IDynamicMetaObjectProvider {
+    public class Dynamic : KeyList<object>, IDynamicMetaObjectProvider {
 
         /// <summary>
         /// 设置属性

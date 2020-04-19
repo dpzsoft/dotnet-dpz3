@@ -7,7 +7,7 @@ namespace dpz3.Net.HttpModules {
     /// <summary>
     /// 专用于超文本传输协议的会话本地存储信息
     /// </summary>
-    public class HttpCookies : dpz3.KeyValues<string> {
+    public class HttpCookies : dpz3.KeyList<string> {
 
         /// <summary>
         /// 对象实例化

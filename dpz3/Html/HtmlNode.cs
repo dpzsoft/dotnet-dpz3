@@ -17,7 +17,7 @@ namespace dpz3.Html {
         /// <summary>
         /// 获取属性集合
         /// </summary>
-        public dpz3.InsensitiveKeyValues<string> Attr { get; private set; }
+        public dpz3.InsensitiveKeyList<string> Attr { get; private set; }
 
         /// <summary>
         /// 设置属性
@@ -45,7 +45,7 @@ namespace dpz3.Html {
         public HtmlNode(string name) : base(NodeType.Element) {
             this.TagName = name;
             this.Nodes = new HtmlNodeCollection(this);
-            this.Attr = new InsensitiveKeyValues<string>();
+            this.Attr = new InsensitiveKeyList<string>();
         }
 
         /// <summary>

@@ -13,13 +13,13 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取属性集合
         /// </summary>
-        public dpz3.InsensitiveKeyValues<string> Attr { get; private set; }
+        public dpz3.InsensitiveKeyList<string> Attr { get; private set; }
 
         /// <summary>
         /// 对象实例化
         /// </summary>
         public DeclarationNode() : base(NodeType.Declaration) {
-            this.Attr = new InsensitiveKeyValues<string>();
+            this.Attr = new InsensitiveKeyList<string>();
         }
 
         /// <summary>

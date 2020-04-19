@@ -7,7 +7,7 @@ namespace dpz3.Console {
     /// <summary>
     /// 参数集合
     /// </summary>
-    public class Arguments : dpz3.KeyValues<string> {
+    public class Arguments : dpz3.KeyList<string> {
 
         /// <summary>
         /// 对象实例化

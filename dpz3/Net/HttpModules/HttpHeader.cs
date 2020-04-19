@@ -7,7 +7,7 @@ namespace dpz3.Net.HttpModules {
     /// <summary>
     /// Http协议头部
     /// </summary>
-    public class HttpHeader : dpz3.KeyValues<string> {
+    public class HttpHeader : dpz3.KeyList<string> {
 
         /// <summary>
         /// 获取标准的字符串

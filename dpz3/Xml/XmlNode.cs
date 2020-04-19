@@ -17,7 +17,7 @@ namespace dpz3.Xml {
         /// <summary>
         /// 获取属性集合
         /// </summary>
-        public dpz3.InsensitiveKeyValues<string> Attr { get; private set; }
+        public dpz3.InsensitiveKeyList<string> Attr { get; private set; }
 
         /// <summary>
         /// 设置属性
@@ -45,7 +45,7 @@ namespace dpz3.Xml {
         public XmlNode(string name) : base(NodeType.Normal) {
             this.TagName = name;
             this.Nodes = new XmlNodeCollection(this);
-            this.Attr = new InsensitiveKeyValues<string>();
+            this.Attr = new InsensitiveKeyList<string>();
         }
 
         // 获取包含的XML

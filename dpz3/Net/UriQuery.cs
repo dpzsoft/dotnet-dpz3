@@ -9,7 +9,7 @@ namespace dpz3.Net {
     /// </summary>
     public class UriQuery : dpz3.Object {
 
-        private KeyValues<string> _args;//参数链表
+        private KeyList<string> _args;//参数链表
 
         /// <summary>
         /// 新建对象实例
@@ -18,7 +18,7 @@ namespace dpz3.Net {
         public UriQuery(string qs = "") {
 
             //初始化参数列表
-            _args = new KeyValues<string>();
+            _args = new KeyList<string>();
             if (qs.IsNoneOrNull()) return;
 
             //分析参数列表

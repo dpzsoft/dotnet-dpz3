@@ -9,13 +9,13 @@ namespace dpz3.Json {
     /// </summary>
     public class JsonObject : JsonUnit {
 
-        private dpz3.KeyValues<JsonUnit> _list;
+        private dpz3.KeyList<JsonUnit> _list;
 
         /// <summary>
         /// 对象实例化
         /// </summary>
         public JsonObject(JsonUnit parent=null) : base(UnitType.Object, parent) {
-            _list = new KeyValues<JsonUnit>();
+            _list = new KeyList<JsonUnit>();
         }
 
         /// <summary>

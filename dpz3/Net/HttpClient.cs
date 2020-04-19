@@ -49,7 +49,7 @@ namespace dpz3.Net {
         /// <param name="url"></param>
         /// <param name="headers"></param>
         /// <returns></returns>
-        public static string Get(string url, dpz3.KeyValues<string> headers) {
+        public static string Get(string url, dpz3.KeyList<string> headers) {
 
             // 新建一个Handler
             var handler = new HttpClientHandler {
@@ -109,7 +109,7 @@ namespace dpz3.Net {
         /// <param name="headers"></param>
         /// <param name="contentType"></param>
         /// <returns></returns>
-        public static string Post(string url, string args, dpz3.KeyValues<string> headers, string contentType = "application/x-www-form-urlencoded") {
+        public static string Post(string url, string args, dpz3.KeyList<string> headers, string contentType = "application/x-www-form-urlencoded") {
 
             // 新建一个Handler
             var handler = new HttpClientHandler {
@@ -145,7 +145,7 @@ namespace dpz3.Net {
         /// <param name="url"></param>
         /// <param name="headers"></param>
         /// <returns></returns>
-        public static string UploadFile(string path, string url, dpz3.KeyValues<string> headers) {
+        public static string UploadFile(string path, string url, dpz3.KeyList<string> headers) {
             // 新建一个Handler
             var handler = new HttpClientHandler {
                 AutomaticDecompression = DecompressionMethods.None,
@@ -226,7 +226,7 @@ namespace dpz3.Net {
         /// <param name="path"></param>
         /// <param name="headers"></param>
         /// <param name="downloading"></param>
-        public static void Download(string url, string path, dpz3.KeyValues<string> headers, DownloadingDelegate downloading = null) {
+        public static void Download(string url, string path, dpz3.KeyList<string> headers, DownloadingDelegate downloading = null) {
 
             // 新建一个Handler
             var handler = new HttpClientHandler {
