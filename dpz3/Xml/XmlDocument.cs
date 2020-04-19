@@ -151,6 +151,27 @@ namespace dpz3.Xml {
         }
 
         /// <summary>
+        /// 添加一个新的标准节点
+        /// </summary>
+        /// <param name="tagName"></param>
+        /// <returns></returns>
+        public XmlNode AddNode(string tagName) {
+            XmlNode node = new XmlNode(tagName);
+            this.Nodes.Add(node);
+            return node;
+        }
+
+        /// <summary>
+        /// 添加一个注释
+        /// </summary>
+        /// <returns></returns>
+        public NoteNode AddNote() {
+            NoteNode node = new NoteNode();
+            this.Nodes.Add(node);
+            return node;
+        }
+
+        /// <summary>
         /// 释放资源
         /// </summary>
         protected override void OnDispose() {
