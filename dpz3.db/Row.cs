@@ -86,7 +86,7 @@ namespace dpz3.db {
     /// <summary>
     /// 数据行
     /// </summary>
-    public class Row : KeyValues<string>, IDynamicMetaObjectProvider {
+    public class Row : KeyStrings, IDynamicMetaObjectProvider {
 
         /// <summary>
         /// 获取或设置值

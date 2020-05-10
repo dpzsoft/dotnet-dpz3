@@ -308,6 +308,23 @@ namespace dpz3.db.SqlUnits {
         }
 
         /// <summary>
+        /// 判断是否为同一个对象
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public override bool Equals(object o) {
+            return base.Equals(o);
+        }
+
+        /// <summary>
+        /// 获取Hash值
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode() {
+            return base.GetHashCode();
+        }
+
+        /// <summary>
         /// 重载运算符
         /// </summary>
         /// <param name="left"></param>

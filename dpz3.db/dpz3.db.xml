@@ -709,7 +709,6 @@
             获取标准SQL字符串
             </summary>
             <param name="tp">数据库定义对象</param>
-            <param name="isChild">是否为多子对象</param>
             <param name="multiTable">是否为多对象模式</param>
             <returns></returns>
         </member>
@@ -1465,6 +1464,19 @@
             <param name="right"></param>
             <returns></returns>        
         </member>
+        <member name="M:dpz3.db.SqlUnits.Formula.Equals(System.Object)">
+            <summary>
+            判断是否为同一个对象
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.Formula.GetHashCode">
+            <summary>
+            获取Hash值
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:dpz3.db.SqlUnits.Formula.op_Inequality(dpz3.db.SqlUnits.Formula,dpz3.db.ISqlStringable)">
             <summary>
             重载!=运算符
@@ -2212,6 +2224,19 @@
             <param name="left"></param>
             <param name="right"></param>
             <returns></returns>        
+        </member>
+        <member name="M:dpz3.db.SqlUnits.TableField.Equals(System.Object)">
+            <summary>
+            判断是否为同一个对象
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dpz3.db.SqlUnits.TableField.GetHashCode">
+            <summary>
+            获取Hash值
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:dpz3.db.SqlUnits.TableField.op_GreaterThan(dpz3.db.SqlUnits.TableField,dpz3.db.ISqlStringable)">
             <summary>
