@@ -1,12 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using dpz3;
 
 namespace demo {
     class Program {
+
+        static void Test03() {
+            dpz3.Net.TcpServer server = new dpz3.Net.TcpServer(IPAddress.Any, 9999);
+            server.OnAccept((args) => {
+                server.Entities.Add(new ServerEntity(server, args.Socket));
+            });
+            server.Start();
+            Console.WriteLine("Server is OK.");
+            Client client = new Client("127.0.0.1", 9999);
+            client.OnConnect(() => {
+                client.Send(System.Text.Encoding.UTF8.GetBytes("Hello Socket"));
+                //System.Threading.Thread.Sleep(1000);
+                //client.Close();
+            });
+            client.Connect();
+            Client client2 = new Client("127.0.0.1", 9999);
+            client2.OnConnect(() => {
+                client2.Send(System.Text.Encoding.UTF8.GetBytes("Hello Socket 2"));
+            });
+            client2.Connect();
+        }
 
         static void Test02() {
             dpz3.Logger logger = new Logger(@"X:\temp");
@@ -127,7 +149,7 @@ namespace demo {
 
         static void Main(string[] args) {
 
-            Test02();
+            Test03();
 
             Console.ReadKey();
             Environment.Exit(0);
