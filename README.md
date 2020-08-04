@@ -58,8 +58,8 @@ namespace demo {
 
 ## 基于 dpz3 的扩展组件
 
-+ dpz3.AspNetCore2 - 服务于asp.net core 2.x的MVC相关扩展组件
-+ dpz3.AspNetCore3 - 一套服务于Asp.Net Core 3.0的扩展，包含Kestrel服务的快速配置及WebApi基础件
++ [dpz3.AspNetCore2](https://github.com/dpzsoft/dotnet-dpz3/tree/master/dpz3.AspNetCore2) - 服务于asp.net core 2.x的MVC相关扩展组件
++ [dpz3.AspNetCore3](https://github.com/dpzsoft/dotnet-dpz3/tree/master/dpz3.AspNetCore3) - 一套服务于Asp.Net Core 3.0的扩展，包含Kestrel服务的快速配置及WebApi基础件
 + dpz3.Jttp - 一套服务于Json数据传输协议扩展(.Net Standard)，在标准的Json结构上加入Header、Data、Message等标准化的顶层对象
 + dpz3.Modular - 一套服务于模块化Asp.Net Core站点的扩展，包含站点模块化的的专用特性、基类和Aspx网页转换为C#类的解析等功能
 + dpz3.User - 一套服务于用户管理的扩展(.Net Standard)，支持MD5/sha1/sha256/sha512方式密码加密，及文件式的用户信息存取
